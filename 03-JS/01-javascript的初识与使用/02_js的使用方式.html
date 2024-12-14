@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>js的使用方式</title>
+    <!-- <script>
+		window.onload = function() {
+			var a = document.querySelector('div');
+			console.log(a)
+			var txt = a.innerText;
+			alert(txt);
+		}
+	</script> -->
+  </head>
+  <body>
+    <input
+      type="button"
+      name=""
+      value="点我一下"
+      onclick="alert('点我干什么！')"
+    />
+    <div>js真好玩</div>
+
+    <!-- 
+		注意:
+			1.默认情况下浏览器是从上往下解析的, js写在head里面时 js获取不到页面上的元素
+			所以说推荐把 js 代码写在body结束标签之前
+
+			如果必须在 head 里面写 js 代码就要加以下代码:
+				window.onload 在页面上所有的内容加载完成之后 再返回来执行 {} 里面的代码块
+				<script>
+					window.onload = function() {
+						代码块
+					}
+				</script>
+
+			2.在一对 script 标签里面有错误代码 那么错误代码后面的代码就不执行了
+			但不会影响其他 script 标签里面的代码执行
+
+			3.script 标签可以在页面中出现多次
+
+			4.如果 script 标签是引入外部js文件的 那么这个 script 标签里面不要书写任何js代码
+	 -->
+
+    <script type="text/javascript">
+      console.log("啦啦啦");
+      console.lg("嘻嘻嘻");
+      console.log("哈哈哈");
+    </script>
+
+    <script>
+      // 以下代码为举例子所用 现在不用搞懂什么意思！！！
+      var a = document.querySelector("div");
+      console.log(a, "---打印的a");
+      var b = a.innerText;
+      alert(b);
+    </script>
+
+    <!-- 外部引入的js文件 -->
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
