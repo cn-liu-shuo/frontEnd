@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 
+            vue实例从创建到销毁的过程，就叫生命周期，也就是 从开始创建，初始化数据，编译模板，挂载dom渲染，更新渲染，卸载等一系列过程
+
+            生命周期八个阶段
+                1.beforeCreate vue实例创建之前
+                2.created vue实例创建之后21     
+                3.beforeMount dom加载完成之前
+                4.mounted dom加载完成之后
+                5.beforeUpdate 数据更新之前
+                6.updated数据更新之后
+                7.beforeDestroy 实例销毁之前
+                8.destroyed 实例销毁之后
+
+            
+            页面首次加载会调用哪些声明周期：
+                1.beforeCreate vue实例创建之前
+                2.created vue实例创建之后
+                3.beforeMount dom加载完成之前
+                4.mounted dom加载完成之后
+       -->
+      <!-- 1.使用ref给标签起个名 -->
+      <p ref="sun">{{msg}}花果山</p>
+      <button @click="msg='霍霍'">改变</button>
+      <button @click="del">销毁</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          msg: "孙悟空",
+        },
+        beforeCreate() {
+          console.log(this.msg); //undefined
+          console.log(
+            "vue实例创建之前，初始化了一个空白的vue实例，这时只有一些基础的默认事件和生命周期，其他内容都没创建，data和method都无法访问"
+          );
+        },
+        created() {
+          console.log(this.msg);
+          this.getList();
+          // 通过this.$refs.名字 去获取dom元素
+          // console.log(this.$refs.sun)//undefined
+          console.log(
+            "vue实例创建之后，这个阶段data和methods已经初始化完毕，这个阶段是最早能操作data和method的阶段，但是不能操作dom"
+          );
+          // 非要在created阶段访问dom，  表示在dom加载完成之后再执行
+          this.$nextTick(() => {
+            console.log(this.$refs.sun); //<p>花果山</p>
+          });
+        },
+        beforeMount() {
+          console.log(this.$refs.sun); //undefined
+          console.log(
+            "dom加载完成之前，模版已经在内存中编译完了，但是还没挂载到页面上"
+          );
+        },
+        mounted() {
+          console.log(this.$refs.sun, "mounted");
+          console.log(
+            "dom加载完成之后， 此阶段vue实例已经完全成熟，是我们实现方法，dom操作等最佳阶段，此时组件已经脱离创建阶段，进行到运行阶段"
+          );
+        },
+        beforeUpdate() {
+          console.log(
+            "数据更新之前，此时页面中的数据还是旧数据，data里是新数据，页面数据未同步"
+          );
+        },
+        updated() {
+          console.log("数据更新之后，页面和数据同步");
+        },
+        beforeDestroy() {
+          console.log("vue实例销毁之前， 实例已经从运行阶段进入到销毁阶段");
+        },
+        destroyed() {
+          console.log("实例销毁之后，组件已经被摧毁");
+        },
+        methods: {
+          del() {
+            // 销毁实例方法
+            this.$destroy();
+          },
+          getList() {
+            // 调接口
+            console.log("获取数据");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
