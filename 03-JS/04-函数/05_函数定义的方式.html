@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>函数定义的方式</title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      // 1.函数声明 命名函数 函数有名字
+      function fn(a, b) {
+        return a + b;
+      }
+      console.log(fn(1, 2));
+
+      // 2.函数表达式 var 变量 = 匿名函数
+      var fn1 = function (a, b) {
+        return a + b;
+      };
+      console.log(fn1(1, 2));
+
+      // 3.自调用函数 立即执行函数
+      // (function () {
+      // 	console.log('你好');
+      // })();
+      (function () {
+        console.log("你好");
+      })();
+
+      var fn2 = (function (a) {
+        console.log("哈哈哈");
+        return a;
+      })(999);
+      console.log(fn2);
+
+      (function fn3() {
+        console.log("我是命名函数");
+      })();
+      // 函数自调用之后会自动销毁
+      // fn3();// fn3 is not defined
+
+      // 4.构造函数
+    </script>
+  </body>
+</html>

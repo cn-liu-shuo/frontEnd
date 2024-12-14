@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>斐波那契数列</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 斐波那契数列满足: 从第三项起 后面的每一项都是前两项的和 其中第一项和第二项都是 1
+      // 例如: 1 1 2 3 5 8 13...
+      // 要求: 输入一个数 打印出斐波那契数列这一项的数值
+
+      var num = Number(prompt("请输入数字"));
+      function fn(num) {
+        if (num == 1 || num == 2) {
+          return 1;
+        } else {
+          return fn(num - 1) + fn(num - 2);
+        }
+      }
+      console.log(fn(num));
+    </script>
+  </body>
+</html>

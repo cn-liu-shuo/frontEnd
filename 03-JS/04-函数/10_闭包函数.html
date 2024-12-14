@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>闭包函数</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			闭包函数:
+				闭包函数可以读取其它函数内部的变量, 在 js 中只有函数内部的子函数可以读取局部变量 因此我们可以把闭包理解为定义在函数内部的函数
+			闭包干什么？
+				可以读取函数内部的变量
+				可以让这些变量的值始终保存在内存中
+			闭包的缺点？
+				比普通函数更占内存, 会导致网页性能变差, 在IE浏览器中会有内存泄漏。
+			闭包的优点？
+				可以在全局重复使用变量 不会造成变量污染。
+
+		*/
+      function fun() {
+        var num = 1;
+        function fun1() {
+          console.log(num);
+          num++;
+          return num;
+        }
+        return fun1;
+      }
+      var a = fun();
+      console.log(a);
+      console.log(a()); // 1 2
+      console.log(a()); // 2 3
+      console.log(a()); // 3 4
+    </script>
+  </body>
+</html>

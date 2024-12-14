@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>递归函数</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			递归函数: 指函数直接或间接调用自己, 则称该函数为递归函数
+			递归函数必须要有结束条件 即一个不再调用递归函数的条件(结束点) 以防无限递归
+		*/
+      // function fn() {
+      // 	console.log('我是递归函数');
+      // 	fn();
+      // }
+      // fn();
+
+      // function fun() {
+      // 	var end = confirm('是否停止');
+      // 	if (end) {
+      // 		console.log('停止递归');
+      // 	} else {
+      // 		fun();
+      // 	}
+      // }
+      // fun();
+
+      // 1 - 100的和
+      function getSum(num) {
+        if (num <= 1) {
+          return 1;
+        } else {
+          return num + getSum(num - 1); // 100 + 99 + 98 + getSum(97) + ... + 2 + getSum(1)
+        }
+      }
+      console.log(getSum(100));
+    </script>
+  </body>
+</html>

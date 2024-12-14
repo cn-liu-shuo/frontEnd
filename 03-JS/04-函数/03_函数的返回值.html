@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>函数的返回值</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			函数的返回值 在函数的内部有 return 关键字, return 后面的内容就是函数的返回值
+			函数默认的返回值是 undefined
+			当出现 return 关键字 后面的代码就不执行了
+		*/
+
+      function a() {
+        console.log("今天下大雨了");
+        return "小霍霍和姬总的爱情故事正式开幕";
+        console.log("邱佳文复仇计划正式开始");
+      }
+      // a();
+      console.log(a());
+
+      function sum(a, b) {
+        var c = a + b;
+        console.log("c---", c);
+      }
+      sum(1, 2);
+      // 正常情况下 我们无法直接访问函数内部定义的变量(局部变量)
+      // console.log(c);// c is not defined
+
+      // 求 1 - 100 的和
+      function getSum(start, end) {
+        var sum = 0;
+        for (var i = start; i <= end; i++) {
+          sum += i;
+        }
+        return sum;
+      }
+      // getSum(1, 100);
+      console.log(getSum(1, 100) + 10); // 5050 + 10
+
+      // 求圆的周长和面积 圆的半径为 10  Math.PI
+      function getCircle(r) {
+        return "圆的周长" + 2 * Math.PI * r + "圆的面积" + Math.PI * r * r;
+      }
+      // 半径为10
+      console.log(getCircle(10));
+      // 半径为20
+      console.log(getCircle(20));
+    </script>
+  </body>
+</html>

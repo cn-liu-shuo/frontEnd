@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>函数没有重载</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			什么是重载？
+				函数名相同 参数个数不同 这种同名不同参的函数称为 重载函数
+				通过重载函数可以实现不同的功能(java 中有重载)
+		*/
+      function fn(a, b) {
+        console.log("我是第一个函数");
+      }
+      function fn(a, b, c) {
+        console.log("我是第二个函数");
+      }
+      fn(1, 2);
+      fn(1, 2, 3); // 两个调用的函数都打印的是 '我是第二个函数' 说明函数没有重载
+
+      /*
+			在函数调用的时候, 浏览器会给我们传入两个隐藏的参数: arguments this
+			this 一般指向 window 对象
+			arguments 是一个类数组 它可以通过索引/下标来操作数据
+				-- 可以通过 .length 属性来获取传入参数的个数
+				-- 调用函数的时候 所有传入的参数都会保存在 arguments 里面
+
+			如果一定要实现函数的重载 可以通过 arguments 的长度来判断
+		*/
+      function fn1() {
+        // console.log('arguments---', arguments);
+        if (arguments.length == 0) {
+          console.log("没有传参数");
+        } else if (arguments.length == 1) {
+          console.log("一个参数");
+        } else if (arguments.length == 2) {
+          console.log("两个参数");
+        }
+      }
+      fn1();
+      fn1(1);
+      fn1(1, 2);
+    </script>
+  </body>
+</html>

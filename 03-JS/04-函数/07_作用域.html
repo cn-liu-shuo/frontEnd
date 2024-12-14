@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>作用域</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 在函数外面用 var 声明的变量 为全局变量
+      // var a = 1;
+      // function fun1() {
+      // 	// 在函数内部声明的变量为局部变量
+      // 	var b = 2;
+      // 	console.log(a);// 1
+      // 	console.log(b);// 2
+      // 	// 目前没有用 var 声明的变量 都是全局变量 不管写在哪里都能用
+      // 	c = 3;
+      // }
+      // fun1();
+      // console.log(a);// 1
+      // // console.log(b);// b is not defined
+      // console.log(c);// 3
+      // console.log(window);
+
+      // function fun2() {
+      // 	var a = b = c = 8;
+      // 	// 相当于
+      // 	// var a = 8;
+      // 	// b = 8;
+      // 	// c = 8;
+      // }
+      // fun2();
+      // // console.log(a);// a is not defined
+      // console.log(b);// 8
+      // console.log(c);// 8
+
+      // function fun3() {
+      // 	var a = 10;
+      // 	// 函数内部的函数能访问函数内部的变量
+      // 	function fun4() {
+      // 		console.log(a);// 10
+      // 	};
+      // 	fun4();
+      // }
+      // fun3();
+
+      // js解析器 预解析过程 把声明的变量和函数进行提升
+      // 变量提升
+      // 定义变量的时候 变量的声明会被提升至整个作用域的最上面 但是变量的赋值不会提升
+      // console.log(a);// undefined
+      // var a = 1;
+      // console.log(a);// 1
+      // 相当于
+      // var a;
+      // console.log(a);
+      // a = 1;
+      // console.log(a);
+
+      // var name = '黎兴涵';
+      // function fun5() {
+      // 	console.log(name);// undefined
+      // 	var name = '李斌';
+      // 	console.log(name);// 李斌
+      // }
+      // fun5();
+
+      // var name = '刘岩';
+      // function fun5(name) {
+      // 	// 此时的 undefined 是因为 实参没有赋值导致的
+      // 	console.log(name);// undefined
+      // 	var name = '于昊天';
+      // 	console.log(name);// 于昊天
+      // }
+      // fun5();
+
+      // var name = '饭存疑';
+      // function fun5(name) {
+      // 	console.log(name);// 饭存疑
+      // 	var name = '竹筏超';
+      // 	console.log(name);// 竹筏超
+      // }
+      // fun5(name);// 此时传的实参 name 是 79 声明的 name
+
+      // fun6();
+      // var num = 10;
+      // function fun6() {
+      // 	console.log(num);// undefined
+      // }
+
+      // fun7('你好');
+      // function fun7(a) {
+      // 	console.log(a);// 你好
+      // }
+
+      // fun8('你好');// fun8 is not a function
+      // var fun8 = function(a) {
+      // 	console.log(a);
+      // }
+
+      // 相当于
+      // var fun8
+      // fun8('你好')
+      // fun8 = function(a) {
+      //	 console.log(a);
+      // }
+
+      // var fun9 = 666;
+      // function fun9() {
+      // 	console.log(999);
+      // }
+      // console.log(fun9)// 666
+      // fun9();// fun9 is not a function
+
+      // 相当于
+      // function fun9() { //先函数提升
+      // 	console.log(999);
+      // };
+      // var fun9; // 变量提升
+      // fun9 = 666;
+      // fun9()
+
+      function a() {
+        console.log("光头强");
+      }
+      a(); // 光头强
+      var a = function () {
+        console.log("熊大");
+      };
+      a(); // 熊大
+
+      // js 预解析过程中 会将函数的声明 和 变量的声明 提升到作用域的最前面(函数提升高于变量提升); 函数提升时不会被同名变量所覆盖, 等同名变量赋值时才会被覆盖
+      // 相当于
+      // function a() {
+      // 	console.log('光头强');
+      // }
+      // var a;
+      // a();
+      // a = function () {
+      // 	console.log('熊大');
+      // };
+      // a();
+    </script>
+  </body>
+</html>

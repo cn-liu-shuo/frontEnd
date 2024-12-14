@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>函数的参数</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			函数的参数: 函数名后面括号里的变量就是参数, 目的就是在函数调用的时候, 根据用户传进来的值进行特殊操作, 写了几个变量就有几个参数(形参), 函数调用的时候给变量赋值 --- 传参(传递实参)
+		*/
+      // // 1 - 20的和
+      // var sum = 0;
+      // for (var i = 1; i <= 20; i++) {
+      // 	sum += i;
+      // }
+      // console.log('1 - 20的和', sum);
+      // // 21 - 40的和
+      // var sum1 = 0;
+      // for (var i = 21; i <= 40; i++) {
+      // 	sum1 += i;
+      // }
+      // console.log('21 - 40的和', sum1);
+
+      function getSum(start, end) {
+        //函数名里面的参数叫形参
+        var sum = 0;
+        for (var i = start; i <= end; i++) {
+          sum += i;
+        }
+        console.log(start + "-" + end + "的和", sum);
+      }
+      // 1 - 60 的和
+      getSum(1, 60); // 函数调用传的参数叫实参
+      // 100 - 160 的和
+      getSum(100, 160);
+
+      getSum(1, 12, 30); // 当实参的个数大于形参的个数, 多出来的参数不参与函数内部的逻辑运算
+      getSum(2); // 当实参的个数小于形参的个数 没有赋值的形参返回 undefined
+    </script>
+  </body>
+</html>

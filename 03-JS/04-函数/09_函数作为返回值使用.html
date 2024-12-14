@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>函数作为返回值使用</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function f1() {
+        console.log("我是f1函数的");
+        return function () {
+          console.log("我是返回值函数的");
+        };
+      }
+      // console.log(f1()());
+      var a = f1();
+      a();
+      // console.log(a());
+    </script>
+  </body>
+</html>
