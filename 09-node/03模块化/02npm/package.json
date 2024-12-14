@@ -1,0 +1,22 @@
+{
+  "name": "02npm",
+  "version": "1.0.0",
+  "description": "haha",
+  "main": "01npm.js",
+  "scripts": {
+    "dev": "node 01npm.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "cxm-demo003": "^1.0.0",
+    "lodash": "^4.17.21",
+    "qjw-0119": "^1.0.0",
+    "swiper": "^11.1.14",
+    "wow": "0.0.6"
+  },
+  "devDependencies": {
+    "jquery": "^3.7.1"
+  }
+}
