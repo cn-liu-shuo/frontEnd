@@ -1,0 +1,360 @@
+/* 样式初始化 */
+* {
+  margin: 0;
+  padding: 0;
+}
+/* 去除a标签的下划线 和 改变字体颜色 */
+a {
+  text-decoration: none;
+  color: black;
+}
+/* 去除无序列表的样式 */
+ul {
+  list-style: none;
+}
+/* 清除浮动 */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* 版心 */
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+/* 头部 */
+.header {
+  margin-top: 20px;
+}
+.header .logo {
+  float: left;
+}
+.header .nav {
+  float: right;
+  width: 600px;
+  height: 46px;
+  line-height: 46px;
+  background-color: #48ae15;
+  text-align: center;
+  border-radius: 23px;
+}
+.header .nav a {
+  padding: 0 20px;
+  display: inline-block;
+  color: white;
+}
+.header .nav a:first-child {
+  background-color: #f3ff41;
+  color: black;
+}
+.header .nav a:hover {
+  background-color: white;
+  color: black;
+}
+
+/* 内容 */
+/* 内容左边 */
+.content {
+  margin-top: 20px;
+}
+.con_left {
+  width: 670px;
+  float: left;
+}
+/* 文章标题 */
+.articleTitle {
+  border-bottom: 3px solid #db6d4c;
+  line-height: 30px;
+}
+.articleTitle h3 {
+  float: left;
+  font-size: 16px;
+  font-weight: 600;
+}
+.articleTitle .art_right {
+  float: right;
+}
+.articleTitle .art_right a {
+  color: #666;
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+/* 文章内容 */
+.item {
+  padding: 30px 0;
+  border-bottom: 1px solid #ccc;
+}
+.item_left {
+  width: 167px;
+  float: left;
+}
+.item_left img {
+  width: 100%;
+}
+.item_right {
+  width: 482px;
+  float: right;
+}
+.item_right h3 {
+  font-size: 16px;
+}
+.item_right h3:hover {
+  color: green;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.item_right p {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #666;
+  line-height: 23px;
+}
+.item_right_bot {
+  margin-top: 10px;
+}
+.item_right_bot .bot_left {
+  float: left;
+}
+.item_right_bot .bot_left a {
+  font-size: 12px;
+  color: #759b08;
+  padding-left: 20px;
+  background-image: url(../images/newsbg01.png);
+  background-repeat: no-repeat;
+}
+.item_right_bot .bot_left span {
+  font-size: 12px;
+  padding-left: 20px;
+  background-image: url(../images/newsbg02.png);
+  background-repeat: no-repeat;
+  margin-left: 10px;
+}
+.item_right_bot .bot_right {
+  float: right;
+}
+.item_right_bot .bot_right span {
+  padding-left: 20px;
+  background-image: url(../images/newsbg03.png);
+  background-repeat: no-repeat;
+  font-size: 12px;
+}
+.item_right_bot .bot_right span:last-child {
+  background-image: url(../images/newsbg04.png);
+}
+.item_right_bot .bot_right span a {
+  color: #759b08;
+}
+.item_right_bot a:hover {
+  text-decoration: underline;
+}
+
+/* 内容右边 */
+.con_right {
+  width: 300px;
+  float: right;
+}
+.con_right .follow h3 {
+  border-bottom: 1px solid #e6e6e6;
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+}
+.con_right .follow ul {
+  margin-top: 30px;
+}
+.con_right .follow ul li {
+  float: left;
+  margin: 0 18px 0 5px;
+}
+.con_right .follow ul li a {
+  display: block;
+  width: 52px;
+  padding-top: 60px;
+  font-size: 12px;
+  color: #747f8c;
+  text-align: center;
+  background: url(../images/ico_05_1.jpg) no-repeat;
+}
+.con_right .follow ul li a:hover {
+  background: url(../images/ico_05.png) no-repeat;
+}
+.con_right .follow ul li:nth-child(2) a {
+  background: url(../images/ico_06_1.jpg) no-repeat;
+}
+.con_right .follow ul li:nth-child(2) a:hover {
+  background: url(../images/ico_06.png) no-repeat;
+}
+.con_right .follow ul li:nth-child(3) a {
+  background: url(../images/ico_04_1.jpg) no-repeat;
+}
+.con_right .follow ul li:nth-child(3) a:hover {
+  background: url(../images/ico_04.png) no-repeat;
+}
+.con_right .follow ul li:last-child a {
+  background: url(../images/ico_07_1.jpg) no-repeat;
+}
+.con_right .follow ul li:last-child a:hover {
+  background: url(../images/ico_07.png) no-repeat;
+}
+.adImg {
+  margin-top: 30px;
+}
+
+.news {
+  margin-top: 30px;
+}
+.news .news_title {
+  height: 32px;
+  line-height: 32px;
+  border-bottom: 1px solid #eaeaea;
+}
+.news .news_title a {
+  float: left;
+  font-size: 12px;
+  padding: 0 15px;
+  margin-left: 5px;
+}
+.news .news_title a:first-child {
+  background-color: #f77825;
+  color: white;
+}
+.news .news_title a:hover {
+  background-color: #f77825;
+  color: white;
+}
+.news .news_con ul {
+  background: url(../images/ph2.png) no-repeat 0 20px;
+}
+.news .news_con ul li {
+  border-bottom: 1px solid #eaeaea;
+  height: 30px;
+  line-height: 30px;
+  padding: 10px 0 0 30px;
+}
+.news .news_con ul li:hover {
+  border-color: black;
+}
+.news .news_con ul li a {
+  font-size: 12px;
+  color: #666;
+}
+.tagName {
+  margin-top: 30px;
+}
+.tagName h3 {
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.tagName ul {
+  margin-top: 20px;
+}
+.tagName ul li {
+  float: left;
+  margin: 10px 10px 0 0;
+}
+.tagName ul li a {
+  display: block;
+  background-color: #036564;
+  padding: 5px 9px;
+  font-size: 12px;
+  color: white;
+  border-radius: 5px;
+}
+.tagName ul li:nth-child(2) a {
+  background-color: #f77825;
+}
+.photo_text {
+  margin-top: 30px;
+}
+.photo_text_title {
+  margin-bottom: 30px;
+}
+.photo_text_title h3 {
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.potot_item {
+  margin-top: 10px;
+}
+.potot_item:hover {
+  background-color: #f5f5f5;
+}
+.potot_item .left {
+  float: left;
+  width: 70px;
+}
+.potot_item .left img {
+  width: 100%;
+}
+.potot_item .right {
+  float: right;
+  width: 215px;
+}
+.potot_item .right h3 {
+  font-weight: normal;
+  font-size: 14px;
+}
+.potot_item .right h3:hover {
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.potot_item .right .bot {
+  margin-top: 10px;
+}
+.potot_item .right .bot a {
+  font-size: 12px;
+  color: #759b08;
+  padding-left: 20px;
+  background: url(../images/lanmbq.png) no-repeat;
+}
+.potot_item .right .bot span {
+  font-size: 12px;
+  color: #759b08;
+  padding-left: 20px;
+  background: url(../images/datepng.png) no-repeat;
+  margin-left: 10px;
+}
+.image {
+  margin-top: 30px;
+}
+.image img {
+  width: 100%;
+}
+.about {
+  margin-top: 30px;
+}
+.about .about_title {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.about .about_title h3 {
+  float: left;
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+}
+.about .about_title a {
+  float: right;
+  font-size: 12px;
+  color: #aaa;
+}
+.about_list {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #e9e9e9;
+}
+.about_list a {
+  float: left;
+  font-size: 12px;
+  padding: 5px 8px;
+  color: #666;
+}

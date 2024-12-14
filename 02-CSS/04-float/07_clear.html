@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>clear</title>
+    <style type="text/css">
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+      }
+      .box1 {
+        float: left;
+      }
+      .box2 {
+        background-color: pink;
+        float: right;
+      }
+      .box3 {
+        background-color: orange;
+        clear: both;
+        /*
+				clear: 
+					-left 不要去找前面的左浮动
+					-right 不要去找前面的右浮动
+					-both 什么浮动流都不要去找
+					-none 默认值 跟着浮动流的规则进行排序
+			*/
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+  </body>
+</html>

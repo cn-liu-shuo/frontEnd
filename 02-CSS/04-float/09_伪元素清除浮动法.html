@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>伪元素清除浮动法</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .header {
+        width: 430px;
+        border: 1px solid black;
+        padding: 5px 49px;
+        margin: 0 auto;
+        border-radius: 50px;
+        background-color: aqua;
+      }
+      .header a {
+        float: left;
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        text-decoration: none;
+        padding-left: 5px;
+        text-align: center;
+      }
+      p {
+        background-color: pink;
+      }
+      /* 伪元素清除浮动法 */
+      .clearfix:after {
+        /* 设置内容为空 */
+        content: "";
+        /* 将其转化为块级元素 */
+        display: block;
+        /* 不去找前面的浮动流 */
+        clear: both;
+
+        height: 0;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header clearfix">
+      <a href="">京东</a>
+      <a href="">淘宝</a>
+      <a href="">咸鱼</a>
+      <a href="">转转</a>
+    </div>
+    <p>测试</p>
+  </body>
+</html>

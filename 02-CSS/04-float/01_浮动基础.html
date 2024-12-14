@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>浮动基础</title>
+    <style type="text/css">
+      span {
+        background-color: orange;
+        width: 100px;
+        height: 200px;
+        /*
+				浮动 float: left/right;
+				标准文档流: 行元素(水平) 行内块元素(水平) 块级元素(垂直);
+				浮动流: 半脱离标准文档流 属于水平排版;
+						浮动元素只能向左或者向右
+						浮动元素之前的元素不受影响 只影响后面的元素(浮动元素不能与行内元素内容层叠 行内元素的内容会被浮动元素推出)
+
+				注意事项: 
+					--1.浮动流没有居中 所以在浮动流中使用 margin: 0 auto; 会失效
+					--2.不管是 块级元素 行内元素 还是 行内块元素, 只要设置了浮动 都可以设置宽高并且水平排版,
+						与标准文档流里面的 行内块元素 相似
+					--3.当页面布局使用浮动时, 其兄弟元素也要使用浮动才能排版一致
+			*/
+        float: left;
+        /*opacity: 0;*/
+      }
+      span:first-child {
+        background-color: aqua;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <span>span1</span>
+    <span>span2</span>
+    <div>div1</div>
+    <div>div2</div>
+  </body>
+</html>
