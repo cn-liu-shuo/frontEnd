@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box-head span {
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        display: inline-block;
+        background-color: pink;
+        color: aliceblue;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .box-main div {
+        width: 340px;
+        height: 300px;
+        border: 1px solid black;
+        display: none;
+      }
+      /* .box-main > div:first-child {
+			display: block;
+		} */
+      .box-head .active {
+        background-color: red;
+      }
+      .box-main .select {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="box">
+        <div class="box-head">
+          <span
+            :class="{active: cur == index}"
+            v-for="(item, index) in tab"
+            :key="index"
+            @click="handle(index)"
+            >{{ item.head }}</span
+          >
+        </div>
+        <div class="box-main">
+          <!-- :class="{select: cur == index}" -->
+          <!-- <div  v-for="(item, index) in tab" :key="index" v-show="cur == index">{{ item.body }}</div> -->
+          <div
+            :class="{select: cur == index}"
+            v-for="(item, index) in tab"
+            :key="index"
+          >
+            {{ item.body }}
+          </div>
+        </div>
+      </div>
+
+      <!-- <p v-for="item in 5" :key="item" v-show="item != 2">{{item}}</p> -->
+
+      <!-- v-if和v-for不建议一起用 -->
+      <!-- <p  v-if="item != 2">1</p>
+        <p  v-if="item != 2">2</p>
+        <p  v-if="item != 2">3</p>
+        <p  v-if="item != 2">4</p>
+        <p  v-if="item != 2">5</p> -->
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          cur: 0,
+          tab: [
+            {
+              head: "孙悟空",
+              body: "一闪一闪亮晶晶",
+            },
+            {
+              head: "猪八戒",
+              body: "两闪一闪亮晶晶",
+            },
+            {
+              head: "大闸蟹",
+              body: "三闪一闪亮晶晶",
+            },
+          ],
+        },
+        methods: {
+          handle(index) {
+            this.cur = index;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

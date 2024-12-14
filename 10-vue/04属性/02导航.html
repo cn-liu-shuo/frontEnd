@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        list-style: none;
+        padding: 0 10px;
+        line-height: 50px;
+      }
+      ul {
+        display: flex;
+      }
+      .active {
+        background: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <ul>
+        <!--  :class="{active: cur == index}" -->
+        <li
+          v-for="(item, index) in nav"
+          :key="index"
+          @click="handle(index)"
+          :class="cur == index ? 'active': ''"
+        >
+          <a :href="item.url">{{ item.name }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          cur: 0,
+          nav: [
+            {
+              name: "首页",
+              url: "#",
+            },
+            {
+              name: "关于我们",
+              url: "#",
+            },
+            {
+              name: "加入我们",
+              url: "#",
+            },
+          ],
+        },
+        methods: {
+          handle(index) {
+            this.cur = index;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

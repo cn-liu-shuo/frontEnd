@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .act {
+        background-color: aqua;
+      }
+      .box {
+        color: aliceblue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 
+            元素属性 用 v-bind
+            v-bind:属性名  可以简写成 :
+         -->
+      <img v-bind:src="url" alt="" />
+      <img :src="url2" alt="" />
+
+      <div :class="classbox">1.定义变量classbox绑定单个类名</div>
+      <div :class="{act: isOk}">2.定义isOk绑定单个act，以对象的形式</div>
+      <div :class="{act: isOk, box: isOk}">3.绑定多个类名，以对象的形式</div>
+
+      <div :class="isOk ? 'act': 'box'">4.三元运算符 绑定类名</div>
+      <div :class="[classbox, 'box']">5.数组的方式绑定多个类名</div>
+      <div :style="{color: color, fontSize: '60px'}">6.直接绑定样式</div>
+      <div :style="obj">7.绑定style</div>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          url: "./huige.jpg",
+          url2: "./y1.jpg",
+          classbox: "act",
+          isOk: true,
+          color: "pink",
+          obj: {
+            color: "green",
+            fontSize: "60px",
+          },
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>
