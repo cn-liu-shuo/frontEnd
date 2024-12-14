@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>封装函数</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var obj1 = new Object();
+      obj1.name = "Jack";
+      obj1.age = 18;
+      obj1.getName = function () {
+        console.log("我的名字是" + this.name);
+      };
+      obj1.getAge = function () {
+        console.log("我的年龄是" + this.age);
+      };
+      obj1.getName();
+      obj1.getAge();
+
+      var obj2 = new Object();
+      obj2.name = "Rose";
+      obj2.age = 81;
+      obj2.getName = function () {
+        console.log("我的名字是" + this.name);
+      };
+      obj2.getAge = function () {
+        console.log("我的年龄是" + this.age);
+      };
+      obj2.getName();
+      obj2.getAge();
+    </script>
+  </body>
+</html>

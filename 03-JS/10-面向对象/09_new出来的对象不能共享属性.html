@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>new出来的对象不能共享属性</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function Dog(name) {
+        this.name = name;
+      }
+      Dog.prototype.species = "犬科";
+      var dog1 = new Dog("藏獒");
+      dog1.age = 5;
+      console.log(dog1);
+      console.log(dog1.name);
+
+      var dog2 = new Dog("萨摩耶");
+      console.log(dog2);
+    </script>
+  </body>
+</html>

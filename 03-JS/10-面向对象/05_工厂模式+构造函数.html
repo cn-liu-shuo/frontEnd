@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>工厂模式+构造函数</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 将工厂模式里面的obj换成this 会报错
+      // function creatRole(name, age) {
+      // 	// 1.创建空白对象 原材料
+      // 	var this = new Object();
+      // 	// 2.给创建的对象添加属性 加工
+      // 	this.name = name;
+      // 	this.age = age;
+      // 	// 添加方法
+      // 	this.getName = function () {
+      // 		console.log('我的名字是' + this.name);
+      // 	}
+      // 	this.getAge = function () {
+      // 		console.log('我的年龄是' + this.age);
+      // 	}
+      // 	// 3. return 出厂
+      // 	return this;
+      // }
+
+      function CreatRole(name, age) {
+        // 1.创建空白对象 原材料
+        // var this = new Object();
+        // 2.给创建的对象添加属性 加工
+        this.name = name;
+        this.age = age;
+        // 添加方法
+        this.getName = function () {
+          console.log("我的名字是" + this.name);
+        };
+        this.getAge = function () {
+          console.log("我的年龄是" + this.age);
+        };
+        // 3. return 出厂
+        // return this;
+      }
+      /*
+			工厂模式 + 构造函数 ==> 先将工厂模式里面的 obj 换成 this 然后 掐头去尾
+				这两个对象拥有相同的功能 但是每当 new 一下 系统就会自动创建一个新的内存 这两个对象各自执行各自的
+				这样其实还是会消耗内存
+		*/
+      // 构造函数就是实例化对象 里面的 this 指向实例化的那个对象
+      var obj1 = new CreatRole("霍骅", 28);
+      console.log(obj1);
+      obj1.getName();
+      obj1.getAge();
+
+      var obj2 = new CreatRole("李云奇", 38);
+      obj2.getName();
+      obj2.getAge();
+
+      console.log(obj1.getName == obj2.getName); // false
+
+      /*
+			构造函数 和 普通函数的区别？
+				构造函数 和 普通函数没什么大的区别 构造函数多了一个 new
+			构造函数加 new 系统会偷偷为我们做哪两件事？
+				--1. 替我们创建了一个空白对象
+				--2. 替我们返回这个对象
+			构造函数里面的 this 指向实例化对象
+		*/
+    </script>
+  </body>
+</html>

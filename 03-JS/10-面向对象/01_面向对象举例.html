@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>面向对象举例子</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			面向对象: 对象是由 属性 和 方法 组成的,  一种编程思想 在 js 中万物皆对象
+			面向对象的特点:
+				抽象: 就是最主要的特点和问题相关的特点 抽出来用代码表示
+				封装: 就是代码封装 看不到里面的原理 会用功能
+				继承: 遗传 从父类遗传一些方法和属性 儿子在有自己的特点的同时还拥有父类的特点
+				多态: 重载和重写 实现方法的个性化
+
+			什么是面向对象？面向对象有什么特点？
+				面向对象就是一种编程思想 是由属性和方法组成的
+				面向对象的特点: 封装 继承 多态
+		*/
+
+      var a = 66; // 变量是自由的 a 属于 window
+      console.log(window.a); // 66
+
+      var arr = [1, 2, 3];
+      // 给数组 arr 添加一个属性 b 值等于99, 属性和上面的 a 是一样的, 只不过 a 属于 window  b 属于 arr
+      arr.b = 99;
+      console.log(arr, arr.b);
+      // 变量能做的事情 属性也能做 属性和变量其实就是一种东西 只不过变量是自由的 属于window  属性属于某个对象
+
+      var obj = {};
+      // 给 obj 添加一个 name 属性 属性值为 '霍骅'
+      obj.name = "霍骅";
+      // 给 obj 这个对象添加一个 getName 属性 属性值为函数
+      obj.getName = function () {
+        console.log(this, this.name);
+      };
+      // 调用 obj 里面的 getName 函数
+      obj.getName();
+    </script>
+  </body>
+</html>

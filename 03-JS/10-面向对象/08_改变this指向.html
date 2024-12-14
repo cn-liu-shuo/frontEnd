@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      var obj1 = {
+        name: "狗蛋",
+        say: function (str) {
+          console.log(this, this.name, str);
+        },
+      };
+      // obj1.say('小姬是来品翔的');// obj1 '狗蛋' '小姬是来品翔的'
+
+      var obj2 = {
+        name: "梦瑶",
+        say: function (str) {
+          console.log(this, this.name, str);
+        },
+      };
+      // obj2.say('小姬嚼的真有劲啊');// obj2 '梦瑶' '小姬嚼的真有劲啊'
+
+      /*
+            改变this指向的三种方法:
+                call() apply() bind()
+                对象.方法.call('this要改变的指向', '传递的参数')
+                对象.方法.apply('this要改变的指向', ['传递的参数'])
+                对象.方法.bind('this要改变的指向', '传递的参数')()
+
+        call bind 传参用，间隔
+        apply 以数组方式传参
+
+        bind需要自调用一下
+        */
+
+      // obj2.say.call(obj1, '我是假狗蛋--梦瑶');
+      // obj2.say.apply(obj1, ['我是假狗蛋--梦瑶']);
+      obj2.say.bind(obj1, "我是假狗蛋--梦瑶")();
+    </script>
+  </body>
+</html>

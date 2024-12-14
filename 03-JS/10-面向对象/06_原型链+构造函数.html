@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>原型链 + 构造函数</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function CreatRole(name, age) {
+        this.name = name;
+        // 将方法放在构造函数的原型上
+        // 构造函数.原型.属性 = 属性值
+        CreatRole.prototype.getName = function () {
+          console.log("我的名字是" + this.name);
+        };
+      }
+
+      var obj1 = new CreatRole("霍骅", 28);
+      var obj2 = new CreatRole("李云奇", 38);
+      console.log(obj1, obj2);
+      obj1.getName();
+      obj2.getName();
+      console.log(obj1.getName === obj2.getName); // true
+
+      /*
+			什么是原型？
+				每一个函数都有一个 prototype 属性, 这个属性就称之为原型, 是显式原型 这个属性是一个对象 所以也称之为原型对象
+
+				每个函数也都有一个隐式原型 __proto__ 这个隐式原型帮我们指向的是一个 prototype 属性
+
+				总结:
+					prototype 是函数的属性 这个属性是一个对象 构造函数通过这个对象存放一些公共的属性和方法
+
+					实例化对象的 __proto__ 指向的是构造函数的 prototype 属性对象
+		*/
+      console.log(CreatRole.prototype === obj1.__proto__); // true
+
+      /*
+			什么是原型链？
+				我们从一个对象获取某个属性 如果找到了就返回这个属性  如果没找到就会通过 __proto__ 来指向 prototype 属性 去它的原型上去找 如果找到了就返回这个属性值 如果找不到就继续通过 Object.prototype 属性去找 如果找到了就返回这个属性 如果一直找不到 那么__proto__ 就是一个null 最后返回 undefined
+		*/
+    </script>
+  </body>
+</html>

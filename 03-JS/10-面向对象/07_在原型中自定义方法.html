@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      // 用原型实现冒泡排序
+      function Maopao(arr) {
+        this.arr = arr;
+      }
+      Maopao.prototype.fun = function () {
+        // 对 this.arr 进行冒泡排序
+        // for() {}
+
+        for (var i = 0; i < this.arr.length; i++) {
+          for (var j = 0; j < this.arr.length - 1 - i; j++) {
+            if (this.arr[j] > this.arr[j + 1]) {
+              var num = this.arr[j];
+              this.arr[j] = this.arr[j + 1];
+              this.arr[j + 1] = num;
+            }
+          }
+        }
+
+        return this.arr;
+      };
+    </script>
+  </body>
+</html>

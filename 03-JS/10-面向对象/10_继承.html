@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>继承</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function Animal() {
+        this.species = "动物";
+      }
+      Animal.prototype.show = function () {
+        console.log("我是动物大类原型上的属性");
+      };
+
+      // 让 Monkey 继承 Animal 可以用 call() apply() bind() 将 Animal 的构造函数指向Monkey
+      // 可以继承除了原型之外的属性
+      function Monkey(name, age) {
+        // Animal.call(this);
+        // Animal.apply(this);
+        Animal.bind(this);
+        this.name = name;
+        this.age = age;
+      }
+      // 继承 Animal 原型上的 show 方法
+      Monkey.prototype = Animal.prototype;
+      // 实例化完成了
+      var yunqi = new Monkey("云骑", 18000);
+      console.log(yunqi);
+    </script>
+  </body>
+</html>

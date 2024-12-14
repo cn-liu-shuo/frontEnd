@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>工厂模式</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			工厂模式: 为了解决实例化对象产生大量重复代码的问题
+			缺点: 创建不同的对象 其中的属性和方法也会重新建立 消耗内存
+		*/
+      function creatRole(name, age) {
+        // 1.创建空白对象 原材料
+        var obj = new Object();
+        // 2.给创建的对象添加属性 加工
+        obj.name = name;
+        obj.age = age;
+        // 添加方法
+        obj.getName = function () {
+          console.log("我的名字是" + this.name);
+        };
+        obj.getAge = function () {
+          console.log("我的年龄是" + this.age);
+        };
+        // 3. return 出厂
+        return obj;
+      }
+
+      var obj1 = creatRole("霍骅", 28);
+      obj1.getName();
+      obj1.getAge();
+
+      var obj2 = creatRole("李云奇", 38);
+      obj2.getName();
+      obj2.getAge();
+    </script>
+  </body>
+</html>

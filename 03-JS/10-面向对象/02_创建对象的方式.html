@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>创建对象的方式</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 字面量形式
+      var obj = {
+        name: "霍骅",
+        getName: function () {
+          console.log(this.name);
+        },
+      };
+      obj.getName();
+
+      // 构造函数形式
+      var xuxu = new Object();
+      xuxu.name = "蓝色妖姬";
+      xuxu.getName = function () {
+        console.log(this.name);
+      };
+      xuxu.getName();
+    </script>
+  </body>
+</html>
