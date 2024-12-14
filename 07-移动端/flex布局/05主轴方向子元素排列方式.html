@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex{
+            width: 1200px;
+            height: 600px;
+            background-color: skyblue;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            /* 
+            center:位于容器中心
+            space-between:两端对齐 两端容器没有缝隙 各个子元素之间有缝隙
+            space-around: 各个子元素之前 之后 都有空白
+            space-evenly：每个子元素前后缝隙一样
+            flex-start: 默认值 位于容器开头
+            flex-end： 位于容器结尾
+            */
+            justify-content: center;
+
+        }
+        .flex-item{
+            width: 350px;
+            height: 100px;
+            margin: 10px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+        <div class="flex-item">7</div>
+        <div class="flex-item">8</div>
+        <div class="flex-item">9</div>
+    </div>
+</body>
+</html>

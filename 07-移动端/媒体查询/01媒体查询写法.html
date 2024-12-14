@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- initial-scale 初始缩放 -->
+    <!-- user-scalable：允许用户手动缩放  默认是yes -->
+    <!-- maximum-scale: 定义最大缩放比例 -->
+    <!-- minimum-scale: 定义最小缩放比例 -->
+    <!-- width=device-width 视口区域是设备的屏幕宽度 -->
+    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 300px;
+        height: 300px;
+        background-color: orange;
+      }
+      /* 屏幕小于750px */
+      @media screen and (max-width: 750px) {
+        div {
+          width: 150px;
+          height: 150px;
+          background-color: aqua;
+        }
+      }
+
+      /* 大于750px  小于1200px */
+      @media (min-width: 750px) and (max-width: 1200px) {
+        div {
+          width: 200px;
+          height: 200px;
+          background-color: brown;
+        }
+      }
+
+      /* 大于1200px */
+      @media screen and (min-width: 1200px) {
+        body {
+          background-color: aquamarine;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        什么是媒体查询？
+            媒体查询是css3中引入的一种css技术，仅满足特定条件下，会使用@media引用css属性块
+
+     -->
+    <div></div>
+  </body>
+</html>

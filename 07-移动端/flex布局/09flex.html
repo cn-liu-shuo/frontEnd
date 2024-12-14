@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex{
+            width: 1200px;
+            height: 600px;
+            background-color: skyblue;
+            display: flex;
+            /* flex-flow把换行和方向结合 */
+            flex-flow: row wrap;
+        }
+        .flex-item{
+            width: 300px;
+            height: 100px;
+            margin: 10px;
+            background-color: pink;
+        }
+        /* 设置flex的子元素 主轴方向的宽/高 大小 看 flex设置的大小 */
+        .box{
+            /* 占剩余空间的1/3 */
+            flex: 1;
+        }
+        .box2{
+            flex: 1;
+        }
+        .box3{
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div class="flex-item box">1</div>
+        <div class="flex-item box2">2</div>
+        <div class="flex-item box3">3</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/scrollreveal.js"></script>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        margin-top: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+
+    <script>
+      ScrollReveal().reveal(".box", {
+        // 从哪里进入
+        origin: "right",
+        // 动画时长
+        duration: 1000,
+        // 视图距离多少开始执行
+        distance: "100px",
+        // 是否重置
+        reset: true,
+      });
+      ScrollReveal().reveal(".box1", {
+        // 从哪里进入
+        origin: "top",
+        // 动画时长
+        duration: 1000,
+        // 视图距离多少开始执行
+        distance: "100px",
+        // 是否重置
+        reset: true,
+      });
+      ScrollReveal().reveal(".box2", {
+        // 从哪里进入
+        origin: "bottom",
+        // 动画时长
+        duration: 1000,
+        // 视图距离多少开始执行
+        distance: "100px",
+        // 是否重置
+        reset: true,
+      });
+      ScrollReveal().reveal(".box3", {
+        // 从哪里进入
+        origin: "left",
+        // 动画时长
+        duration: 1000,
+        // 视图距离多少开始执行
+        distance: "100px",
+        // 是否重置
+        reset: true,
+      });
+    </script>
+  </body>
+</html>

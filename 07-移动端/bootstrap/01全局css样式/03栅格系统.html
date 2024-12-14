@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+    <style>
+      .box {
+        background-color: red;
+      }
+      .box-1 {
+        background-color: aqua;
+      }
+      .box-2 {
+        background-color: pink;
+      }
+      .box2-1 {
+        background: green;
+      }
+      .box2-2 {
+        background: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row box">
+        <div class="col-lg-6 col-xs-3 col-sm-4 box-1">123</div>
+        <div class="col-lg-6 col-xs-9 col-sm-8 box-2">456</div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <!-- 
+        列偏移 让两个相邻的列不相邻
+
+     -->
+    <div class="container">
+      <div class="row box">
+        <div class="col-lg-6 box-1">123</div>
+        <div class="col-lg-5 col-lg-offset-1 box-2">456</div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <!-- 列排序 -->
+    <div class="container">
+      <div class="row box">
+        <div class="col-lg-7 col-lg-push-5 box-1">123</div>
+        <div class="col-lg-5 col-lg-pull-7 box-2">456</div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <!-- 列嵌套 -->
+    <div class="container">
+      <div class="row box">
+        <div class="col-lg-6 box-1">
+          <div class="row">
+            <div class="col-lg-6 box2-1">1111</div>
+            <div class="col-lg-6 box2-2">2222</div>
+          </div>
+        </div>
+        <div class="col-lg-6 box-2">456</div>
+      </div>
+    </div>
+
+    <script src="../bootstrap/js/jquery.js"></script>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+  </body>
+</html>

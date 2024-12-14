@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/animate.css" />
+    <script src="js/wow.js"></script>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background: pink;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 
+        data-wow-duration: 动画持续时间
+        data-wow-delay: 动画延迟时间
+        data-wow-offset: 距离视图区域多少的时候开始执行
+        data-wow-iteration: 动画执行次数
+     -->
+    <div
+      class="wow animate__animated animate__backInLeft"
+      data-wow-delay="2s"
+    ></div>
+    <script>
+      wow = new WOW({
+        // 需要执行动画的Class名
+        boxClass: "wow", // default、
+        // animate css动画的class名
+        animateClass: "animate__animated", // default
+        // 距离视图区域多少的时候开始执行
+        offset: 200, // default
+        // 在移动端设备上是否有效
+        mobile: true, // default
+        // 异步加载的内容是否有效
+        live: true, // default
+      });
+      wow.init();
+    </script>
+  </body>
+</html>
