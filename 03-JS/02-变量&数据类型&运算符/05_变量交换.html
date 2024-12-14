@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>变量交换</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var a = 1;
+      var b = 2;
+      console.log("第一次打印b---", b); // 2
+      // 将 a 中的值拷贝了一份赋值给了 b
+      b = a;
+      console.log("重新赋值之后打印b---", b); // 1
+      console.log("第一次打印a---", a); // 1
+
+      var num = 10;
+      // num 前面没有 var, 就没有重新声明 num 变量, 只是将 num 重新赋值了一遍
+      num = 20;
+      console.log("第一次打印num---", num); // 20
+      // 此时 num 前面有 var, 说明不是重新赋值而是重新定义了一个新的变量, 名字也叫 num, 变量名重复 后声明的会覆盖先声明的
+      var num = 30;
+      console.log("第二次打印num---", num); // 30
+
+      // 变量交换
+      var str1 = "香蕉";
+      var str2 = "葡萄";
+      var str3 = "";
+      str3 = str1;
+      str1 = str2;
+      str2 = str3;
+      console.log(str1, str2);
+    </script>
+  </body>
+</html>

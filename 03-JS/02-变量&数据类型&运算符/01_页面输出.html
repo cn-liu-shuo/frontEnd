@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>页面输出</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 1.window.console 可以直接写成 console
+      window.console.log("123");
+      console.log("abc"); // 普通输出
+
+      console.warn("警告"); // 警告
+
+      console.error("错误"); // 错误
+
+      var a = [];
+      console.dir(a); // 输出具体内容 显示打印对象的所有属性和方法(普通数据看不出区别)
+
+      // 2.window.alert() 简写成 alert() 警告弹窗 一个按钮  ps:会阻止后面程序的运行但不会结束
+      window.alert("主要事件: 姬总的英语牛逼的很啊");
+      console.log("旁白: 姬总的小娇妻小霍霍来了");
+      alert("小霍霍说: 俺很是不服");
+
+      // 3.window.confirm() 简写成 confirm() 确认弹窗 两个按钮
+      // window.confirm('小霍霍生气了,姬总确定不去哄一哄嘛？');
+      console.log(window.confirm("小霍霍生气了,姬总确定不去哄一哄嘛？"));
+
+      // 4.window.prompt() 简写成 prompt() 提示输入框
+      // window.prompt('请输入银行卡密码');
+      console.log(window.prompt("请输入银行卡密码"));
+
+      // 5.document.write() 输出内容到页面上
+      document.write("js真好玩");
+      // 在页面输出一个 宽100 高100 背景颜色aqua 的div; div里面的内容为 "我是div"
+      document.write(
+        '<div style="width: 100px; height: 100px; background-color: aqua;">我是div</div>'
+      );
+
+      // 注意: 如果文档内容完全加载完毕, 再去执行 document.write(); document.write()中的内容会被覆盖
+
+      console.log(window);
+      // 1.document对象: 代表浏览器窗口的 HTML 文档, 是 window 的一个对象属性
+      // 2.window对象: 表示浏览器打开的窗口
+      // 3.综上所述: 属于 window 的部分对象属性或者方法 使用时可以省略 window
+    </script>
+  </body>
+</html>

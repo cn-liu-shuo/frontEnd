@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>数据类型</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			Javascript中有 2 种数据类型
+				第一种: 基本数据类型(一般放在栈内存)
+					--1. Number: 数字类型 js中数字类型不区分整型和浮点型, 只有Number, Infinity(正无穷大) 
+						NaN(Not a Number 判断是否不是数字 如果是数字返回 false  不是数字返回 true)
+
+					--2. String: 字符串类型 单引号和双引号都是字符串 获取字符串的长度 变量名.length
+
+					--3. Boolean: 布尔类型  true / false
+
+					--4. undefined: 未定义的, 声明了但未赋值
+
+					--5. null: 空对象指针 表示用来准备保存对象 但是还没有真正的去保存 typeof null 但会的是 object
+				第二种: 引用数据类型(一般放在堆内存)
+					--6. Object: 对象 (js中的顶级数据类型)
+					--7. Array: 数组
+					--8. Function: 函数
+
+
+				栈内存 和 堆内存的区别？
+
+		*/
+
+      // 1. Number
+      var num1 = 10;
+      console.log("num1---", num1, typeof num1); // num1--- 10 number
+      var num2 = 9.99;
+      console.log("num2---", num2, typeof num2); // num2--- 9.99 number
+      var num3 = -6.66;
+      console.log("num3---", num3, typeof num3); // num3--- -6.66 number
+      var num4 = Infinity;
+      console.log("num4---", num4, typeof num4); // num4--- Infinity number
+      var num5 = 2e3; // 2 * 10³
+      console.log("num5---", num5, typeof num5); // num5--- 2000 number
+      var num6 = 2e-2; // 2 * 10的负二次方
+      console.log("num6---", num6, typeof num6); // num6--- 0.02 number
+      var num7 = 66;
+      console.log("num7---", num7, isNaN(num7)); // num7--- 66 false
+      var num8 = "你好";
+      console.log("num8---", num8, isNaN(num8)); // num8--- 你好 true
+
+      // 2.String
+      var str1 = "今天外面下大雨了,肯定有人发誓了";
+      console.log("str1---", str1, typeof str1); // str1--- 今天外面下大雨了,肯定有人发誓了 string
+      console.log("str1的长度---", str1.length); // str1的长度--- 16
+      var str2 = "";
+      console.log("str2的长度---", str2.length); // str2的长度--- 0
+      var str3 = " ";
+      console.log("str3的长度---", str3.length); // str3的长度--- 1
+
+      // 3.Boolean
+      var boo1 = true;
+      var boo2 = false;
+      console.log("boo1---", boo1, typeof boo1);
+      console.log("boo2---", boo2, typeof boo2);
+
+      // 4.undefined 声明了但是没有赋值
+      var un;
+      console.log("un---", un, typeof un); // un--- undefined undefined
+
+      // 5.null 是一个空对象指针 表示用来准备保存对象 但是还没有真正的去保存
+      var a = null;
+      console.log("null---", a, typeof a); // null--- null object
+
+      // ============================================================================
+
+      // 6.Object
+      var obj1 = {
+        name: "翠花",
+        sex: "男",
+        age: 38,
+      };
+      console.log("obj1---", obj1, typeof obj1); // object
+      // 对象的取值
+      // 方法一 变量名.属性名
+      console.log(obj1.name, typeof obj1.name); // 翠花 string
+      console.log(obj1.age, typeof obj1.age); // 38 number
+      // 方法二 变量名['属性名']
+      console.log(obj1["sex"], typeof obj1["sex"]); // 男 string
+      console.log(obj1 instanceof Object); // true
+
+      // 7.Array 属于对象的一种
+      var arr1 = ["张三", 1, true];
+      // 用 typeof 检测数组的时候返回 object
+      console.log("arr1---", arr1, typeof arr1); // arr1--- ['张三', 1, true] object
+      // 数组有自己的检测方法 Array.isArray() 是数组返回 true 不是则返回 false
+      console.log("数组自己的检测方法---", Array.isArray(arr1)); // 数组自己的检测方法--- true
+      // instanceof
+      console.log("instanceof检测数组---", arr1 instanceof Array); // instanceof检测数组--- true
+      // 获取数组的长度 变量名.length
+      console.log(arr1.length); // 3
+      // 数组取值 是通过下标(从 0 开始的)
+      console.log(arr1[0]);
+
+      var m = {
+        a: 10,
+        b: 20,
+      };
+      var n = m;
+      n.a = 16;
+      console.log(m.a); // 16
+    </script>
+  </body>
+</html>

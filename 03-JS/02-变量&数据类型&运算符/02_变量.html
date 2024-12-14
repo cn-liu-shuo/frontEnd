@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>变量</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			变量和字面量的区别？
+				变量: 可以变化的量 从我们编程的角度来说 变量就是用来存储信息的"容器"
+				字面量: 展示的就是这个值(字符串 数字等), 一般等号后面的就是字面量
+		*/
+      var a = 1; // a就是变量 1就是字面量
+
+      // 1. 声明变量 但不赋值 不会报错 会给我们返回一个 undefined
+      var b;
+      console.log("未赋值---", b); // undefined
+      b = 6;
+      console.log("赋值的---", b); // 6
+
+      // 2.变量初始化 一般我们在声明变量的时候同时给变量赋值 这个过程我们称之为 变量初始化
+      var A = 2;
+      /*
+			1.Javascript 严格区分大小写 每一句代码后面尽量加一个英文分号
+			2.js中 单引号 和 双引号没有任何区别 都代表字符串
+		*/
+      console.log("a---", a); // 1
+      console.log("A---", A); // 2
+
+      // 3.一条语句同时声明多个变量
+      var i = 1;
+      j = 2;
+      k = 3;
+      console.log("i, j, k---", i, j, k);
+
+      // 4.如果页面没有声明变量直接使用 会报错
+      // console.log('未声明的变量---', c); // c is not defined
+
+      // 5.变量的重新赋值
+      var x = 1;
+      console.log("第一个x的值---", x); // 1
+      x = 2;
+      console.log("第二个x的值---", x); // 2
+
+      // 6.变量提升
+      console.log("第一个y---", y); // undefined
+      var y = 1;
+      console.log("第一个y---", y); // 1
+
+      // 相当于
+      var y;
+      console.log("第一个y---", y);
+      y = 1;
+      console.log("第一个y---", y);
+
+      /*
+			变量提升
+				js 解释型语言 边解析边执行 浏览器执行之前不是直接解析 而是对代码进行预解析 或者叫 预处理
+					--预解析过程
+						对当前 js 代码定义的所有变量(和函数) 放到代码最前面
+
+						======举例======
+						console.log(a);
+						var a = 1;
+						console.log(a);
+						var b = 2;
+						console.log(b);
+						var c = 3;
+						console.log(c);
+
+						======预解析======
+						var a;
+						var b;
+						var c;
+						
+
+						console.log(a); // undefined
+						a = 1;
+						console.log(a); // 1
+						b = 2;
+						console.log(b); // 2
+						c = 3;
+						console.log(c); // 3
+		*/
+    </script>
+  </body>
+</html>

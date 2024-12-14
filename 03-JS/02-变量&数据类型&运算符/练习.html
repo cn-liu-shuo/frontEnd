@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.本金10000, 存入银行一年的利率5%, 5年后总共有多少钱
+      var ben = 10000;
+      for (var i = 1; i <= 5; i++) {
+        ben *= 1.05;
+      }
+      console.log("五年之后总共---", ben);
+
+      // 2.有一个三位数 653, 分别取出个位 十位 百位
+      var num = 653;
+      console.log("个位数是---", num % 10);
+      console.log("十位数是---", parseInt((num / 10) % 10));
+      console.log("百位数是---", parseInt(num / 100));
+
+      // 3.让一个用户输入出生年份 在控制台直接打印出他的年龄
+      // var year = Number(prompt('请输入出生年月'));
+      // console.log('您的芳龄是---', 2024 - year);
+
+      // 4.一个盒子能装20个鸡蛋, 当用户输入鸡蛋数量 自动算出需要多少盒子
+      var eggs = Number(prompt("请输入鸡蛋的数量"));
+      var yu = eggs % 20;
+      console.log(
+        yu > 0
+          ? "盒子的数量为" + (parseInt(eggs / 20) + 1)
+          : "盒子的数量为" + eggs / 20
+      );
+      // if (eggs % 20 == 0) {
+      //     console.log('盒子的数量为', eggs / 20);
+      // } else {
+      //     console.log('盒子的数量为', parseInt(eggs / 20) + 1);
+      // }
+
+      // 5.如果今天是周六 那么1000天之后是周几?(一条语句算出)
+      console.log("1000天之后是周" + (999 % 7));
+
+      // 6.已知1摄氏度等于 1 * 1.8 + 32 华氏度  当用户输入摄氏度时 返回华氏度
+      var F = Number(prompt("请输入摄氏度")) * 1.8 + 32;
+      console.log("经转化华氏度为---", F);
+    </script>
+  </body>
+</html>
