@@ -1,0 +1,9 @@
+{
+  "name": "mall4j",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^4.1.1"
+  }
+}
