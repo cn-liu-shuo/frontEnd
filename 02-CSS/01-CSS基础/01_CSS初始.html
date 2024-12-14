@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS初始</title>
+    <!-- 内联样式 -->
+    <style type="text/css">
+      p {
+        width: 300px;
+        height: 300px;
+        background-color: blue;
+        color: white;
+      }
+      div {
+        color: blue;
+      }
+    </style>
+    <!-- 外联样式 -->
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+  </head>
+  <body>
+    <!-- 
+		HTML: Hyper Text Markup Language ==> 超文本标记语言
+
+		CSS: Cascading Style Sheets ==> 层叠样式表 从外观、审美的角度去改变页面的样式
+			-- 1.行内样式
+				语法: <标签 style="属性1: 属性值; 属性2: 属性值;....属性n: 属性值;"></标签>
+
+			-- 2.内联样式
+				在 head 标签内使用 <style type="text/css"></style> 标签
+				语法:
+					选择器: {
+						属性1: 属性值;
+						属性2: 属性值;
+						属性3: 属性值;
+					}
+			-- 3.外联样式
+				外部引入 css 文件 <link rel="stylesheet" type="text/css" href="">
+					rel="stylesheet" 样式表，rel ==> relations 关联, 关联的是 stylesheet 样式表
+					type="text/css" 类型是 css 类型
+					href: css文件地址
+						-- 1.网络地址(http(s)://)
+						-- 2.本地地址(写相对路径)
+
+			优先级: 行内样式 > 内联样式 = 外联样式(谁离 body 里面的代码近就显示谁 ==> 近水楼台先得月)
+	 -->
+    <!-- 行内样式 -->
+    <!-- 
+		颜色:
+			-- 1.关键字: 英语单词(颜色分类少)
+			-- 2.十六进制: 0-9 A-F
+			-- 3.rgb(red green blue) 0-255
+			-- 4.rgba(red green blue 透明度) a的取值范围是 0(完全透明)-1(完全显示)
+	 -->
+    <span style="background-color: red; color: aqua">CSS 是层叠样式表</span>
+
+    <p>今天下大雨了，记得回家收衣服</p>
+
+    <div>大家都加把劲</div>
+  </body>
+</html>

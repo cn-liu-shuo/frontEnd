@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>层叠性</title>
+    <style type="text/css">
+      div {
+        color: red;
+      }
+      #box {
+        background-color: aqua;
+      }
+      .box1 {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+		层叠性: 就是用不同的选择器去设置不同的样式 只要没有出现重复的 都会生效
+				如果有重复的样式 按照选择器的优先级(权重)来显示
+				如果优先级相等 就近原则
+	 -->
+    <div id="box" class="box1">王兰杰</div>
+  </body>
+</html>

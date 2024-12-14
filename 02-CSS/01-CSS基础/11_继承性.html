@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>继承性</title>
+    <style type="text/css">
+      * {
+        color: green;
+      }
+      div {
+        /* 1. 字体颜色可以被继承 a标签除外 */
+        color: red;
+        /* 2. 以 font 开头的可以被继承 */
+        /* h系列的字体大小不会被继承 所看到的大小变化 是因为 h 系列的字体大小单位是一个相对于父元素大小改变的(em) */
+        /* 字体大小 */
+        font-size: 20px;
+        /* 字体加粗 */
+        font-weight: bolder;
+        /* 3. 以 text 开头的可以被继承 */
+        text-align: center;
+        /* 4. 以 line 开头的可以被继承 */
+        /* 行高 */
+        line-height: 100px;
+      }
+      a {
+        color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+		继承: 给父元素设置样式或者祖父辈设置样式, 然后这个元素的后代会继承他的样式
+
+		继承的样式没有优先级(权重)
+	 -->
+    <div>
+      <p>我是p标签</p>
+      <a href="javascript:;">我是a标签</a>
+      <h1>我是h1标签</h1>
+      <span>我是span</span>
+    </div>
+  </body>
+</html>

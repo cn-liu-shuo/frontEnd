@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>后代选择器</title>
+    <style type="text/css">
+      /* 后代选择器 */
+      .box p {
+        background-color: aqua;
+      }
+      /* 子代选择器 */
+      .box > p {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="box1">
+        <p>p1</p>
+      </div>
+      <p>p2</p>
+    </div>
+  </body>
+</html>

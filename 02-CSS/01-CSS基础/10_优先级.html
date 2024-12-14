@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>优先级</title>
+    <style type="text/css">
+      /* id选择器 */
+      /*#box1 {
+			background-color: aqua;
+		}*/
+      /* 类选择器 */
+      /*.box1 {
+			background-color: green;
+		}
+		.box2 {
+			background-color: yellow;
+		}*/
+      /* 标签选择器 */
+      /*div {
+			background-color: orange;
+		}*/
+
+      /* 0010 + 0010 + 0001 */
+      .d2 .d3 p {
+        background-color: orange;
+      }
+      /* 0010 + 0001 */
+      .d3 p {
+        background-color: aqua;
+      }
+
+      h3.a {
+        background-color: pink;
+      }
+      h3 {
+        background-color: red;
+      }
+
+      .a,
+      #box1 {
+        color: red;
+      }
+      #box1 {
+        color: green;
+      }
+
+      h2 {
+        background-color: aqua !important;
+        color: green;
+      }
+      /* 优先级: 行内样式 > id选择器 > 类选择器 > 标签选择器 */
+
+      /* 
+			1. 当使用不同选择器设置同一个标签的同一个样式的时候会根据选择器的优先级(权重)来决定最终的样式
+				--优先级规律:
+					行内样式 1 0 0 0
+					id选择器 0 1 0 0
+					类选择器 0 0 1 0  (10层类选择器嵌套 权重相加为 0 0 10 0)
+					标签选择器 0 0 0 1
+					通配符选择器 0 0 0 0
+			2. 当包含多个选择器时 需要将多个选择器的权重相加 权重大的显示(并集选择器不参与权重相加)
+
+			3. 在元素样式后面加 !important 只会让这个样式的权重最大 其他样式不受影响
+
+			注意: 一旦使用了 !important 元素的样式将很难再改变 即使用 js 也无法修改 慎用!!!
+		 */
+    </style>
+  </head>
+  <body>
+    <div class="box1 box2" id="box1" style="width: 300px; height: 300px">
+      div1
+    </div>
+
+    <div class="d1">
+      <div class="d2">
+        <div class="d3">
+          <p>p1</p>
+          <span>span</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="a">我是h3</h3>
+
+    <h2 style="background-color: red; color: orange" class="h2">h2</h2>
+  </body>
+</html>

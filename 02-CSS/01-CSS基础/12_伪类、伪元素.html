@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>伪类、伪元素</title>
+    <style type="text/css">
+      /* 伪类 */
+      /* 没有点击时的样式 */
+      a:link {
+        color: aqua;
+      }
+      /* 鼠标悬停时的样式 */
+      a:hover {
+        color: red;
+      }
+      /* 鼠标按下 不松开鼠标 */
+      a:active {
+        font-size: 30px;
+      }
+      /* 点击之后的颜色 */
+      a:visited {
+        color: orange;
+      }
+
+      .box::after {
+        content: "周二";
+      }
+
+      .box1::before {
+        content: "昨天";
+      }
+      /* 伪元素 */
+      /*
+			伪元素 用于特殊的效果添加到某些选择器中 其实是对那些不能够用 id 类选择器等 选择的元素的补充添加的伪元素 不存在 dom 文档中 只是创建了一个虚拟元素 实际并不存在 只是逻辑上存在
+
+			伪元素要结合 content 来使用
+			伪元素不会出现在 dom 树中; 所以他不能通过 js 操作; 只能在 css 渲染层中加入
+		*/
+
+      /*
+			伪类和伪元素的区别?
+				- 伪类只能用一个英文冒号
+				- 伪元素/伪对象 既可以使用一个英文冒号 也可以使用两个英文冒号
+					:after(css2的写法)  ::after(css3的写法) ==> 等效的
+		*/
+    </style>
+  </head>
+  <body>
+    <a href="#">点我一下</a>
+    <div class="box">今天是</div>
+    <div class="box1">是周一</div>
+  </body>
+</html>
