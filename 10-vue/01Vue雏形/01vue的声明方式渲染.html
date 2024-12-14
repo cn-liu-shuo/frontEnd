@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 2.开辟一个空间  view视图 -->
+    <div id="app">
+      <!-- {{ }} 插值渲染法  变量定义在data里 如果没定义直接使用会报错 -->
+      <h1>{{ name }}</h1>
+      <!-- {{ des }} -->
+      <!-- 可以写变量  也可以写js语法 -->
+      {{ age < 18 ? "莫欺少年穷" : "莫欺中年穷"}}
+    </div>
+    <!-- 1.引入vue.js -->
+    <script src="../js/vue.js"></script>
+    <script>
+      // 3.创建一个vue实例
+      var vm = new Vue({
+        // 声明空间   el ==> element 元素
+        el: "#app",
+        // 声明定义变量
+        data: {
+          name: "孙悟空",
+          age: 500,
+          obj: {
+            car: "拖拉机",
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
