@@ -1,0 +1,45 @@
+1. 克隆仓库  git clone 仓库地址
+2. 提交修改文件到线上仓库
+添加具体的文件  git add  文件名
+添加所有的文件  git add .
+添加备注  git commit -m  "备注"
+提交到线上仓库  git push
+3. 将线上代码同步到本地  git pull
+
+查看状态 git status
+撤销暂存的更改（撤销add） git reset HEAD 文件名
+撤销某个文件的更改  git checkout -- 文件名
+撤销所有更改  git checkout .
+撤销commit，恢复到add的状态  git reset --soft HEAD^
+撤销commit，add,撤销修改代码 git reset --hard HEAD^
+
+=========================================
+修改同一个文件导致代码冲突
+1. git pull 上传代码之前先拉取 --- 发现改的是同一个文件
+2. git stash 将更改的代码暂存起来，让本地仓库还原到最后一次提交代码
+3. git pull 拉取远程仓库代码
+4. git stash pop  释放缓存
+5.如果有冲突，打开本地文件，解决冲突  --- 提交代码
+
+=============================================
+多人团队项目：
+1.创建分支
+创建完 git pull
+切换自己的分支 git checkout 分支名
+添加具体的文件  git add  文件名
+添加所有的文件  git add .
+添加备注  git commit -m  "备注"
+提交到线上仓库  git push
+
+2.合并分支  A分支修改  master和A分支同步
+① 切换到要合并的分支master  git checkout master
+② 合并分支  git merge A
+③ 上传到线上仓库  git push
+
+3.合并冲突
+1.合并分支时 git merge 
+2.产生冲突 (gcy|MERGING) ----- 打开本地文件，选中你要留下的代码
+3.解决完冲突 
+git add .
+git commit -m  "备注"  或者 git merge --continue 继续合并， 进入备注面板  i进入编辑模式  esc退出编辑模式  :wq保存并退出
+git push
