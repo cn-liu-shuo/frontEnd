@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>post请求</title>
+  </head>
+  <body>
+    <input type="text" name="" />
+    <input type="password" name="" />
+    <button>登录</button>
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      $("button").click(function () {
+        $.ajax({
+          type: "post",
+          url: "http://wish.byesame.com/login",
+          data: {
+            userName: $("input:eq(0)").val(),
+            passWord: $("input:eq(1)").val(),
+          },
+          contentType: "application/x-www-form-urlencoded",
+          success: function (res) {
+            console.log(res);
+            // 将 token 存储到本地
+            localStorage.setItem("token", res.data.token);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

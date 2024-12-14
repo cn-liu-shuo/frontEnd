@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>upload(上传)</title>
+  </head>
+  <body>
+    <input type="file" id="file" />
+    <button>上传</button>
+    <img src="" />
+
+    <!-- <script type="text/javascript">
+		var file = document.getElementById('file');
+		var img = document.querySelector('img');
+
+		file.onchange = function (e) {
+			// 从事件对象中获取文件
+			var getFile = e.target.files[0];
+			// formData 对象用来将数据编译成键值对 以使用 XMLHttpRquest 来发送表单数据
+			var formData = new FormData();// 实例化了一个 formData 对象
+			// 接口需要的参数名 file
+			formData.append('file', getFile);
+			// console.log(formData);
+			// for (var i of formData.values()) {
+			// 	console.log(i)
+			// }
+			var xhr = new XMLHttpRequest();
+			xhr.open('post', 'http://47.104.167.34:8107/common/upload');
+			xhr.send(formData);
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					var obj = JSON.parse(xhr.responseText);
+					console.log(obj);
+					img.setAttribute('src', obj.url)
+				}
+			}
+		}
+	</script> -->
+
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      $("button").click(function () {
+        console.log($("input"));
+        var formData = new FormData();
+        formData.append("file", $("input")[0].files[0]);
+        $.ajax({
+          type: "post",
+          url: "http://47.104.167.34:8107/common/upload",
+          data: formData,
+          contentType: false,
+          // 默认是 true 发送的数据将被转化为对象以配合默认内容类型"application/x-www-form-urlencoede"
+          processData: false,
+          success: function (res) {
+            console.log(res);
+            $("img").attr("src", res.url);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
