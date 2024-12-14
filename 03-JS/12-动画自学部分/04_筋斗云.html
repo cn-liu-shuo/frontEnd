@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .slider {
+        width: 700px;
+        height: 50px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        background-color: orange;
+      }
+      .slider span {
+        position: absolute;
+        width: 100px;
+        height: 50px;
+        background-image: url(images/1.gif);
+        background-size: 100px 50px;
+        background-position: center;
+      }
+      .slider ul {
+        position: relative;
+      }
+      .slider ul li {
+        float: left;
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 20px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <span></span>
+      <ul>
+        <li>首页</li>
+        <li>新闻</li>
+        <li>娱乐</li>
+        <li>视频</li>
+        <li>音乐</li>
+        <li>小说</li>
+        <li>地图</li>
+      </ul>
+    </div>
+    <script src="animate.js"></script>
+    <script type="text/javascript">
+      //获取滑块
+      var span = document.querySelector("span");
+      // 获取所有按钮
+      var lis = document.querySelectorAll("li");
+      // 获取所有的li 给每个li绑定事件
+      for (var i = 0; i < lis.length; i++) {
+        // mouseenter 当鼠标指针移动被选元素时触发.
+        // mouseleave 当鼠标指针离开被选元素时触发.
+        // 区别：mouseover mouseout  事件在鼠标移动到选取的元素及其子元素上时触发。
+        lis[i].addEventListener("mouseenter", enter);
+        lis[i].addEventListener("mouseleave", leave);
+
+        lis[i].addEventListener("click", click);
+      }
+
+      function enter() {
+        // 实际上this的最终指向的是那个调用它的对象
+        // this指向的是函数的拥有者 调用者
+        console.log(this);
+        // 传递dom元素 当前元素的偏移位置（移动到目标位置）
+        animate(span, this.offsetLeft);
+      }
+      // 鼠标离开 点亮当前页面 最终停留的位置
+      var end = 0;
+      function leave() {
+        // 传递dom元素 当前元素的偏移位置（移动到目标位置）回到初始位置
+        animate(span, end);
+      }
+      // 鼠标点击 设置图标停留的最终位置
+      function click() {
+        // 当前元素的偏移位置（移动到目标位置）等于停留的位置
+        end = this.offsetLeft;
+      }
+    </script>
+  </body>
+</html>

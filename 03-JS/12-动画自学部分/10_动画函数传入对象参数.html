@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 100px;
+        height: 80px;
+        background-color: orange;
+        margin-left: 900px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn1">移动</button>
+    <div class="box"></div>
+    <script type="text/javascript">
+      // 获取样式
+      function getStyle(dom, cssStyle) {
+        // dom==oDiv cssStyle==height
+        // currentStyle["样式"] IE
+        // getComputedStyle(要获取的dom元素)["样式"] 谷歌、火狐等
+        // 判断是不是ie浏览器
+        return dom.currentStyle
+          ? dom.currentStyle[cssStyle]
+          : getComputedStyle(dom)[cssStyle];
+      }
+      var btn1 = document.querySelector(".btn1");
+      var box = document.querySelector(".box");
+      // var obj = {
+      // 	name:"xiaoming",
+      // 	age:18,
+      // 	sex:"man"
+      // }
+      btn1.onclick = function () {
+        // animate(box,"margin-left",400);
+        animate(box, {
+          width: 400,
+          height: 300,
+          "margin-left": 500,
+        });
+      };
+
+      // 谁移动 ，移动到目标位置
+      function animate(element, json) {
+        // 每次进来清除定时器
+        clearInterval(element.timer);
+        element.timer = setInterval(function () {
+          for (var item in json) {
+            console.log(item, "获取的是属性");
+            // 获取item的所在位置
+            var current = parseInt(getStyle(element, item));
+            console.log(current);
+            // 获取当前item 的目标位置
+            var position = json[item];
+            // 如果当前位置和目标位置不相等 还需要走
+            if (current != position) {
+              // 位置 速度 方向
+              var step = (position - current) / 10;
+              step = step > 0 ? Math.ceil(step) : Math.floor(step);
+              // 现在的位置和目标位置差值小于每次移动的距离 直接到达目的地
+              if (Math.abs(current - position) > step) {
+                element.style[item] = current + step + "px";
+              } else {
+                // 走到最后一步 就让元素直接到达目的地
+                element.style[item] = position + "px";
+                clearInterval(element.timer);
+              }
+            }
+          }
+        }, 20);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .all {
+        width: 800px;
+        height: 500px;
+        padding: 7px;
+        border: 1px solid #ccc;
+        margin: 50px auto;
+        position: relative;
+      }
+      .screen {
+        overflow: hidden;
+        width: 800px;
+        height: 500px;
+        position: relative;
+      }
+      .screen img {
+        width: 800px;
+        height: 500px;
+        float: left;
+      }
+      .screen .ul {
+        position: absolute;
+        left: 0;
+        width: 4800px;
+      }
+      .all ol {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        line-height: 20px;
+        text-align: center;
+      }
+      .all ol li {
+        float: left;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      .arr span {
+        width: 40px;
+        height: 40px;
+        background-color: #000;
+        opacity: 0.3;
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        cursor: pointer;
+        line-height: 40px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+        color: #fff;
+        border: 1px solid #fff;
+        font-family: "黑体";
+      }
+      .arr .left {
+        left: 5px;
+      }
+      .arr .right {
+        right: 5px;
+      }
+      .all ol li.active {
+        background-color: orange;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="all">
+      <div class="screen">
+        <div class="ul">
+          <img src="images/1.jpg" alt="" />
+          <img src="images/2.jpg" alt="" />
+          <img src="images/3.jpg" alt="" />
+          <img src="images/4.jpg" alt="" />
+          <img src="images/5.jpg" alt="" />
+        </div>
+        <ol></ol>
+      </div>
+      <div class="arr">
+        <span class="left"><</span>
+        <span class="right">></span>
+      </div>
+    </div>
+
+    <script src="animate.js"></script>
+    <script type="text/javascript">
+      // 需求 无缝轮播
+      // 步骤
+      // 一.获取相关元素
+      // 二.补全相关内容
+      //.1复制列表中第一项 添加到数组结尾
+      //.2生成ol相关li
+      //.3点亮第一个ol里面的li
+      //三.鼠标放在提示按钮 轮播图片
+      //四.添加定时器
+      //五.实现左右切换按钮
+
+      // 一.获取相关元素
+      // 获取大盒子
+      var box = document.querySelector(".all");
+      // 获取ul
+      var ul = document.querySelector(".all .ul");
+      // 获取按钮
+      var ol = document.querySelector(".all ol");
+      // 获取ul下的所有子节点图片
+      var imgs = ul.children;
+      // 二.补全相关内容
+      //在ul中最后拷贝一张图放到最后
+      //.1复制列表中第一项 添加到数组结尾（复制图片到结尾）
+      var newLi = imgs[0].cloneNode(true);
+      // 将拷贝的图片加到最后
+      ul.appendChild(newLi);
+      //.2生成ol相关li
+      // 循环图片，图片长度-1
+      // 补全ol按钮，遍历循环图片减去拷贝的那张图片 5个按钮
+      for (var i = 0; i < imgs.length - 1; i++) {
+        // 创建li元素
+        var newOlLi = document.createElement("li");
+        // 输出数字，下标从0开始所以+1
+        newOlLi.innerHTML = i + 1;
+        // 将li添加到ol中
+        ol.appendChild(newOlLi);
+      }
+
+      //.3点亮第一个ol里面的li 默认给第一个li元素添加类名
+      ol.children[0].className = "active";
+      // 获取ol下所有的li 切换按钮
+      var olLiArr = ol.children;
+      //三.鼠标放在提示按钮 轮播图片
+
+      //用来存储我走到第几个
+      var key = 0;
+      //用来关联ol里面的li
+      var square = 0;
+
+      for (var i = 0; i < olLiArr.length; i++) {
+        // 给每一个按钮定义一个自定义属性index 为了可以使用i变量
+        olLiArr[i].index = i;
+        // 当鼠标指向获取的元素的时候触发
+        olLiArr[i].onmouseover = function () {
+          // 鼠标指向先把所有的类名为active清空
+          for (var j = 0; j < olLiArr.length; j++) {
+            olLiArr[j].className = "";
+          }
+          // document.querySelector(".active").className = "";
+          // 在设置当前选中的设置类名为active
+          // olLiArr[this.index].className = 'active';
+          this.className = "active";
+          console.log(this.index * ul.children[0].offsetWidth);
+          /* 					
+					偏移从0开始 然后依次是900 1800 2700 3600
+					目标位置（偏移位置）= 当前索引*一张图片的宽度(900或ul.children[0].offsetWidth)
+					0*900 1*900  2*900.....4*900
+				*/
+          // 为什么是-this.index，因为正数是往右边走，负数是往左边走，所以是-this.index
+
+          // 移动的ul，移动的距离，当前索引*一张图片的宽度
+          animate(ul, -this.index * ul.children[0].offsetWidth);
+          // 用户离开 让定时器从当前按钮开始轮播
+          square = key = this.index;
+        };
+      }
+      //四、添加定时器
+      var timer = null;
+      // 执行轮播图
+      timer = setInterval(autoPlay, 2000);
+
+      function autoPlay() {
+        // 累加器 上述加了定时器，每五秒钟执行一次也就是每秒钟+1
+        key++;
+        //通过长度来判断下标，key大于按钮个数，图片回到到第0个
+        if (key > olLiArr.length - 1) {
+          // 将整体的列表设置回起点
+          // 从0 -800 -1600 ....-3200
+          ul.style.left = 0;
+          key = 0;
+        }
+        // key：0-4
+        // 默认显示的就是第0个，所以第一次 1 2 3 4
+        //  到头之后在从0开始所以之后的循环都是从0开始，0 1 2 3 4 0 1 2 3 4
+        console.log(key, olLiArr.length - 1);
+        // 传递dom元素 当前元素的偏移位置（移动到目标位置）
+        animate(ul, -key * ul.children[0].offsetWidth);
+
+        square++;
+        //点亮的li和轮播关联起来  这里通过长度来判断下标
+        // 索引0-4 图片长度是5-1=4
+        // 判断如果square大于olLiArr.length - 1就到头了返回0 否则就一直+1
+        square = square > olLiArr.length - 1 ? 0 : square;
+        for (var i = 0; i < olLiArr.length; i++) {
+          // 全部清空选中状态
+          olLiArr[i].className = "";
+        }
+        // 当前按钮的class为选中状态
+        olLiArr[square].className = "active";
+      }
+      //给左右按钮添加点击事件
+      var btn = document.querySelector(".left");
+      var btntwo = document.querySelector(".right");
+
+      // 点击右边的时候直接调用函数
+      btntwo.onclick = function () {
+        autoPlay();
+      };
+      // 点击左边按钮
+      btn.onclick = function () {
+        //用来存储我走到第几个
+        key--;
+        // 用来关联ol里面的li
+        square--;
+        // 左边小于0,就回到最后一个
+        console.log(key);
+        if (key < 0) {
+          // -1显示第5个
+          // key=li长度-1 即3 2 1 0
+          key = olLiArr.length - 1;
+          console.log(olLiArr.length, "555");
+          // 返回第5个，-图片长度*任意图片的宽度
+          ul.style.left = -olLiArr.length * ul.children[0].offsetWidth + "px";
+        }
+        animate(ul, -key * ul.children[0].offsetWidth);
+        // 索引0-4 图片长度是5-1=4 小于0就-1，也就是最后一张图
+        square = square < 0 ? olLiArr.length - 1 : square;
+        for (var i = 0; i < olLiArr.length; i++) {
+          // 全部清空选中状态
+          olLiArr[i].className = "";
+        }
+        // 当前添加类名
+        olLiArr[square].className = "active";
+      };
+      //鼠标移入移出关闭/开启定时器
+      box.onmouseover = function () {
+        clearInterval(timer);
+      };
+      box.onmouseout = function () {
+        timer = setInterval(autoPlay, 2000);
+      };
+    </script>
+  </body>
+</html>

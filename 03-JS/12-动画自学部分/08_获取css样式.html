@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 300px;
+        height: 300px;
+        background-color: rgb(171, 205, 239);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script type="text/javascript">
+      var box = document.querySelector(".box");
+      // console.log(box.style.backgroundColor);
+
+      // getComputedStyle()[""] 第一个参数 标签 第二个参数null [css属性] 调用者window
+      // console.log(window.getComputedStyle(box,null)["width"]);
+
+      // ie
+      // currentStyle 调用者当前元素
+      // console.log(box.currentStyle.width);
+
+      // 获取当前有效样式(要获取的dom元素,样式)
+      function getStyle(dom, cssStyle) {
+        // dom==oDiv cssStyle==height
+        // currentStyle["样式"] IE
+        // getComputedStyle(要获取的dom元素)["样式"] 谷歌、火狐等
+        // 判断是不是ie浏览器
+        return dom.currentStyle
+          ? dom.currentStyle[cssStyle]
+          : getComputedStyle(dom)[cssStyle];
+      }
+
+      console.log(getStyle(box, "background-color"));
+    </script>
+  </body>
+</html>

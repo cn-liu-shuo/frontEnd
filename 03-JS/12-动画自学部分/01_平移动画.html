@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 100px;
+        height: 80px;
+        background-color: orange;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn1">平移400</button>
+    <button class="btn2">平移800</button>
+    <div class="box"></div>
+    <script type="text/javascript">
+      // 获取按钮
+      var btn1 = document.querySelector(".btn1");
+      // 获取盒子
+      var box = document.querySelector(".box");
+      // 盒子的左边距离
+      console.log(box.offsetLeft);
+      // 单击按钮时
+      btn1.onclick = function () {
+        // 设置定时器 每隔20毫秒执行一次 每隔20毫秒走10px
+        timer = setInterval(function () {
+          // 起始位置 盒子的左边距离
+          var current = box.offsetLeft;
+          // 起始值小于目标值 就走
+          // step 移动的位置 速度
+          var step = 10;
+          if (current < 400) {
+            // 盒子的左边距= 盒子的左边距离+移动是位置 速度
+            box.style.left = current + step + "px";
+          } else {
+            //否则 就停
+            clearInterval(timer);
+          }
+        }, 20);
+      };
+
+      var btn2 = document.querySelector(".btn2");
+      btn2.onclick = function () {
+        timer = setInterval(function () {
+          // 起始位置
+          var current = box.offsetLeft;
+          // 起始值小于目标值 就走
+          // step 移动的位置 速度
+          var step = 10;
+          if (current < 800) {
+            box.style.left = current + step + "px";
+          } else {
+            //否则 就停
+            clearInterval(timer);
+          }
+        }, 20);
+      };
+    </script>
+  </body>
+</html>
