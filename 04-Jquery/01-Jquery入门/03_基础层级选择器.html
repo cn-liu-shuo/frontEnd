@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>基础层级选择器</title>
+  </head>
+  <body>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li>
+        <p>
+          <span>span1</span>
+          <span>span2</span>
+          <span>span3</span>
+        </p>
+      </li>
+    </ul>
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      // $ 可以通过 标签名 id名 类名 后代 子代 下一个兄弟 交并集 序选择器等来获取dom元素
+
+      // 找到 span2 将其背景颜色改为 aqua
+      $("ul li p span:nth-child(2)")[0].style.backgroundColor = "aqua";
+    </script>
+  </body>
+</html>

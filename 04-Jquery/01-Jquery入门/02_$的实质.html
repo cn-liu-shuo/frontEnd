@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>$的实质</title>
+  </head>
+  <body>
+    <div class="box">
+      <p>今天周六了, so happy</p>
+    </div>
+
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      // $ 其实是一个函数 所以在使用 $ 的时候后面都是加上()
+      // $(参数)
+
+      // 1.当参数是一个函数的形式 是入口函数的简写
+      $(function () {
+        console.log("我是 jq 里的简写入口函数");
+      });
+
+      // 2.当参数是个 dom 对象的时候 将 js 中的 dom对象 转化为 jq 对象
+      $(document).ready(function () {
+        console.log($(document));
+        console.log(document);
+      });
+
+      // 当参数是一个选择器的时候 用来获取 dom 元素的
+      console.log($(".box"));
+      console.log($(".box p"));
+    </script>
+  </body>
+</html>

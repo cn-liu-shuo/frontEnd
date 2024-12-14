@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>入口函数</title>
+  </head>
+
+  <body>
+    <!-- 
+		jquery 的简称就是 jq, 是 js 的一个库, 就是把 js 中的一些常用的方法拿出来封装, 方便直接使用, 就是一个框架
+
+		使用 jquery 开发起来 方便 快捷 简单
+
+		jq优点:
+			1. 查找元素的方法多 简单灵活
+			2. 不用写 for 循环 拥有隐式迭代特性
+			3. 代码简单粗暴
+			4. 兼容性好
+	 -->
+    <script type="text/javascript">
+      // js的入口函数 会被后面的覆盖
+      window.onload = function () {
+        console.log("我是js的第一个入口函数");
+      };
+      window.onload = function () {
+        console.log("我是js的第二个入口函数");
+      };
+    </script>
+    <!-- 先引入 jq 文件 在使用 jq 的方法 -->
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      // jq 的入口函数 不会被覆盖 可以写多个
+      // 第一种写法 标准写法
+      $(document).ready(function () {
+        console.log("我是 jq 的第一个入口函数");
+      });
+      $(document).ready(function () {
+        console.log("我是 jq 的第二个入口函数");
+      });
+
+      // 第二种写法 简写形式
+      $(function () {
+        console.log("我是 jq 里的简写入口函数");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>筛选选择器</title>
+  </head>
+  <body>
+    <div>
+      <p>p1</p>
+      <p class="p2">p2</p>
+      <p>
+        <span>span1</span>
+      </p>
+      <p>p3</p>
+      <span>span2</span>
+    </div>
+
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      // 获取 div 里面的所有子节点
+      console.log($("div").children());
+
+      // 获取 div 里面子节点的span
+      console.log($("div").children("span"));
+
+      // 获取 div 后代里的span
+      console.log($("div").find("span"));
+
+      // 获取除了 p2 之外的所有兄弟元素节点
+      console.log($(".p2").siblings());
+
+      // 获取除了 p2 之外的所有兄弟元素节点里面的 span 节点
+      console.log($(".p2").siblings("span"));
+
+      // 获取除了 p2 上一个兄弟节点
+      console.log($(".p2").prev());
+
+      // 获取除了 p2 下一个兄弟节点
+      console.log($(".p2").next());
+
+      // 获取除了 p2 的父节点
+      console.log($(".p2").parent());
+    </script>
+  </body>
+</html>

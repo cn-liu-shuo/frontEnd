@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>过滤选择器</title>
+  </head>
+  <body>
+    <ul>
+      <li>a</li>
+      <li>b</li>
+      <li>c</li>
+      <li>d</li>
+      <li>e</li>
+    </ul>
+
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      // 选中内容为 c 的li标签 color 为 red
+
+      // $('ul li:nth-child(3)')[0].style.color = 'red';
+
+      // eq() 用于寻找匹配到的元素的集合 指定下标位置的元素
+      // console.log($('ul li'))
+      // $('ul li').eq(2)[0].style.color = 'red';
+      // $('ul li:eq(3)')[0].style.color = 'orange';
+
+      // 选中 偶数行 奇数行
+      // odd 奇数下标 even 偶数下标
+      // console.log($('ul li:odd'));
+      // console.log($('ul li').even());
+
+      // 选中下标大于 2 的li 大于 :gt() 小于 :lt()
+      console.log($("ul li:gt(2)"));
+      console.log($("ul li:lt(2)"));
+    </script>
+  </body>
+</html>

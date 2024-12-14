@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>calss操作</title>
+    <style type="text/css">
+      .class1 {
+        background-color: orange;
+        color: white;
+      }
+      .class2 {
+        font-weight: bolder;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>添加class1</button>
+    <button>添加class2</button>
+    <button>移除class1</button>
+    <button>切换</button>
+    <button>判断</button>
+    <div>
+      <p>李云奇</p>
+      <p>王兰杰</p>
+      <p>霍骅</p>
+    </div>
+
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      // 添加类名 addClass() 会保留原来的类名
+      $("button")
+        .eq(0)
+        .click(function () {
+          $("div p:eq(0)").addClass("class1");
+        });
+
+      $("button")
+        .eq(1)
+        .click(function () {
+          $("div p:eq(1)").addClass("class2");
+        });
+
+      // 移除类名 removeClass()
+      $("button")
+        .eq(2)
+        .click(function () {
+          $("div p:eq(0)").removeClass("class1");
+        });
+
+      $("button")
+        .eq(3)
+        .click(function () {
+          // 切换类名 toggleClass()
+          // 如果都没有这两个类名就添加上这两个类名
+          // 如果都拥有这两个类名就都移除这两个类名
+          // 如果拥有其中一个类名则移除拥有的类名, 添加没有的类名
+          $("div p").toggleClass("class1 class2");
+        });
+
+      $("button")
+        .eq(4)
+        .click(function () {
+          console.log($("div p:eq(0)").hasClass("class1"));
+        });
+    </script>
+  </body>
+</html>
