@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>防抖和节流</title>
+  </head>
+  <body>
+    <button>点击</button>
+
+    <script type="text/javascript">
+      // 防抖 多次执行变为最后一次执行
+      var btn = document.querySelector("button");
+      // 定义一个变量 timer 存储延时器
+      var timer = null;
+      btn.onclick = function () {
+        // 先清除上一次的延时器
+        clearTimeout(timer);
+        // 每一次点击延迟触发
+        timer = setTimeout(function () {
+          console.log("呀吼");
+        }, 1000);
+      };
+
+      // 节流 多次执行变成每隔一段时间执行
+      function fn(a, b) {
+        var timer1 = null;
+        return function (val) {
+          if (!timer1) {
+            // timer1 ==> null ==> false
+            timer1 = setTimeout(function () {
+              // timer1 ==> 延时器 ==> true
+              b(val);
+              timer1 = null;
+            }, a);
+          }
+        };
+      }
+      function c(row) {
+        console.log(row, "最终坐标");
+      }
+      var fn1 = fn(1000, c);
+      document.addEventListener("mousemove", function (e) {
+        fn1(e.clientX);
+      });
+    </script>
+  </body>
+</html>

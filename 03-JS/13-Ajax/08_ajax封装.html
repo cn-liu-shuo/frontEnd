@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax封装</title>
+  </head>
+  <body>
+    <input type="text" />
+    <button>点击</button>
+    <!-- 引入封装的 ajax.js -->
+    <script src="ajax.js"></script>
+    <script>
+      var ipt = document.querySelector("input");
+      var btn = document.querySelector("button");
+      btn.onclick = function () {
+        $ajax({
+          method: "get",
+          url: "https://api.qqsuu.cn/api/dm-lajifenlei",
+          data: {
+            apiKey: "da7b0549eacfbc729703cfa4466bc96c",
+            word: ipt.value,
+          },
+          asyn: true,
+          contentType: "",
+          token: "",
+          success: function (val) {
+            var obj = JSON.parse(val);
+            console.log(obj);
+          },
+        });
+      };
+    </script>
+  </body>
+</html>

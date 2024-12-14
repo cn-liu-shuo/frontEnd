@@ -1,0 +1,8 @@
+获取英雄接口:
+	方法: get
+	接口地址: https://game.gtimg.cn/images/lol/act/img/js/heroList/hero_list.js?v=58
+	英雄头像(示例 奥拉夫):
+		https://game.gtimg.cn/images/lol/act/img/champion/Olaf.png
+获取英雄简介接口:
+	方法: get
+	接口地址:https://game.gtimg.cn/images/lol/act/img/js/hero/英雄id.js?ts=2734602

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ajax语法</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			http 和 https 的区别？
+				http 是网络传输协议 信息是明文传输
+				https 是具有安全性的加密传输协议 所以在安全性上 https 更好一些
+				http(80) 和 https(443) 端口号不一样
+
+			http 三次握手
+				1. 客户端向服务端发送请求
+				2. 服务端接收到请求需要进行核对操作, 发送的请求服务端能不能接收到, 如果接收到, 就向客户端返回接收到的请求信息
+				3. 客户端拿着服务端返回成功接收到的这个信息再去向服务端发送请求 两者建立联系
+
+			实现 Ajax 的步骤
+			1.创建 Ajax 对象
+			2.创建一个新的 http 请求 并指定请求的方法(建立连接)
+			3.发送请求
+			4.设置响应 http 请求状态变化的变化函数
+			5.获取返回数据
+			6.实现局部数据的更新
+
+			请求方式有哪些？
+				get post delete put
+
+				get 和 post的区别？
+					1.安全性问题
+						get请求会将数据拼接到地址栏上 信息会暴露
+						post请求参数不可见
+					2.数据传输量
+						get有长度限制
+						post没有
+					3.缓存问题
+						get请求数据会被缓存
+						post不会
+		*/
+
+      // 1.创建 Ajax 对象
+      var xhr = new XMLHttpRequest();
+      // 2.和服务器建立连接 创建 http 请求
+      // xhr.open('method(请求方法)', '接口地址', '是否开启异步(默认是true 异步)')
+      // get请求 参数拼接在接口地址后面
+      xhr.open(
+        "get",
+        "接口地址?name=张三&age=18",
+        "是否开启异步(默认是true 异步)"
+      );
+      // post/put/delete请求 参数在发送请求 xhr.send() 中处理
+      xhr.open("post", "接口地址", "是否开启异步(默认是true 异步)");
+      // 3.设置请求头 在发送请求之前设置 get请求一般不设置请求头
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      /*
+			常见的 Ajax 请求头类型
+				1.application/x-www-form-urlencoded(默认) 常见的 post 提交数据的方式
+					请求数据的格式 form data: user=1&age=18
+				2.application/json json的数据格式
+					请求数据的格式 request payload: {
+											user: 1,
+											age: 18
+										}
+				3.multipart/form-data 专门给上传文件的接口添加请求头 使用表单的上传图片
+					请求数据的格式 request payload: filename: bg.jpg
+				4.自定义请求头 token
+		*/
+      // 4.发送请求
+      xhr.send(); // get请求
+      xhr.send("userName=1&passWord=2"); // post请求
+      // 5.设置监听变化的函数 返回数据
+      xhr.onreadystatechange = function () {
+        /*
+				0 调用 open 之前 请求未初始化
+				1 调用 send 之前 服务器建立连接的时候
+				2 send 方法完成时 已经收到所有相关内容
+				3 解析 收到的请求
+				4 数据解析完了 可以使用了
+			*/
+        // xhr.status 响应的 http 状态码
+        /*
+				*200 请求成功
+				301 资源被永久转移到其他url
+				*400 客户端请求语法错误
+				*401 发送请求需要认证
+				*403 请求的资源被服务端拒绝
+				*404 表示服务器无法找到指定的资源
+				*500 表示服务端在执行请求时发生了错误
+				*502 服务器网关出现了错误
+				503 服务器停机维护 现在无法处理请求
+			*/
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          // 此时你接收到的 xhr.responseText 数据是 json 字符串类型 要将其转化为 json 对象
+          var obj = JSON.parse(xhr.responseText);
+          // 此时的 obj 就是你获取的数据
+        }
+      };
+    </script>
+  </body>
+</html>

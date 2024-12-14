@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>wish首页</title>
+    <link rel="shortcut icon" href="images/icon/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="add">
+        <input type="text" />
+        <button>添加</button>
+      </div>
+      <div class="wishList">
+        <div class="wishListCon">
+          <ul></ul>
+        </div>
+      </div>
+      <div class="page clearfix">
+        <p class="left">上一页</p>
+        <div class="pageIndex"></div>
+        <p class="right">下一页</p>
+      </div>
+    </div>
+
+    <!-- 引入封装的 ajax -->
+    <script src="js/ajax.js"></script>
+    <!-- 引入的分页 -->
+    <script src="js/page.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

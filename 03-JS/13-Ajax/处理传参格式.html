@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var obj = {
+        userName: "admin",
+        paddWord: 123456,
+      };
+      function queryString(obj) {
+        var str = "";
+        for (var i in obj) {
+          // userName=张三&passWord=123456
+          str += `${i}=${obj[i]}&`;
+        }
+        return str.substring(0, str.length - 1);
+      }
+      queryString(obj);
+    </script>
+  </body>
+</html>

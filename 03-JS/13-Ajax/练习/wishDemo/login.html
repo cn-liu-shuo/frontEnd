@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2407C-专属页面</title>
+    <link rel="shortcut icon" href="images/icon/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- 注册 -->
+      <div class="container-form container-register">
+        <form action="#" class="form" id="form1">
+          <h2 class="form-title">注册账号</h2>
+          <input type="text" placeholder="userName" class="input" />
+          <input type="text" placeholder="passWoed" class="input" />
+          <input type="text" placeholder="name" class="input" />
+          <input type="text" placeholder="role" class="input" />
+          <button type="button" class="btn" id="register">点击注册</button>
+        </form>
+      </div>
+      <!-- 登录 -->
+      <div class="container-form container-login">
+        <form action="#" class="form" id="form2">
+          <h2 class="form-title">欢迎登陆</h2>
+          <input type="text" placeholder="userName" class="input" />
+          <input type="password" placeholder="passWoed" class="input" />
+          <a href="javascript:;" class="link">忘记密码？</a>
+          <button type="button" class="btn" id="login">登录</button>
+        </form>
+      </div>
+      <!-- 覆盖部分 -->
+      <div class="container-overlap">
+        <div class="overlap">
+          <div class="overlap-panel overlap-left">
+            <button class="btn" id="toLogin">已有帐号，直接登录</button>
+          </div>
+          <div class="overlap-panel overlap-right">
+            <button class="btn" id="toRegister">没有账号，点击注册</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 引入封装的 ajax -->
+    <script src="js/ajax.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>首页</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .main {
+        width: 700px;
+        margin: 0 auto;
+      }
+      .main .heroPages {
+        display: none;
+      }
+      .main .show {
+        display: block;
+      }
+      .main div div {
+        float: left;
+        width: 100px;
+        height: 120px;
+        border: 10px solid black;
+        margin-right: 20px;
+        margin-bottom: 10px;
+      }
+      .main img {
+        display: block;
+        width: 100px;
+        cursor: pointer;
+      }
+      .main span {
+        font-size: 18px;
+        text-align: center;
+        display: block;
+        line-height: 20px;
+        background-color: black;
+        color: white;
+        height: 20px;
+        width: 100px;
+      }
+      .page {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%);
+      }
+      .left,
+      .right {
+        border: 1px solid #ccc;
+        cursor: pointer;
+        padding: 5px 8px;
+      }
+      .page .left,
+      .page .right,
+      .page .pageIndex {
+        float: left;
+      }
+      .page .pageIndex span {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        vertical-align: middle;
+      }
+      .page .pageIndex .active {
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main"></div>
+    <div class="page">
+      <p class="left">上一页</p>
+      <div class="pageIndex"></div>
+      <p class="right">下一页</p>
+    </div>
+
+    <script type="text/javascript">
+      var div = document.querySelector(".main");
+      function getLeagues() {
+        var xhr = new XMLHttpRequest();
+        xhr.open(
+          "get",
+          "https://game.gtimg.cn/images/lol/act/img/js/heroList/hero_list.js?v=58"
+        );
+        xhr.send();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var heroObj = JSON.parse(xhr.responseText).hero;
+            var imgArr = [];
+            var nameArr = [];
+            for (var i in heroObj) {
+              imgArr[i] = heroObj[i].alias;
+              nameArr[i] = heroObj[i].name;
+              if (i % 20 == 0) {
+                div.innerHTML += '<div class="heroPages"></div>';
+              }
+            }
+            for (var i = 0; i < div.children.length; i++) {
+              for (var j = i * 20; j < (i + 1) * 20; j++) {
+                if (imgArr[j] != undefined) {
+                  div.children[i].innerHTML += `
+										<div>
+											<img src="https://game.gtimg.cn/images/lol/act/img/champion/${imgArr[j]}.png">
+											<span>${nameArr[j]}</span>
+										</div>
+									`;
+                }
+              }
+            }
+            var divs = document.getElementsByClassName("heroPages");
+            pagination(divs);
+            getHeroDetails(heroObj);
+          }
+        };
+      }
+      // 分页
+      function pagination(val) {
+        // 获取相对应的 dom 元素
+        var pageIndex = document.querySelector(".pageIndex");
+        var left = document.querySelector(".left");
+        var right = document.querySelector(".right");
+
+        // 定义一个变量 页数
+        var pageNum = val.length;
+
+        // 定义一个变量 存储当前点击的页码
+        var pagination = null;
+
+        // 遍历数组 动态渲染 span
+        for (var i = 0; i < pageNum; i++) {
+          pageIndex.innerHTML += `<span>${i + 1}</span>`;
+        }
+
+        // 获取 pageIndex 里面的所有 span 然后给第一个span加active类名
+        var spans = pageIndex.children;
+        spans[0].className = "active";
+        val[0].classList.add("show");
+
+        // 遍历 pageIndex 里面的所有 span 并绑定点击事件
+        for (var i = 0; i < spans.length; i++) {
+          spans[i].onclick = function () {
+            // 清除页面上的 active 类名
+            document.querySelector(".active").className = "";
+            document.querySelector(".show").classList.remove("show");
+            // 给当前点击的span加 active 类名
+            this.className = "active";
+            // 给当前的页面加类名
+            val[this.innerText - 1].classList.add("show");
+          };
+        }
+
+        // 上一页
+        left.onclick = function () {
+          // 先获取拥有 active 类名的 span 元素
+          var spanActive = document.querySelector(".active");
+          if (spanActive.previousElementSibling == null) {
+            // alert('到头了， 别点了');
+          } else {
+            // 有上一个元素就模拟点击一下
+            spanActive.previousElementSibling.onclick();
+          }
+        };
+
+        // 下一页
+        right.onclick = function () {
+          // 先获取拥有 active 类名的 span 元素
+          var spanActive = document.querySelector(".active");
+          if (spanActive.nextElementSibling == null) {
+            // alert('到头了， 别点了');
+          } else {
+            // 有下一个元素就模拟点击一下
+            spanActive.nextElementSibling.onclick();
+          }
+        };
+      }
+      // 跳转页面并且将其所对应的英雄id传过去
+      function getHeroDetails(details) {
+        var imgs = document.querySelectorAll(".main img");
+        for (var i = 0; i < imgs.length; i++) {
+          imgs[i].index = i;
+          imgs[i].onclick = function () {
+            console.log("英雄id", details[this.index].heroId);
+            location.href = `details.html?id=${details[this.index].heroId}`;
+          };
+        }
+      }
+      getLeagues();
+    </script>
+  </body>
+</html>

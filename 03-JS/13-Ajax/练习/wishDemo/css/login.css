@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  background: url(../images/login/bg_01.png) center no-repeat fixed;
+  background-size: cover;
+  /* 设置背景图模糊 */
+  backdrop-filter: blur(5px);
+}
+.container {
+  background-color: #e7e7e7;
+  border-radius: 11px;
+  height: 420px;
+  overflow: hidden;
+  box-shadow: 0 14.5px 27px rgba(0, 0, 0, 0.25),
+    0 11.2px 11.2px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 750px;
+  width: 100%;
+}
+/* 登陆、注册通用部分 */
+.container-form {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: all 0.6s ease-in-out;
+}
+/* 登录框 默认 z-index 为 2 透明度为 1 */
+.container-login {
+  left: 0;
+  z-index: 2;
+  width: 50%;
+}
+/* 注册框 默认 z-index 为 1 透明度为 0 */
+.container-register {
+  left: 0;
+  opacity: 0;
+  width: 50%;
+  z-index: 1;
+}
+/* 表单样式 */
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 3rem;
+  height: 100%;
+  text-align: center;
+  background-color: #e7e7e7;
+}
+.form-title {
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 1.25rem;
+}
+.link {
+  color: #333;
+  font-size: 14px;
+  margin: 24px 0;
+  text-decoration: none;
+}
+.input {
+  width: 100%;
+  background-color: #fff;
+  padding: 14px;
+  margin: 8px 0;
+  border: 0;
+  outline: none;
+}
+.btn {
+  background-color: yellow;
+  box-shadow: 0 4px 4px rgba(255, 112, 159, 0.3);
+  border-radius: 5px;
+  color: #e78bab;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 14px 64px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 80ms ease-in;
+}
+.form > .btn {
+  margin-top: 24px;
+}
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* 覆盖部分 */
+.container-overlap {
+  height: 100%;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transition: all 0.6s ease-in-out;
+  width: 50%;
+  z-index: 100;
+}
+.overlap {
+  width: 200%;
+  height: 100%;
+  position: relative;
+  left: -100%;
+  background: url(../images/login/bg_01.png) no-repeat center -200px fixed;
+  background-size: cover;
+  transition: all 0.6s ease-in-out;
+  transform: translateX(0);
+}
+.overlap-panel {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+.overlap-left {
+  transform: translateX(-20%);
+}
+.overlap-right {
+  right: 0;
+  transform: translateX(0);
+}
+.overlap-right .btn {
+  background-color: #f5b2c9;
+  color: yellow;
+}
+/* 设置类名 panel-active js控制切换类名 */
+/* 设置激活时覆盖层的位置 */
+.panel-active .overlap-left {
+  transform: translateX(0);
+}
+.panel-active .container-overlap {
+  transform: translateX(-100%);
+}
+.panel-active .overlap {
+  transform: translateX(50%);
+}
+/* 设置激活时 登陆注册的位置和透明度 */
+.panel-active .container-login {
+  transform: translateX(100%);
+}
+.panel-active .container-register {
+  opacity: 1;
+  z-index: 5;
+  transform: translateX(100%);
+}

@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  /* flex 布局设置垂直水平居中 */
+  /*display: flex;
+	justify-content: center;
+	align-items: center;*/
+}
+/* 清除浮动 */
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.container {
+  width: 1000px;
+  height: 500px;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  box-shadow: 0 14.5px 27px rgba(0, 0, 0, 0.25),
+    0 11.2px 11.2px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+/* 添加 */
+.container .add {
+  text-align: left;
+  padding: 10px 50px;
+  background-color: #e7e7e7;
+}
+.container .add input {
+  width: 240px;
+  height: 30px;
+  outline: none;
+  border: 0;
+  padding: 0 5px;
+}
+.container .add button {
+  cursor: pointer;
+  border: 0;
+  color: #f5b2c9;
+  background-color: yellow;
+  padding: 5px 10px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 80ms ease-in;
+}
+.container .add button:active {
+  transform: scale(0.95);
+}
+
+/* 留言列表 */
+.wishList {
+  padding: 20px;
+}
+.wishListCon ul {
+  list-style: none;
+}
+.wishListCon ul li {
+  padding-left: 3px;
+  margin-bottom: 1px;
+}
+.wishListCon ul li span {
+  float: left;
+  width: 160px;
+  height: 30px;
+  padding: 5px 5px;
+  border: 1px solid #ccc;
+  border-top: 0;
+  margin-left: -1px;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #514f4f;
+  font-size: 12px;
+}
+.wishListCon ul li:first-child span {
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  border-top: 1px solid #ccc;
+}
+.wishListCon ul li span:nth-child(3) {
+  width: 480px;
+}
+
+/* 分页 */
+.page {
+  display: inline-block;
+}
+.left,
+.right {
+  border: 1px solid #ccc;
+  cursor: pointer;
+  padding: 5px 8px;
+}
+.page .left,
+.page .right,
+.page .pageIndex {
+  float: left;
+}
+.page .pageIndex span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.page .pageIndex .active {
+  background-color: blue;
+  color: white;
+}

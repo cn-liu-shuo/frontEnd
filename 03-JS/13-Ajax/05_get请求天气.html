@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" />
+    <button>查询</button>
+    <div></div>
+    <script>
+      // 获取相对应的 dom 节点
+      var ipt = document.querySelector("input");
+      var btn = document.querySelector("button");
+      var box = document.querySelector("div");
+      btn.onclick = function () {
+        // 先调用 城市接口 获取相对应的城市id
+        var xhr = new XMLHttpRequest();
+        xhr.open(
+          "get",
+          `https://geoapi.qweather.com/v2/city/lookup?location=${ipt.value}&key=3817cd5f5667476d9ccc5e9b888c1b70`
+        );
+        xhr.send();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var obj = JSON.parse(xhr.responseText);
+            console.log(obj, "---城市接口");
+            // 存 城市id
+            var cityId = obj.location[0].id;
+            console.log(cityId, "---城市id");
+            // 继续调用实时天气接口
+            var xhr1 = new XMLHttpRequest();
+            xhr1.open(
+              "get",
+              `https://devapi.qweather.com/v7/weather/now?location=${cityId}&key=3817cd5f5667476d9ccc5e9b888c1b70`
+            );
+            xhr1.send();
+            xhr1.onreadystatechange = function () {
+              if (xhr1.readyState == 4 && xhr1.status == 200) {
+                var cityWeather = JSON.parse(xhr1.responseText).now;
+                console.log(cityWeather, "---城市天气");
+                box.innerHTML = `
+                                    <div>
+                                        <img src="images/weather-icon/${cityWeather.icon}.png">
+                                    </div>
+                                    <p>${ipt.value}的天气为：${cityWeather.text}</p>
+                                    <p>${ipt.value}的温度为：${cityWeather.temp}℃</p>
+                                `;
+                // 清空输入框
+                ipt.value = "";
+              }
+            };
+          }
+        };
+      };
+    </script>
+  </body>
+</html>

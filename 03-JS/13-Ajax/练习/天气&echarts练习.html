@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>天气&echarts练习</title>
+  </head>
+  <body>
+    <input type="text" />
+    <button>查询</button>
+    <div id="main" style="width: 1500px; height: 400px"></div>
+    <!-- 引入 echarts -->
+    <script type="text/javascript" src="../echarts.min.js"></script>
+    <!-- 引入 ajax -->
+    <script type="text/javascript" src="../ajax.js"></script>
+    <script type="text/javascript">
+      var myChart = echarts.init(document.getElementById("main"));
+      var ipt = document.querySelector("input");
+      var btn = document.querySelector("button");
+      // 将处理好的时间与相对应的温度存起来
+      var time = [];
+      var timeWeather = [];
+      btn.onclick = function () {
+        $ajax({
+          method: "get",
+          url: "https://geoapi.qweather.com/v2/city/lookup",
+          data: {
+            location: ipt.value,
+            key: "3817cd5f5667476d9ccc5e9b888c1b70",
+          },
+          asyn: true,
+          contentType: "",
+          success: function (city) {
+            var cityId = JSON.parse(city).location[0].id;
+            $ajax({
+              method: "get",
+              url: "https://devapi.qweather.com/v7/weather/24h",
+              data: {
+                location: cityId,
+                key: "3817cd5f5667476d9ccc5e9b888c1b70",
+              },
+              asyn: true,
+              contentType: "",
+              success: function (weather) {
+                var cityWeather = JSON.parse(weather).hourly;
+                for (var i in cityWeather) {
+                  var handleTime = cityWeather[i].fxTime
+                    .substring(0, 16)
+                    .replace("T", " ");
+                  // 存取处理好的时间
+                  time.push(handleTime);
+                  // 存取相对应的温度
+                  timeWeather.push(cityWeather[i].temp);
+                }
+                option = {
+                  tooltip: {
+                    trigger: "axis",
+                    axisPointer: {
+                      type: "cross",
+                      label: {
+                        backgroundColor: "#6a7985",
+                      },
+                    },
+                  },
+                  xAxis: {
+                    type: "category",
+                    boundaryGap: false,
+                    data: time,
+                  },
+                  yAxis: {
+                    type: "value",
+                  },
+                  series: [
+                    {
+                      name: "温度",
+                      type: "line",
+                      data: timeWeather,
+                      areaStyle: {},
+                    },
+                  ],
+                };
+                myChart.setOption(option);
+                time = [];
+                timeWeather = [];
+              },
+            });
+          },
+        });
+      };
+    </script>
+  </body>
+</html>

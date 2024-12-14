@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>分页封装</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .left,
+      .right {
+        border: 1px solid #ccc;
+        cursor: pointer;
+        padding: 5px 8px;
+      }
+      .page .left,
+      .page .right,
+      .page .pageIndex {
+        float: left;
+      }
+      .page .pageIndex span {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        vertical-align: middle;
+      }
+      .page .pageIndex .active {
+        background-color: blue;
+        color: white;
+      }
+      .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      <div class="page clearfix">
+        <p class="left">上一页</p>
+        <div class="pageIndex"></div>
+        <p class="right">下一页</p>
+      </div>
+    </div>
+    <div class="box2">
+      <div class="page clearfix">
+        <p class="left">上一页</p>
+        <div class="pageIndex"></div>
+        <p class="right">下一页</p>
+      </div>
+    </div>
+    <!-- 引入封装的 page.js -->
+    <script type="text/javascript" src="page.js"></script>
+    <script type="text/javascript">
+      pagination(
+        ".box1 .pageIndex",
+        ".box1 .left",
+        ".box1 .right",
+        6,
+        function (val) {
+          console.log(`第一个分页器的第${val}页`);
+        }
+      );
+
+      pagination(
+        ".box2 .pageIndex",
+        ".box2 .left",
+        ".box2 .right",
+        9,
+        function (val) {
+          console.log(`第二个分页器的第${val}页`);
+        }
+      );
+    </script>
+  </body>
+</html>

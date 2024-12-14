@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>同步异步</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			同步: 可以理解为在执行完一个函数或者方法之后, 一直在等待系统返回值或者消息, 只有接受到返回值之后才能继续往下执行其他命令 有等待
+			异步: 在执行完函数或者方法之后不用等待返回值或者消息, 可以继续执行下一个命令 不需要等待
+		*/
+
+      setTimeout(function () {
+        console.log(1);
+      }, 0);
+      console.log(2);
+      setTimeout(function () {
+        console.log(3);
+      }, 100);
+      console.log(4);
+      setTimeout(function () {
+        console.log(5);
+      }, 0);
+      console.log(6);
+    </script>
+  </body>
+</html>

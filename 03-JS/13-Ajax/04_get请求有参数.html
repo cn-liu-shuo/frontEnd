@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>get请求有参数</title>
+    <style>
+      div span {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" />
+    <button>查询</button>
+    <div></div>
+
+    <script type="text/javascript">
+      // 获取相应的dom节点
+      var ipt = document.querySelector("input");
+      var btn = document.querySelector("button");
+      var div = document.querySelector("div");
+      btn.onclick = function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open(
+          "get",
+          `https://api.qqsuu.cn/api/dm-jieqi?word=${ipt.value}&apiKey=0eff64d0a4d2147596c9fecc64decf95`
+        );
+        xhr.send();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var obj = JSON.parse(xhr.responseText).data;
+            console.log(obj);
+            div.innerHTML = `
+							<span>${obj.name}:${obj.day}</span>
+							<span>诗句:${obj.shiju}</span>
+							<span>习俗:${obj.xishu}</span>
+							<span>宜忌:${obj.yiji}</span>
+						`;
+            ipt.value = "";
+          }
+        };
+      };
+    </script>
+  </body>
+</html>
