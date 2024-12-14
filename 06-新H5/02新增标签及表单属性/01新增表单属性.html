@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        required必填
+        pattern 校验 匹配
+     -->
+    <form action="">
+      <input type="text" required pattern="[0-9]{3,6}" /> <br />
+      <input type="email" />提交时校验是否是邮箱？<br />
+      <input type="url" />校验url <br />
+      <input type="date" />年月日 日期控件 <br />
+      <input type="time" />时分秒控件 <br />
+      <input type="week" />年周控件 <br />
+      <input type="number" />数字 <br />
+      <!-- 浏览器不支持tel 就i会默认使用text -->
+      <input type="tel" />电话输入框 多用于移动端 <br />
+      <input type="color" /> 调色板 <br />
+      <input type="range" min="0" max="10" value="2" />进度条
+      <input type="submit" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+      }
+      .main {
+        width: 100%;
+        margin: 0 auto;
+        background-color: aqua;
+      }
+      header {
+        width: 90%;
+        height: 60px;
+        line-height: 60px;
+        background-color: aquamarine;
+        margin: 0 auto;
+      }
+      .left {
+        float: left;
+      }
+      .right {
+        float: right;
+      }
+      .con {
+        width: 90%;
+        margin: 0 auto;
+      }
+      .con::after {
+        content: "";
+        clear: both;
+        height: 0;
+        visibility: hidden;
+        display: block;
+      }
+      article {
+        width: 500px;
+        height: 250px;
+        background-color: blue;
+        padding: 20px;
+        float: left;
+      }
+      aside {
+        width: 500px;
+        height: 250px;
+        padding: 20px;
+        float: right;
+        background: pink;
+      }
+      footer {
+        width: 100%;
+        padding: 20px 0;
+        background: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <!-- 导航 -->
+      <header>
+        <div class="left">左</div>
+        <div class="right">右</div>
+      </header>
+      <div class="con">
+        <!-- 左边部分 -->
+        <article>
+          <section>部分</section>
+        </article>
+        <!-- 右侧边 -->
+        <aside>侧边</aside>
+      </div>
+      <footer>底部</footer>
+    </div>
+  </body>
+</html>
