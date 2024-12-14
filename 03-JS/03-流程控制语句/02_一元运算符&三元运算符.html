@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>一元运算符&三元运算符</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 一元运算符
+      var num = 5;
+      console.log(num++); // 5
+      num++;
+      console.log(++num); // 8
+
+      // 三元运算符
+      // 表达式(条件) ? 结果1 : 结果2
+      var x = 10;
+      var y = 20;
+      var z = x < y ? "真厉害" : "不是哥们，你菜就多练";
+      console.log(z);
+
+      // 页面出现一个输入框 请输入年龄 >=18 可以去看电影了 <18 回家写作业
+      var age = prompt("请输入年龄");
+      var str = age >= 18 ? "可以去看电影了" : "回家写作业";
+      console.log(str);
+    </script>
+  </body>
+</html>

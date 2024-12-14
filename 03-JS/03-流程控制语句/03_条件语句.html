@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>条件语句</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 单分支语句
+      // if (2 < 1) {
+      // 	console.log('真棒!');
+      // }
+
+      // var grade = prompt('请输入成绩');
+      // if (grade >= 60) {
+      // 	console.log('恭喜获得试卷三套');
+      // }
+
+      // 双分支语句
+      // var grade = prompt('请输入成绩');
+      // if (grade >= 60) {
+      // 	console.log('恭喜获得试卷三套');
+      // } else {
+      // 	console.log('小霍霍一个');
+      // }
+
+      // 多分支语句
+      // 分数小于60 不及格; 60-70 一般; 70-80 中等; 80-90 良好; 90-100 优秀; 输入负数 汉字等显示 输入有误
+      // var grade = prompt('请输入成绩');
+      // if (grade >=0 && grade < 60) {
+      // 	alert('不及格');
+      // } else if (grade < 70) {
+      // 	alert('一般');
+      // } else if (grade < 80) {
+      // 	alert('中等');
+      // } else if (grade < 90) {
+      // 	alert('良好');
+      // } else if (grade <= 100) {
+      // 	alert('优秀');
+      // } else {
+      // 	alert('输入有误');
+      // }
+
+      // 分支嵌套
+      // if (grade >= 0 && grade <= 100) {
+      // 	if (grade < 60) {
+      // 		alert('不及格');
+      // 	} else if (grade < 70) {
+      // 		alert('一般');
+      // 	} else if (grade < 80) {
+      // 		alert('中等');
+      // 	} else if (grade < 90) {
+      // 		alert('良好');
+      // 	} else if (grade <= 100) {
+      // 		alert('优秀');
+      // 	}
+      // } else {
+      // 	alert('输入有误');
+      // }
+
+      // 判断平年还是闰年
+      var year = prompt("请输入年份");
+      if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+        console.log("您输入的是闰年");
+      } else {
+        console.log("您输入的是平年");
+      }
+    </script>
+  </body>
+</html>

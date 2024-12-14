@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>while</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			while 循环: 当循环条件为真时, 执行循环体代码 和 循环规律, 为假则退出循环
+
+			初始化变量
+			while(循环条件) {
+				循环体代码
+				循环规律
+			}
+		*/
+      // 输出 1-20 之间 3 的倍数
+      var num = 1;
+      while (num <= 20) {
+        if (num % 3 == 0) {
+          console.log(num);
+        }
+        num++;
+      }
+
+      // 输出 1-100 的和
+      var i = 1;
+      var sum = 0;
+      while (i <= 100) {
+        sum += i;
+        i++;
+      }
+      console.log(sum);
+    </script>
+  </body>
+</html>

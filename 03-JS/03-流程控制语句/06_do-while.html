@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>do-while</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			do...while 循环
+			原理: 不管条件是否为真先执行一次循环体 再进行判断 如果判断完为真继续执行下一次循环体 如果为假跳出循环
+		*/
+      do {
+        var qusetion = confirm("你爱不爱我？");
+      } while (!qusetion);
+      alert("今晚请我吃海底捞~");
+
+      // 输出 1-50 之间的偶数
+      var i = 1;
+      do {
+        if (i % 2 == 0) {
+          console.log(i);
+        }
+        i++;
+      } while (i <= 50);
+
+      /*
+			while 和 do...while 的区别？
+				while 先判断 后执行
+				do...while 先执行 后判断
+		*/
+    </script>
+  </body>
+</html>

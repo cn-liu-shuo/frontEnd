@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>break和continue的区别</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 找 1-100 第一个 6 的倍数
+      for (var i = 1; i <= 100; i++) {
+        if (i % 6 == 0) {
+          console.log(i);
+          break;
+        }
+      }
+
+      // 1 - 100之间奇数的和
+      var sum = 0;
+      for (var i = 1; i <= 100; i++) {
+        if (i % 2 == 0) {
+          continue;
+        }
+        sum += i;
+      }
+      console.log(sum);
+
+      /*
+			break 和 continue 的区别?
+				break 跳出当前所有循环 不再继续执行下去
+				continue 跳出当前循环的本次循环 继续执行下一次循环
+		*/
+    </script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 1.小明家有一只鸡和一些玉米粒, 这只鸡每天吃掉玉米粒的一半之后扔掉一个坏的玉米粒, 到第七天睁眼看,还剩下一个玉米粒。问一开始有多少玉米粒？
+      var m = 1;
+      for (var t = 7; t > 1; t--) {
+        m = (m + 1) * 2;
+      }
+      console.log("一共有" + m + "玉米粒");
+      // 2. 有一百只马 上等马一次驮两石粮食 中等马一次驮一石粮食 两只下等马驮一石粮食 问驮100石粮食有多少种分配方法 依次列出
+      var sum = 0;
+      for (var s = 0; s <= 50; s++) {
+        for (var z = 0; z <= 100 - s; z++) {
+          if (s * 2 + z + (100 - s - z) * 0.5 == 100) {
+            document.write(
+              "上等马" + s,
+              "中等马" + z,
+              "下等马" + (100 - s - z)
+            );
+            document.write("<br>");
+            sum++;
+          }
+        }
+      }
+      document.write(sum + "种方法");
+      // 3.假设某人有 100000 现金。 每经过一次路口需要进行一次交费。交费规则为当他现金大于50000 时每次需要交 5%， 如果现金小于等于 50000 时每次交 5000 。 请写一程序计算此人可以经过多少次这个路口。
+      var money = 100000;
+      var times = 0;
+      while (money >= 5000) {
+        if (money > 50000) {
+          money *= 0.95;
+        } else {
+          money -= 5000;
+        }
+        times++;
+      }
+      console.log(times);
+      // 4.某侦察队接到一向紧急任务 要求 A B C D E F六个队员尽可能多的挑若干人, 以下为限制条件:
+      /* 
+            --1. A 和 B两人中至少去一人
+            --2. A 和 D不能同时去
+            --3. A E F三人中要派两个人
+            --4. B C 要么都去要么都不去
+            --5. C D两人去一个
+            --6. 若 D 不去 E也不去
+        */
+      for (var a = 0; a <= 1; a++) {
+        for (var b = 0; b <= 1; b++) {
+          for (var c = 0; c <= 1; c++) {
+            for (var d = 0; d <= 1; d++) {
+              for (var e = 0; e <= 1; e++) {
+                for (var f = 0; f <= 1; f++) {
+                  if (
+                    a + b >= 1 &&
+                    a + d < 2 &&
+                    a + e + f == 2 &&
+                    b == c &&
+                    c != d &&
+                    d == 0 &&
+                    e == 0
+                  ) {
+                    console.log(a, b, c, d, e, f); // 1 1 1 0 0 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<h1>九九乘法表</h1>");
+
+      // 5.九九乘法表(要求会默写)
+      document.write('<table style="border-collapse: collapse; width: 100%;">');
+      for (var i = 1; i <= 9; i++) {
+        document.write("<tr>");
+        for (var j = 1; j <= i; j++) {
+          document.write(
+            '<td style="border: 1px solid black; padding: 8px; text-align: center;">' +
+              j +
+              "x" +
+              i +
+              "=" +
+              i * j +
+              "</td>"
+          );
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+      // 6.两个自然数相除,  商 3 余 10, 被除数、除数、商、余数的和是 163, 求被除数 和 除数
+      for (var cs = 1; cs <= 150; cs++) {
+        var bcs = cs * 3 + 10;
+        if (bcs + cs + 3 + 10 == 163) {
+          console.log(bcs, cs);
+        }
+      }
+    </script>
+  </body>
+</html>

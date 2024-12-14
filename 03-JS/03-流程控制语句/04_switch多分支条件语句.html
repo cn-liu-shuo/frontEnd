@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>switch多分支条件语句</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			switch 语法
+
+			switch (表达式) {
+				case 表达式1:
+					代码块1;
+					break;
+				case 表达式2:
+					代码块1;
+					break;
+				case 表达式3:
+					代码块1;
+					break;
+				...
+				default:
+					最后执行的语句
+			}
+		*/
+      // var num = Number(prompt('请输入1 2 3其中的一个数字'));
+      // switch (num) {
+      // 	case 1:
+      // 		console.log('您输入的是1');
+      // 		break;
+      // 	case 2:
+      // 		console.log('您输入的是2');
+      // 		break;
+      // 	case 3:
+      // 		console.log('您输入的是3');
+      // 		break;
+      // 	default:
+      // 		console.log('输入错了');
+      // }
+
+      // 输入月份 显示对应的天数
+      var month = Number(prompt("请输入月份"));
+      switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+          alert(month + "月有31天");
+          break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+          alert(month + "月有30天");
+          break;
+        case 2:
+          alert(month + "月有28天");
+          break;
+        default:
+          alert("输入有误");
+      }
+    </script>
+  </body>
+</html>
