@@ -1,0 +1,39 @@
+<!-- 
+	html骨架的生成方式
+		输入 html, 按下 tab 键
+ -->
+<!-- 
+	什么是HTML？
+		HTML的英文全称是 Hyper(超级) Text(文本) Markup(标记) Language(语言)
+		超文本标记语言
+
+	注释的快捷键 Ctrl + / 注释是给程序猿看的 不会在页面显示
+ -->
+
+<!-- 
+	DOCTYPE 是 document type(文档类型) 的缩写
+	声明文档类型为 HTML5, 位于文档的最前面, 是网页必备的组成部分
+ -->
+<!DOCTYPE html>
+<!-- html 标签是双标签 页面的根元素 表示整个网页 所有的标签都在 html 标签里面 -->
+<!-- lang 属性 强调我们的编写格式是英文 en代表english zh-cn 代表中文 -->
+<html lang="en">
+<!-- head 标签是双标签 存放一些配置文件和一些辅助性标签, 描述了文档的各种属性和信息 包括网页标题 外部文件等 -->
+<head>
+	<!-- 
+		meta 标签是单标签 是 head 标签的里面的一个辅助性标签, 不包含任何内容
+		charset="utf-8" 告知浏览器此页面的编码格式是 utf-8, 下一步做好 "翻译" 工作
+		常见的编码格式: gb2312、gbk、unicode、utf-8等
+	 -->
+	<meta charset="utf-8">
+	<!-- 适配移动端的 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 网页的标题 -->
+	<title>你好，世界</title>
+	<link rel="icon" type="image/x-icon" href="https://i1.hdslb.com/bfs/archive/6302dd68a7b32f6321d37d6462739d08c11a5f04.jpg">
+</head>
+<!-- body 网页的主体 用户浏览部分 -->
+<body>
+	欢迎大家今天加入 2407C 大家庭！
+</body>
+</html>
