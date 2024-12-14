@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>自定义属性_data</title>
+  </head>
+  <body>
+    <!-- 
+		data- 属性可以在所有 html 元素中嵌入数据
+	 -->
+    <ul>
+      <li data-id="001" data-name="鹰眼">刘岩</li>
+      <li data-id="007" data-name="老花镜">王金铭</li>
+      <li data-id="000" data-name="夜来香">黎兴涵</li>
+      <li data-id="030" data-name="黑玫瑰">于昊天</li>
+      <li data-id="021" data-name="黄猿">隋统勋</li>
+    </ul>
+    <script type="text/javascript">
+      // 在页面输出 例如:刘岩的编号是001, 代号是鹰眼
+      var lis = document.querySelectorAll("li");
+      console.log(lis[0].getAttribute("data-id"));
+      console.log(lis[0].dataset); // DOMStringMap{id: '001', name: '鹰眼'}
+
+      for (var i = 0; i < lis.length; i++) {
+        // 取编号
+        var id = lis[i].dataset.id;
+        // var id = lis[i].getAttribute('data-id');
+
+        // 取代号
+        var name = lis[i].dataset.name;
+        // var name = lis[i].getAttribute('data-name');
+
+        // 取名字
+        var user = lis[i].innerText;
+
+        // 输出到页面上
+        document.write(user + "的编号是" + id + ", 代号是" + name + "<br>");
+      }
+    </script>
+  </body>
+</html>

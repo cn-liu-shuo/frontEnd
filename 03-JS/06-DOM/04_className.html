@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>className</title>
+  </head>
+  <body>
+    <div class="liu box">刘岩喝酒奇遇记</div>
+    <p class="yu box">昊天与篮球架亲密记</p>
+
+    <script type="text/javascript">
+      var liu = document.getElementsByClassName("liu");
+      var yu = document.getElementsByClassName("yu");
+      var box = document.getElementsByClassName("box");
+
+      console.log(liu);
+      console.log(yu);
+      console.log(box);
+
+      for (var i = 0; i < box.length; i++) {
+        console.log(i);
+        box[i].style.color = "red";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>demo</title>
+  </head>
+  <body>
+    <ul>
+      <li>苹果</li>
+      <li>葡萄</li>
+      <li>香蕉</li>
+      <li>榴莲</li>
+      <li>烧烤</li>
+    </ul>
+
+    <script type="text/javascript">
+      // 偶数位的字体颜色为 red  奇数位的字体颜色为 aqua
+      // 获取 li dom节点
+      var lis = document.getElementsByTagName("li");
+      for (var i = 0; i < lis.length; i++) {
+        if (i % 2 != 0) {
+          lis[i].style.color = "red";
+        } else {
+          lis[i].style.color = "aqua";
+        }
+      }
+    </script>
+  </body>
+</html>

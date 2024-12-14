@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>通过id获取节点</title>
+  </head>
+  <body>
+    <h2 id="fan">我叫饭存疑---王金铭之小娇妻</h2>
+    <script type="text/javascript">
+      /*
+			document 调用者 文档对象
+			get: 获取
+			Element: 元素节点
+			By: 通过
+			Id: id选择器
+		*/
+      var fan = document.getElementById("fan");
+      console.log(fan);
+      console.dir(fan); // 查看获取的标签有哪些属性和方法
+
+      // 通过 js 修改样式
+      fan.style.color = "green";
+      fan.style.backgroundColor = "red";
+    </script>
+  </body>
+</html>

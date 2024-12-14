@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>tagName</title>
+  </head>
+  <body>
+    <div>小霍霍---霍族郑</div>
+    <div>小旭旭---姬呈昕</div>
+    <script type="text/javascript">
+      // 通过标签名获取元素 得到的是数组对象 但是是一个伪数组(不能使用数组的方法)
+      var divs = document.getElementsByTagName("div");
+      console.log(divs);
+      // divs.push(111);// 报错
+
+      // 给小旭旭写样式
+      divs[1].style.color = "#C99955";
+      // 给小霍霍写样式
+      divs[0].style.backgroundColor = "#AEBB54";
+    </script>
+  </body>
+</html>

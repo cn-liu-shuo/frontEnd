@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>class操作</title>
+  </head>
+  <body>
+    <div class="dog yan">刘岩1号</div>
+
+    <script type="text/javascript">
+      var liu = document.getElementsByClassName("dog");
+
+      // 给 刘岩1号 的类型改成Dog
+      // liu[0].setAttribute('class', 'Dog');
+      // 原因是这种方式只能用在标签自带的属性上
+      // console.log(liu[0].class);// undefine
+      // console.log(liu[0].getAttribute('class'));
+
+      // className 获取/更改类名
+      // console.log(liu[0].className);
+      // liu[0].className = 'yan';
+
+      // classList 返回元素的类名
+      console.log(liu[0].classList); // DOMTokenList
+
+      liu[0].classList.add(["bian"], ["liuyan"]); // classList.add() 添加类名
+      liu[0].classList.remove("yan"); // classList.remove() 删除类名
+    </script>
+  </body>
+</html>

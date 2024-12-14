@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>创建和插入子节点</title>
+  </head>
+  <body>
+    <div>
+      <p>李佳轩1号</p>
+      <p>李佳轩2号</p>
+      <p>李佳轩3号</p>
+    </div>
+
+    <script type="text/javascript">
+      // 获取 div
+      var div = document.querySelector("div");
+      // 创建元素
+      var qiu = document.createElement("span");
+      // 设置内容
+      qiu.innerText = "邱佳文";
+      console.log(qiu);
+
+      /*
+			添加子节点
+				父节点.appendChild(要添加的子节点) 将创建的子节点插入到最后
+				父节点.insertBefore(要添加的子节点, 参照节点(在谁之前))
+		*/
+      // div.appendChild(qiu);
+      div.insertBefore(qiu, div.lastElementChild);
+    </script>
+  </body>
+</html>

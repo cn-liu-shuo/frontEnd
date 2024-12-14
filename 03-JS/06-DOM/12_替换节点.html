@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>替换节点</title>
+  </head>
+  <body>
+    <div>
+      <p>邱佳文</p>
+      <span>小霍霍</span>
+    </div>
+
+    <script type="text/javascript">
+      /*
+			替换节点
+				父节点.replaceChild(替换后的节点, 替换前的节点) 用一个新节点换旧节点
+				父节点.replaceChildren(新节点) 替换掉所有节点 称为你输入的新节点
+		*/
+      // 获取父节点
+      var div = document.querySelector("div");
+      // 创建新节点
+      var p1 = document.createElement("p");
+      var h3 = document.createElement("h3");
+      var jin = document.createElement("h1");
+      // 为创建的新节点插入内容
+      p1.innerText = "狗蛋";
+      h3.innerText = "美人蛋";
+      jin.innerText = "小坏蛋";
+      // 替换节点
+      div.replaceChild(p1, div.firstElementChild);
+      div.replaceChild(h3, div.lastElementChild);
+
+      div.replaceChildren(jin);
+    </script>
+  </body>
+</html>

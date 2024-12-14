@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>练习</title>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a href="javascript:;">姓名: 某某; 年龄: xx; 家乡: xx;</a>
+      </li>
+    </ul>
+
+    <script type="text/javascript">
+      var list = [
+        {
+          name: "刘岩",
+          age: "22",
+          from: "黑龙江",
+        },
+        {
+          name: "于昊天",
+          age: "26",
+          from: "缅甸村",
+        },
+        {
+          name: "小旭旭",
+          age: "250",
+          from: "太监殿",
+        },
+        {
+          name: "小霍霍",
+          age: "68",
+          from: "泰国",
+        },
+      ];
+      // 获取 ul
+      var ul = document.querySelector("ul");
+
+      // 遍历数组
+      for (var i in list) {
+        // 创建 li dom节点
+        var li = document.createElement("li");
+
+        // 给创建的 li 节点赋值
+        li.innerHTML =
+          '<a href="javascript:;">' +
+          "姓名: " +
+          list[i].name +
+          "; 年龄: " +
+          list[i].age +
+          "; 家乡: " +
+          list[i].from +
+          "</a>";
+
+        // 将创建的li节点插入到ul里
+        ul.appendChild(li);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>兄弟节点</title>
+  </head>
+  <body>
+    <ul>
+      <li>我是li1</li>
+      <li>我是li2</li>
+      <li>我是li3</li>
+      <li>我是li4</li>
+      <li>我是li5</li>
+    </ul>
+
+    <script type="text/javascript">
+      // 获取第三个li节点
+      var li3 = document.querySelector("ul li:nth-child(3)");
+      console.log(li3);
+
+      // 获取 li3 的上一个兄弟元素节点 不获取换行
+      console.log(li3.previousElementSibling);
+      // 获取 li3 的下一个兄弟元素节点 不获取换行
+      console.log(li3.nextElementSibling);
+
+      // 获取 li3 的上一个兄弟元素节点 会获取换行(文本元素节点)
+      console.log(li3.previousSibling);
+      // 获取 li3 的下一个兄弟元素节点 会获取换行(文本元素节点)
+      console.log(li3.nextSibling);
+    </script>
+  </body>
+</html>
