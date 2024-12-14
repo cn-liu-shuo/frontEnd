@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // cookie 是通过http请求 携带 cookie发送给服务器，被服务器读取，
+      // cookie 大小是4kb左右，通常存储用户登录信息或者喜好
+      // key=value
+      document.cookie = "age=18";
+      document.cookie = "name=20";
+
+      console.log(document.cookie); //获取的cookie是个字符串  需要分割  split
+
+      // 设置过期时间
+      var now = new Date();
+      console.log(now.toUTCString());
+      now.setHours(now.getHours() + 1);
+      document.cookie = "txt=孙悟空;expires=" + now.toUTCString();
+
+      // 删除cookie  当前过期时间设置成过去
+      var del = new Date();
+      del.setDate(del.getDate() - 1);
+      document.cookie = "name=20;expires=" + del.toUTCString();
+    </script>
+  </body>
+</html>
