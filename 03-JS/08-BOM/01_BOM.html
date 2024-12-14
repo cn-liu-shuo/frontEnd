@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BOM</title>
+  </head>
+  <body>
+    <h2>01BOM页面</h2>
+    <button>back返回上一页</button>
+    <script type="text/javascript">
+      /*
+			DOM: 文档对象模型 用来操作元素标签
+			BOM: 浏览器对象模型(browser object model) 浏览器对象模型提供了独立于内容的可以与浏览器窗口进行互动的对象结构
+			bom 的顶级对象是 window 对象(操作浏览器的前进 后退 刷新...)
+			什么是window？什么是document？
+			window 对象就是 bom, 也就是浏览器对象, window对象封装了窗口标题、工具栏按钮、地址栏、状态栏...都是 window 的成员对象(window 就是 bom 就是浏览器)
+			document 对象是 dom, 代表的是整个 html 文档, 可以用来访问网页中的元素, dom属于 window 对象的一部分(document 就是 dom, 也就是浏览器的窗口(网页))
+		*/
+
+      console.log(window);
+      var btn = document.querySelector("button");
+      btn.onclick = function () {
+        history.back();
+      };
+    </script>
+  </body>
+</html>

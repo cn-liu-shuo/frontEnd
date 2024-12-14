@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>定时器延时器</title>
+  </head>
+  <body>
+    <h1>10</h1>
+    <script type="text/javascript">
+      /*
+			1.定时器 (可以执行很多次 可以无限执行) 以固定的时间重复调用同一个函数
+			setInterval(要执行的函数, 毫秒数)
+
+			clearInterval(要清除哪个定时器)
+
+			2.延时器 执行一次 延迟多少时间在执行
+			setTimeout(要执行的函数, 毫秒数)
+			
+			清除延时器 clearTimeout(清除哪个延时器)
+		*/
+      var h1 = document.querySelector("h1");
+      var num = 10;
+      var start = setInterval(function () {
+        num--;
+        h1.innerText = num;
+        // 如果 num 为 0 结束定时器 并且开炮
+        if (num == 0) {
+          h1.innerText = "开炮";
+          clearInterval(start);
+        }
+      }, 1000);
+
+      setTimeout(function () {
+        alert("真有劲啊");
+      }, 3000);
+    </script>
+  </body>
+</html>

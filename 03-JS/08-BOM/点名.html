@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>点名</title>
+    <style type="text/css">
+      body {
+        background-color: black;
+        text-align: center;
+      }
+      h1 {
+        color: white;
+        font-size: 100px;
+      }
+      h1:first-child {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>开始</h1>
+    <h1>点到啥吃啥</h1>
+
+    <script type="text/javascript">
+      var start = document.querySelectorAll("h1")[0];
+      var str = document.querySelectorAll("h1")[1];
+      var arr = [
+        "西瓜",
+        "苹果",
+        "香蕉",
+        "葡萄",
+        "哈密瓜",
+        "蓝莓",
+        "荔枝",
+        "榴莲",
+        "石榴",
+        "芒果",
+        "火龙果",
+        "释迦果",
+        "樱桃",
+        "菠萝",
+        "百香果",
+        "人参果",
+        "霍骅",
+        "姑娘果",
+        "粑粑柑",
+      ];
+      var flag = true;
+      start.onclick = function () {
+        if (flag) {
+          dsq = setInterval(function () {
+            // 随机数
+            str.innerText = arr[parseInt(Math.random() * arr.length)];
+          }, 50);
+          start.innerText = "暂停";
+        } else {
+          clearInterval(dsq);
+          start.innerText = "开始";
+        }
+        flag = !flag;
+      };
+    </script>
+  </body>
+</html>

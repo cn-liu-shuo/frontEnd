@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>解决地址栏中文乱码问题</title>
+  </head>
+  <body>
+    <h2>我是09页面</h2>
+
+    <script type="text/javascript">
+      console.log(location.href);
+      var strArr = location.href.split("?")[1].split("&");
+      console.log(strArr);
+      for (var i in strArr) {
+        // console.log(strArr[i].split('=')[1]);
+        // 获取乱码字符串
+        var lm = strArr[i].split("=")[1];
+        // decodeURI(要转化的代码值, 'utf-8');
+        lm = decodeURI(lm, "utf-8");
+        console.log(lm);
+      }
+    </script>
+  </body>
+</html>

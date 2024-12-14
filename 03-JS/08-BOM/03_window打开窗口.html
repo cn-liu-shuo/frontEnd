@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>window打开窗口</title>
+  </head>
+  <body>
+    <h2>我是03页面</h2>
+    <button>打开04</button>
+
+    <script type="text/javascript">
+      var btn = document.querySelector("button");
+      btn.onclick = function () {
+        // 打开窗口 window.open('想要打开的网址', '打开方式')
+        // 打开方式 _blank ==> 新窗口打开  _self ==> 当前窗口打开 (默认新窗口打开)
+        window.open("04_window关闭窗口.html");
+      };
+    </script>
+  </body>
+</html>

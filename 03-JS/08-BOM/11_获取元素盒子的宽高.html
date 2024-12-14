@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>获取元素盒子的宽高</title>
+    <style type="text/css">
+      .box2 {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+  <body>
+    <div
+      class="box1"
+      style="width: 100px; height: 100px; background-color: aqua"
+    ></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <script type="text/javascript">
+      var box1 = document.querySelector(".box1");
+      var box2 = document.querySelector(".box2");
+      var box3 = document.querySelector(".box3");
+
+      // style 获取不到内联和外联的宽高
+      console.log(box1.style.width, "box1的宽"); // '100px' 字符串类型 带单位
+      console.log(box2.style.width, "box2的宽"); // 内联样式 获取不到
+      console.log(box2.style.width, "box3的宽"); // 外联样式 获取不到
+
+      // 获取盒子的宽高 返回的是数字类型 不带单位
+      console.log(box1.offsetWidth);
+      console.log(box2.offsetWidth);
+      console.log(box3.offsetWidth);
+    </script>
+  </body>
+</html>

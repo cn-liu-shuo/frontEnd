@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>location.href</title>
+  </head>
+  <body>
+    <button>跳转</button>
+    <script type="text/javascript">
+      /*
+			location.href 获取地址栏信息 跳转页面
+		*/
+
+      var btn = document.querySelector("button");
+      btn.onclick = function () {
+        console.log(location.href);
+
+        // 假设我要把 刘岩 的基本信息传到 09页面
+        var liu = {
+          name: "刘岩",
+          age: 18,
+          sex: "男",
+        };
+        // 跳转页面 09_解决地址栏中文乱码问题.html?name=刘岩&age=18&sex=男
+        location.href =
+          "09_解决地址栏中文乱码问题.html?name=" +
+          liu.name +
+          "&age=" +
+          liu.age +
+          "&sex=" +
+          liu.sex;
+      };
+    </script>
+  </body>
+</html>

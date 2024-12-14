@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>加载事件</title>
+    <script type="text/javascript">
+      // onload 在浏览器中监听内容 当(dom元素 img js css)等全部加载完成之后调用的方法 也叫入口函数
+      window.onload = function () {
+        var div = document.querySelector("div");
+        console.log(div);
+      };
+
+      // 执行最后一个入口函数
+      window.onload = function () {
+        console.log("我是第二个入口函数");
+      };
+    </script>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

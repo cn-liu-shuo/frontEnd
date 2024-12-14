@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>location</title>
+  </head>
+  <body>
+    <button onclick="location.assign('http://www.baidu.com')">
+      assign跳转
+    </button>
+    <button onclick="location.replace('http://www.baidu.com')">
+      replace替换
+    </button>
+    <button onclick="location.reload()">reload刷新</button>
+    <script type="text/javascript">
+      /*
+			location.assign('地址') 在当前窗口进行跳转 会产生历史记录
+			location.replace('地址') 替换当前窗口地址 不会产生历史记录
+			location.reload() 刷新当前窗口 重新加载 相当于浏览器的刷新按钮
+		*/
+
+      console.log(location);
+    </script>
+  </body>
+</html>
