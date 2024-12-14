@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>表格</title>
+  </head>
+  <body>
+    <!-- 
+		table: 表格
+			caption: 表格的标题
+			thead: 表格的首行
+			tbody: 表格的主体
+			tfoot: 表格的尾行
+				tr: 行
+					td: 单元格
+					th: 单元格的表头, 里面的文字居中且加粗
+			属性:
+				border="边框"
+				align="水平对齐方式" 默认是左对齐 left;  居中 center; 右对齐 right
+				valign="垂直对齐方式" 默认是居中 middle; 顶端对齐 top; 底端对齐 bottom (在table上面不生效)
+				width="表格宽度"
+				height="表格的高度"
+				rowspan: 跨行合并
+				colspan: 跨列合并
+				cellspacing: 外框边距(单元格和单元格之间的距离, 默认值是 2px) ==> 后面要学的 margin 外边距
+				cellpadding: 内框边距(单元格内容之间的距离, 默认值是 1px) ==> 后面要学的 padding 内边距
+				bgcolor: 背景颜色
+
+
+				ps: 合并的时候不能将 thead 里面的内容和 tbody 里面的内容合并
+				解决办法: 以后写表格的时候不用写 thead tfoot 只写 tbody即可(如果不写 tbody 也没事, 浏览器会自动补齐一个 tbody)
+	 -->
+    <table border="1" cellspacing="0" align="center" cellpadding="10">
+      <caption>
+        个人爱好登记表
+      </caption>
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>性别</th>
+          <th>年龄</th>
+          <th>爱好</th>
+        </tr>
+      </thead>
+      <tbody align="center">
+        <tr>
+          <td align="center">黎兴涵</td>
+          <td rowspan="2">男</td>
+          <td>22</td>
+          <td>李斌</td>
+        </tr>
+        <tr align="center">
+          <td>付宗超</td>
+          <!-- <td>男</td> -->
+          <td>21</td>
+          <td>黎兴涵</td>
+        </tr>
+        <tr>
+          <td>杜亚楠</td>
+          <td>女</td>
+          <td>18</td>
+          <td bgcolor="yellow">男</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
