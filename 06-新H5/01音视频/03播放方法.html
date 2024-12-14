@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <video src="./mda-qgtfvbcdcb08wi49.mp4" controls></video>
+    <br />
+    <button>播放</button>
+    <button>暂停</button>
+    <button>快速播放</button>
+    <button>快进</button>
+    <button>快退</button>
+    <button>重新加载</button>
+    <button>全屏</button>
+    <button>中屏</button>
+    <button>小屏</button>
+    <button>大屏</button>
+
+    <script>
+      var btn = document.querySelectorAll("button");
+      var video = document.querySelector("video");
+
+      // 播放
+      btn[0].onclick = function () {
+        video.play();
+      };
+
+      // 暂停
+      btn[1].onclick = function () {
+        video.pause();
+      };
+
+      // 快速播放
+      btn[2].onclick = function () {
+        video.playbackRate = 10;
+        // 1 正常
+        // 0.5 半速
+      };
+      // 快进
+      btn[3].onclick = function () {
+        video.currentTime += 10;
+      };
+
+      // 快退
+      btn[4].onclick = function () {
+        video.currentTime -= 10;
+      };
+
+      // 重新加载
+      btn[5].onclick = function () {
+        video.load();
+      };
+
+      // 全屏
+      btn[6].onclick = function () {
+        video.webkitRequestFullScreen();
+      };
+
+      // 小 中 大
+      btn[7].onclick = function () {
+        video.width = "200";
+        video.height = "100";
+      };
+
+      btn[8].onclick = function () {
+        video.width = "600";
+        video.height = "300";
+      };
+
+      btn[9].onclick = function () {
+        video.width = "1200";
+        video.height = "600";
+      };
+    </script>
+  </body>
+</html>
