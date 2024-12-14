@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .father {
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+      }
+
+      .son {
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 
+            1.js e.stopPropagation()
+            2. .stop 修饰符
+         -->
+      <div class="father" @click="fn">
+        <div class="son" @click.stop="son"></div>
+      </div>
+
+      <!-- 
+            阻止默认事件
+            1. js e.preventDefault()
+            2. .prevent
+
+         -->
+      <a href="http://www.baidu.com" @click.prevent="">百度一下</a>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+          fn() {
+            console.log("我是爸爸");
+          },
+          son() {
+            console.log("他是儿子");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 一个事件绑定两个方法， 用分号隔开 -->
+      <div @mouseenter="handleFn();over()" @mouseleave="fn()">鼠标移入事件</div>
+
+      <!-- .enter 修饰符  松开回车键的时候触发 -->
+      <input type="text" @keyup.enter="show" />
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+          handleFn() {
+            console.log("移入事件");
+          },
+          over() {
+            console.log("孙悟空回家");
+          },
+          fn() {
+            console.log("孙悟空出门");
+          },
+          show() {
+            console.log("孙悟空吃饭");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

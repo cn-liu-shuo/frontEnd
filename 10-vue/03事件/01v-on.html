@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 
+            v-on用来绑定事件的   v-on:事件名="方法名"
+            v-on可以简写成@
+         -->
+      <button v-on:click="show">点击</button>
+      <!-- $event 获取事件对象 -->
+      <button @click="add($event)">点击事件</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+          show() {
+            console.log("我是孙悟空");
+          },
+          add(e) {
+            console.log(e);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

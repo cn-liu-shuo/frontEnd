@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      本场得分： {{ sum }}
+      <p>
+        <button @click="add">加分</button>
+        <button @click="dec">减分</button>
+        <button @click="three">三分球</button>
+        自定义得分： <input type="text" @keyup.enter="def" v-model.number="a" />
+      </p>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          sum: 0,
+          a: 0,
+        },
+        methods: {
+          add() {
+            this.sum += 1;
+          },
+          dec() {
+            if (this.sum > 0) {
+              this.sum -= 1;
+            }
+          },
+          three() {
+            this.sum += 3;
+          },
+          def() {
+            this.sum += this.a;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
