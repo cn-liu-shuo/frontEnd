@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>图片标签</title>
+  </head>
+  <body>
+    <!-- 
+		图片标签 img标签 同行显示 可以设置宽高 ==> 行内块元素
+		设置图片大小的时候只设置一个边即可, 另一个边会随着图片的比例进行缩放
+		src="图片地址"
+		title="鼠标指向这个元素的时候显示的内容"
+		alt="图片加载失败时显示的内容 加载成功不显示"
+	 -->
+    <!-- 网络地址 -->
+    <img
+      src="https://img0.baidu.com/it/u=3541641365,449435986&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=361"
+    />
+
+    <!-- 本地地址 -->
+    <!-- 1. 绝对路径 特点: 带盘符 不建议在项目中使用！！！ -->
+    <img src="E:/BYEsame-2407C/01-HTML/a/yu.jpg" style="width: 200px" />
+    <!-- 2. 相对路径 -->
+    <!-- 同级目录 ./  (./可以省略) -->
+    <img src="./a/yu.jpg" title="五星上将-宇将军" alt="图片加载失败！" />
+    <img src="a/yu.jpg" />
+    <!-- 上级目录 ../  上上级 ../../ -->
+    <img src="../b/chen.jpg" style="height: 300px" />
+
+    <img src="./c/a.jpg" alt="图片加载失败！" />
+  </body>
+</html>
