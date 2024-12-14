@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .heads {
+        background-color: orangered;
+        color: #fff;
+      }
+
+      .box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .center {
+        width: 300px;
+        background-color: #fff;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        padding: 20px;
+      }
+
+      .center span {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+
+      .center p {
+        text-align: left;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="add">新增</button>
+      <!-- 用表格把数据显示出来 -->
+      <table border="1" width="500" cellspacing="0">
+        <tr class="heads">
+          <td>序号</td>
+          <td>姓名</td>
+          <td>年龄</td>
+          <td>性别</td>
+          <td>出生年月</td>
+          <td>操作</td>
+        </tr>
+        <tr v-for="(item, index) in mons" :key="index">
+          <td>{{index + 1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.age}}</td>
+          <td>
+            <span v-if="item.sex == 0">男</span>
+            <span v-else>女</span>
+          </td>
+          <td>{{ item.time | formData }}</td>
+          <td>
+            <span>删除</span>
+            <span @click="detail(index)">详情</span>
+            <span>编辑</span>
+          </td>
+        </tr>
+      </table>
+      <p>共 {{ mons.length }}条数据</p>
+
+      <div class="box" v-show="isShow">
+        <div class="center">
+          <h4>
+            {{tit}}
+            <span @click="isShow = false">X</span>
+          </h4>
+          <div class="form">
+            <p>
+              姓名：
+              <input
+                type="text"
+                placeholder="请输入姓名"
+                v-model="form.name"
+                :disabled="isTrue"
+              />
+            </p>
+            <p>
+              性别：
+              <input
+                type="radio"
+                name="sex"
+                value="0"
+                v-model="form.sex"
+                :disabled="isTrue"
+              />男
+              <input
+                type="radio"
+                name="sex"
+                value="1"
+                v-model="form.sex"
+                :disabled="isTrue"
+              />女
+            </p>
+            <p>
+              年龄：
+              <input
+                type="text"
+                placeholder="请输入姓名"
+                v-model="form.age"
+                :disabled="isTrue"
+              />
+            </p>
+            <p>
+              出生年月：
+              <input
+                type="date"
+                placeholder="请输入姓名"
+                v-model="form.time"
+                :disabled="isTrue"
+              />
+            </p>
+            <p style="text-align: center">
+              <button @click="addDate" v-show="!isTrue">保存</button>
+              <button @click="isShow = false">取消</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          isShow: false,
+          isTrue: true,
+          mons: [
+            {
+              name: "孙悟空",
+              age: 500,
+              sex: "1",
+              like: "偷桃",
+              time: 1234567891,
+            },
+            {
+              name: "猪八戒",
+              age: 500,
+              sex: "0",
+              like: "高翠兰",
+              time: 12345456723,
+            },
+            {
+              name: "大闸蟹",
+              age: 500,
+              sex: "0",
+              like: "偷桃",
+              time: 12345624667,
+            },
+          ],
+          form: {
+            name: null,
+            sex: "0",
+            age: null,
+            time: null,
+          },
+          tit: "",
+        },
+        methods: {
+          add() {
+            this.isTrue = false;
+            this.isShow = true;
+            this.tit = "新增";
+            this.reset();
+          },
+          addDate() {
+            console.log(this.form);
+            this.mons.push(this.form);
+            this.isShow = false;
+            this.reset();
+          },
+          reset() {
+            this.form = {
+              name: null,
+              sex: "0",
+              age: null,
+              time: null,
+            };
+          },
+          detail(index) {
+            this.tit = "详情";
+            this.isShow = true;
+            this.isTrue = true;
+            this.form.name = this.mons[index].name;
+            this.form.sex = this.mons[index].sex;
+            this.form.age = this.mons[index].age;
+            this.form.time = this.formData(this.mons[index].time);
+          },
+          formData(value) {
+            let date = new Date(value);
+
+            // 年
+            let yy = date.getFullYear();
+
+            // 月
+            let mm = date.getMonth() + 1;
+            mm = mm < 10 ? `${"0" + mm}` : mm;
+
+            // 日
+            let dd = date.getDate();
+            dd = dd < 10 ? `${"0" + dd}` : dd;
+
+            return `${yy}-${mm}-${dd}`;
+          },
+        },
+        filters: {
+          formData(value) {
+            let date = new Date(value);
+
+            // 年
+            let yy = date.getFullYear();
+
+            // 月
+            let mm = date.getMonth() + 1;
+            mm = mm < 10 ? `${"0" + mm}` : mm;
+
+            // 日
+            let dd = date.getDate();
+            dd = dd < 10 ? `${"0" + dd}` : dd;
+
+            // 时
+            let hh = date.getHours();
+            hh = hh < 10 ? `${"0" + hh}` : hh;
+
+            // 分
+            let mms = date.getMinutes();
+            mms = mms < 10 ? `${"0" + mms}` : mms;
+
+            // 秒
+            let ss = date.getSeconds();
+            ss = ss < 10 ? `${"0" + ss}` : ss;
+
+            return `${yy}-${mm}-${dd} ${hh}:${mms}:${ss}`;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

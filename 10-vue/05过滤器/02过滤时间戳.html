@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 用表格把数据显示出来 -->
+      <table border="1" width="500">
+        <tr>
+          <td>序号</td>
+          <td>姓名</td>
+          <td>年龄</td>
+          <td>性别</td>
+          <td>爱好</td>
+          <td>出生年月</td>
+        </tr>
+        <tr v-for="(item, index) in mons" :key="index">
+          <td>{{index + 1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.age}}</td>
+          <td>{{item.sex}}</td>
+          <td>{{item.like}}</td>
+          <td>{{ item.time | formData }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          mons: [
+            {
+              name: "孙悟空",
+              age: 500,
+              sex: "男",
+              like: "偷桃",
+              time: 1234567891,
+            },
+            {
+              name: "猪八戒",
+              age: 500,
+              sex: "男",
+              like: "高翠兰",
+              time: 12345456723,
+            },
+            {
+              name: "大闸蟹",
+              age: 500,
+              sex: "男",
+              like: "偷桃",
+              time: 12345624667,
+            },
+          ],
+        },
+        filters: {
+          formData(value) {
+            let date = new Date(value);
+
+            // 年
+            let yy = date.getFullYear();
+
+            // 月
+            let mm = date.getMonth() + 1;
+            mm = mm < 10 ? `${"0" + mm}` : mm;
+
+            // 日
+            let dd = date.getDate();
+            dd = dd < 10 ? `${"0" + dd}` : dd;
+
+            // 时
+            let hh = date.getHours();
+            hh = hh < 10 ? `${"0" + hh}` : hh;
+
+            // 分
+            let mms = date.getMinutes();
+            mms = mms < 10 ? `${"0" + mms}` : mms;
+
+            // 秒
+            let ss = date.getSeconds();
+            ss = ss < 10 ? `${"0" + ss}` : ss;
+
+            return `${yy}-${mm}-${dd} ${hh}:${mms}:${ss}`;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
