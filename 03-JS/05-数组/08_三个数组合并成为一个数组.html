@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>三个数组合并成为一个数组</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var a = [1, 2, 3, 4];
+      var b = ["a", "b", "c", "d"];
+      var c = ["A", "B", "C", "D"];
+      var d = [];
+      // [1, a, A]
+      for (var i in a) {
+        d.push([a[i], b[i], c[i]]);
+      }
+      console.log(d);
+    </script>
+  </body>
+</html>

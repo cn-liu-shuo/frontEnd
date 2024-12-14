@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>数组</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 数组: 存储一组有序(index 索引/下标)数据  索引/下标 从 0 开始
+      // 作用: 一次性存储多个值(可以是任意数据类型)
+      // 定义方式
+      // 1. 构造函数方式
+      var arr = new Array();
+      console.log(arr); // 空数组
+      var arr1 = new Array(5);
+      console.log(arr1); // [空属性 × 5] 当前的数组长度为5 每一个值都是undefined
+      var arr2 = new Array(1, 2, 3);
+      console.log(arr2); // [1, 2, 3]
+
+      // 2. 字面量的形式
+      var arr3 = [];
+      console.log(arr3);
+      var arr4 = [5];
+      console.log(arr4); // [5]
+      var arr5 = [1, "2", true, undefined, null];
+      console.log(arr5); // [1, '2', true, undefined, null]
+    </script>
+  </body>
+</html>

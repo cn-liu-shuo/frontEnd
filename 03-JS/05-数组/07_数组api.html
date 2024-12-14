@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>数组api</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var arr = [1, 2, 3];
+      console.log(typeof arr); // object
+
+      // 怎么才能判断是否为数组？
+      // Array.isArray() 是数组返回 true  不是则返回 false
+      console.log(Array.isArray(arr)); // true
+
+      // instanceof 关键字 返回布尔值
+      console.log(arr instanceof Array); // true
+    </script>
+  </body>
+</html>

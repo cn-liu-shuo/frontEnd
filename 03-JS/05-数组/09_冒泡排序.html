@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>冒泡排序</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			冒泡排序的规则
+				前后两个数比较 如果符合条件 就交换两个数的位置
+				每一轮比较都会找出一个最大值 放在数组最后面
+
+			冒泡排序的思想
+				从小到大
+				两层循环组成
+				外循环 循环多少次 多少轮
+				内循环 比较相邻的两个数的大小 如果前一个数比后一个数大就交换位置
+
+			一定一定一定会写(理解)!!!
+		*/
+      var arr = [4, 24, 7, 36, 99, 81, -10, 0];
+      for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr.length - 1 - i; j++) {
+          if (arr[j] > arr[j + 1]) {
+            var num = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = num;
+          }
+        }
+      }
+      console.log(arr);
+    </script>
+  </body>
+</html>
