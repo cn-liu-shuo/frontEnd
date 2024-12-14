@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>动画队列</title>
+    <style type="text/css">
+      .hh {
+        width: 125px;
+        height: 125px;
+        background-color: green;
+        color: red;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 125px;
+        position: absolute;
+        font-size: 20px;
+        font-weight: bolder;
+      }
+    </style>
+  </head>
+  <body>
+    <button>开始</button>
+    <button>暂停, 点击开始在当前位置重新运行动画</button>
+    <button>停止所有动画并且到达当前动画的最终状态</button>
+    <button>立即到达当前动画的最终状态继续执行下一动画</button>
+    <button>停止当前动画立即执行下一个动画</button>
+
+    <div class="hh">霍骅</div>
+
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      // 动画队列
+      $("button")
+        .eq(0)
+        .click(function () {
+          $(".hh")
+            .animate({ right: 0 }, 3000)
+            .animate({ top: 400 }, 2000)
+            .animate({ left: 600 }, 3000)
+            .animate({ width: 250, height: 250, lineHeight: 250 }, 2000)
+            .animate({ opacity: 0 }, 3000)
+            .animate({ left: 0 }, 1000, function () {
+              console.log("复活吧, 我的霍骅!");
+            })
+            .animate({ opacity: 1 }, 3000);
+        });
+
+      /*
+			.stop(stopAll, stopToEnd) 两个值为布尔值
+			stopAll 表示是否停止所有动画 默认值是 false 只停止当前动画
+			stopToEnd 表示是否直接跳过当前状态到达最终状态 默认值是 false
+		*/
+
+      // 停止所有动画 (暂停 点击开始的时候在当前位置重新进行动画)
+      $("button")
+        .eq(1)
+        .click(function () {
+          $(".hh").stop(true, false);
+        });
+
+      // 停止所有动画并且到达当前动画的最终状态
+      $("button")
+        .eq(2)
+        .click(function () {
+          $(".hh").stop(true, true);
+        });
+
+      // 立即到达当前动画的最终状态继续执行下一动画
+      $("button")
+        .eq(3)
+        .click(function () {
+          $(".hh").stop(false, true);
+        });
+
+      // 立即到达当前动画的最终状态继续执行下一动画
+      $("button")
+        .eq(4)
+        .click(function () {
+          $(".hh").stop(false, false);
+        });
+    </script>
+  </body>
+</html>

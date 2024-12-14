@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>dom操作</title>
+  </head>
+  <body>
+    <ul>
+      <li>奇变偶不变</li>
+    </ul>
+
+    <div class="box1">
+      <p>我是p标签</p>
+      <p>
+        <span>我是span标签</span>
+      </p>
+    </div>
+    <div class="box2"></div>
+    <button>删除</button>
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      // 1.创建节点并设置内容
+      var li1 = $("<li>符号看象限</li>");
+      var li2 = $("<li>昊天数学探险记:</li>");
+      // 2.添加节点到最后
+      // 方法一 $('父元素').append(子元素)
+      // $('ul').append(li1);
+
+      // 方法二 子元素.appendTo(父元素)
+      li1.appendTo($("ul"));
+
+      // 添加节点到前面 父节点.prepend() 子节点.prependTo()
+      // $('ul').prepend(li2);
+      li2.prependTo($("ul"));
+
+      $("button").click(function () {
+        // $('.box1 p').remove();// 删除自身以及子节点
+        $(".box1 p").empty(); // 删除被选中节点的子节点及其内容
+      });
+
+      $(".box1 p:eq(0)").click(function () {
+        console.log(666);
+      });
+      // 替换和修改
+      // $('<h2>我是创建出来的h2</h2>').replaceAll($('.box1 p:eq(0)'));
+
+      // 克隆 clone() true/false 默认为 false 不会克隆原来元素的事件
+      $(".box2").append($(".box1").clone(true));
+    </script>
+  </body>
+</html>
