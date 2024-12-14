@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>列表</title>
+  </head>
+  <body>
+    <!-- 
+		列表分为:
+			--无序列表
+			--有序列表
+			--自定义列表
+	 -->
+
+    <!-- 
+		无序列表
+			ul 独立成行 可以设置宽高 ==> 块级元素 ul的直接子元素必须是li 如果想嵌套其他标签从li标签里面嵌套
+			li 独立成行 可以设置宽高 ==> 块级元素
+				type属性:
+					-- disc 默认 黑色实心圆圈
+					-- square 黑色实心正方形
+					-- circle 空心圆圈
+					-- none 无样式
+	 -->
+    <ul type="circle">
+      <li>西瓜</li>
+      <li>桃子</li>
+      <li>哈密瓜</li>
+    </ul>
+    <ul>
+      <li>荔枝</li>
+      <li>葡萄</li>
+      <li>芒果</li>
+    </ul>
+
+    <!-- 
+		有序列表 ol li 和无序列表规则相同
+			type属性:
+				-- 默认阿拉伯数字 1
+				-- i
+				-- I
+				-- a
+				-- A
+	 -->
+    <ol type="a">
+      <li>风味茄子</li>
+      <li>糖醋里脊</li>
+      <li>锅包肉</li>
+    </ol>
+
+    <!-- 
+		自定义列表 dl dt(自定义列表的标题) dd(自定义列表的描述)
+	 -->
+    <dl>
+      <dt>山东省</dt>
+      <dd>青岛市</dd>
+      <dd>济南市</dd>
+      <dd>烟台市</dd>
+    </dl>
+  </body>
+</html>
