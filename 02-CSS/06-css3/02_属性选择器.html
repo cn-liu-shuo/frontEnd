@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>属性选择器</title>
+    <style type="text/css">
+      /* 属性选择器: 标签[属性名 / 属性名="属性值"] */
+      a[href] {
+        text-decoration: none;
+      }
+      a[href="hahaha"] {
+        color: red;
+      }
+      /* 选中 p 标签，并且 p 标签的 title 属性以 'a' 开头 */
+      p[title^="a"] {
+        color: orange;
+      }
+      /* 选中 p 标签，并且 p 标签的 title 属性以 'c' 结尾 */
+      p[title$="c"] {
+        background-color: aqua;
+      }
+      /* 选中 p 标签，并且 p 标签的 title 属性中有 'b' */
+      p[title*="b"] {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="hahaha">hahaha</a>
+    <a href="xixixi">xixixi</a>
+    <p title="abc">p1</p>
+    <p title="acb">p2</p>
+    <p title="bac">p3</p>
+  </body>
+</html>

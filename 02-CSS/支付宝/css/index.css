@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+ul li {
+  list-style: none;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 背景区域 */
+.background {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 70px;
+  background-image: url(../images/bg01.jpg), url(../images/bg02.jpg),
+    url(../images/bg03.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  animation: change 12s linear infinite;
+}
+/* 注册背景图动画 */
+@keyframes change {
+  0% {
+    background-image: url(../images/bg01.jpg);
+  }
+  10% {
+    background-image: url(../images/bg01.jpg);
+  }
+  20% {
+    background-image: url(../images/bg01.jpg);
+  }
+  30% {
+    background-image: url(../images/bg02.jpg);
+  }
+  40% {
+    background-image: url(../images/bg02.jpg);
+  }
+  50% {
+    background-image: url(../images/bg02.jpg);
+  }
+  60% {
+    background-image: url(../images/bg02.jpg);
+  }
+  70% {
+    background-image: url(../images/bg03.jpg);
+  }
+  80% {
+    background-image: url(../images/bg03.jpg);
+  }
+  90% {
+    background-image: url(../images/bg03.jpg);
+  }
+  100% {
+    background-image: url(../images/bg01.jpg);
+  }
+}
+
+/* 头部 */
+.header {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+.header .nav {
+  width: 80%;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 auto;
+}
+.nav_left {
+  float: left;
+}
+.nav_left img:first-child {
+  width: 70px;
+  height: 25px;
+}
+.nav_left img:last-child {
+  width: 30px;
+  height: 25px;
+}
+.nav_right {
+  float: right;
+  font-size: 12px;
+  color: #bfbfbf;
+}
+.nav_right a {
+  color: #fff;
+  margin: 0 5px;
+}
+.nav_right a:hover {
+  color: #00bbee;
+}
+
+/* 你是中心 */
+.center {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100%;
+}
+.center_img {
+  width: 600px;
+  height: 200px;
+  margin: 0 auto;
+}
+.center_img img {
+  width: 100%;
+}
+.btn {
+  width: 930px;
+  height: 50px;
+  margin: 15px auto 0;
+}
+.btn a {
+  float: left;
+  width: 170px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  background-color: #00a3ee;
+  margin-right: 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  opacity: 0.9;
+  position: relative;
+}
+.btn a:last-child {
+  margin-right: 0;
+}
+.btn a i {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  background-image: url(../images/geren.png);
+  background-repeat: no-repeat;
+  background-size: 24px;
+}
+.btn a span {
+  padding-left: 36px;
+}
+.block {
+  display: none;
+}
+.btn .third {
+  transition: all 0.5s;
+  overflow: hidden;
+}
+.btn .third:hover {
+  height: 100px;
+  margin-top: -25px;
+}
+.btn .third:hover .none {
+  display: none;
+}
+.btn .third:hover .block {
+  display: block;
+}
+.btn .third .block {
+  padding-left: 0;
+}
+.btn .third hr {
+  width: 130px;
+  border-color: #fff;
+  opacity: 0.4;
+  margin-left: 20px;
+}

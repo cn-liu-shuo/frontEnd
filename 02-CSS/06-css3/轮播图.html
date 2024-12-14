@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>轮播图</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .slideshow {
+        width: 700px;
+        height: 300px;
+        margin: 200px auto;
+        border: 1px solid black;
+        overflow: hidden;
+      }
+      .imagesBox {
+        width: 2800px;
+        animation: move 12s infinite;
+      }
+      .imagesBox div {
+        width: 700px;
+        height: 300px;
+        text-align: center;
+        line-height: 300px;
+        color: white;
+        font-weight: bolder;
+        font-size: 30px;
+        float: left;
+      }
+      /* 注册动画 */
+      @keyframes move {
+        0% {
+          transform: translateX(0);
+        }
+        10% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(0);
+        }
+        30% {
+          transform: translateX(-700px);
+        }
+        40% {
+          transform: translateX(-700px);
+        }
+        50% {
+          transform: translateX(-700px);
+        }
+        60% {
+          transform: translateX(-1400px);
+        }
+        70% {
+          transform: translateX(-1400px);
+        }
+        80% {
+          transform: translateX(-1400px);
+        }
+        90% {
+          transform: translateX(-2100px);
+        }
+        100% {
+          transform: translateX(-2100px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slideshow">
+      <div class="imagesBox">
+        <div style="background-color: aqua">A</div>
+        <div style="background-color: pink">B</div>
+        <div style="background-color: orange">C</div>
+        <div style="background-color: aqua">A</div>
+      </div>
+    </div>
+  </body>
+</html>

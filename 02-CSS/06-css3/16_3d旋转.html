@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3d旋转</title>
+    <style type="text/css">
+      div {
+        width: 300px;
+        height: 100px;
+        background-color: aqua;
+        margin: 100px auto;
+        transition: all 3s linear;
+      }
+      div:hover {
+        /*
+				三个参数代表 x y z
+				取 1 的时候代表旋转
+				取 0 的时候代表不旋转
+			*/
+        transform: rotate3d(1, 1, 1, 360deg);
+      }
+      p {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p></p>
+    </div>
+  </body>
+</html>

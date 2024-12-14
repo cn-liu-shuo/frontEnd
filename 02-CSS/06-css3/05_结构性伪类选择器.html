@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>结构性伪类选择器</title>
+    <style type="text/css">
+      span:first-child {
+        color: red;
+      }
+      /* 选中同种类型的第一个 span */
+      span:first-of-type {
+        color: red;
+      }
+      span:last-of-type {
+        color: aqua;
+      }
+      /* 选中同种类型的第2个 span */
+      span:nth-of-type(2) {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <a href="">1</a>
+      <span>2</span>
+      <a href="">插队</a>
+      <span>3</span>
+      <span>4</span>
+      <a href="">5</a>
+    </p>
+  </body>
+</html>

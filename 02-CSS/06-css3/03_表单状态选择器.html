@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>表单状态选择器</title>
+    <style type="text/css">
+      input[type="text"]:enabled {
+        border: 1px solid green;
+      }
+      input[type="text"]:disabled {
+        border: 1px solid red;
+      }
+      input[type="checkbox"]:checked {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" value="熊大" />
+    <input type="text" value="熊二" disabled />
+    <input type="checkbox" />喜羊羊与灰太狼 <input type="checkbox" />电击小子
+    <input type="checkbox" />神兵小将
+  </body>
+</html>

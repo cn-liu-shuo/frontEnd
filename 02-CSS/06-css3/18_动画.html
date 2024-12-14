@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>动画</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        /* 调用动画 */
+        animation: move 1s linear infinite alternate;
+      }
+      /* 注册动画 */
+      @keyframes move {
+        from {
+          width: 200px;
+          background-color: pink;
+        }
+        to {
+          width: 100%;
+          background-color: aqua;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+		1.CSS动画的定义: 动画就是创建运动轨迹 CSS样式按照这个运动运动轨迹执行
+		动画可以定义位置的运动、透明度的运动、背景图的运动、旋转的运动、移动和缩放的运动等等
+
+		2.创建动画的步骤
+			-2.1 注册动画
+				@keyframes 动画名 {
+					from {
+						初始样式
+					}
+					to {
+						最终的样式
+					}
+				}
+
+				@keyframes 动画名 {
+					0% {
+						初始样式
+					}
+					20% {
+	
+					}
+					40% {
+	
+					}
+					..
+					100% {
+						最终的样式
+					}
+				}
+			-2.2 调用动画
+				animation: 动画名称 过渡时间 延迟 速度类型 动画执行次数
+
+					速度类型: 匀速 linear; 逐渐慢下来 ease; 由慢变快 ease-in; 由快变慢 ease-out
+							先慢后快再慢 ease-in-out
+					
+					动画执行次数: forwards 只执行一次; infinite 无限执行; alternate 反复执行
+
+					注意: 动画的反复执行必须加无限执行 否则不生效
+	 -->
+
+    <div></div>
+  </body>
+</html>

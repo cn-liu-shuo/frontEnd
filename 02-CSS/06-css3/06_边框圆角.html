@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>边框圆角</title>
+    <style type="text/css">
+      p {
+        width: 280px;
+        height: 280px;
+        text-align: center;
+        line-height: 280px;
+        float: left;
+        margin: 20px;
+      }
+      .p1 {
+        background-color: aqua;
+        border-radius: 50px;
+      }
+      .p2 {
+        border-radius: 50%;
+        background-color: orange;
+      }
+      .p3 {
+        background-color: pink;
+        border-radius: 50% 0;
+      }
+      .p4 {
+        background-color: blue;
+        border-radius: 50% 0 50% 50%;
+      }
+      .p5 {
+        background-color: yellow;
+        border-radius: 50% 50% 50% 0;
+      }
+      .p6 {
+        height: 140px;
+        line-height: 140px;
+        border-radius: 50%;
+        background-color: chocolate;
+        margin-top: 70px;
+      }
+      .p7 {
+        width: 140px;
+        border-radius: 50%;
+        background-color: purple;
+        margin-left: 70px;
+      }
+      .p8 {
+        width: 0;
+        height: 0;
+        border: 140px solid red;
+        border-radius: 50%;
+        border-right-color: transparent;
+        margin-left: 70px;
+      }
+      .p9 {
+        width: 0;
+        height: 0;
+        border: 140px solid red;
+        border-radius: 50%;
+        border-color: aqua transparent orange transparent;
+        margin-left: 70px;
+      }
+      /* 三角形 */
+      .p10 {
+        width: 0;
+        height: 0;
+        border: 140px solid orange;
+        border-color: transparent transparent transparent orange;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="p1">p1</p>
+    <p class="p2">p2</p>
+    <p class="p3">p3</p>
+    <p class="p4">p4</p>
+    <p class="p5">p5</p>
+    <p class="p6">p6</p>
+    <p class="p7">p7</p>
+    <p class="p8">p8</p>
+    <p class="p9">p9</p>
+    <p class="p10">p10</p>
+  </body>
+</html>
