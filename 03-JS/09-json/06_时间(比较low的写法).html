@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>时间(比较low的写法)</title>
+  </head>
+  <body>
+    <div class="time"></div>
+
+    <script type="text/javascript">
+      var time = document.querySelector(".time");
+      // 写一个时间函数
+      function getTime() {
+        // 获取系统时间
+        // date 日期  data 数据
+        var now = new Date();
+        // console.log(now.toString().split(' '));
+        time.innerText = now.toString().split(" ")[4]; // 时:分:秒
+      }
+      // 打开页面先调用一次
+      getTime();
+      // 设置定时器 每隔一秒调用一次 times 函数
+      setInterval(getTime, 1000);
+    </script>
+  </body>
+</html>

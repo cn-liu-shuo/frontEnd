@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>万年历</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      .header ul {
+        overflow: hidden;
+      }
+      .header ul li {
+        float: left;
+        width: 165px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: white;
+        background-color: #ccc;
+        margin-right: 3px;
+        cursor: pointer;
+      }
+      .header ul .active {
+        background-color: orange;
+      }
+      .main {
+        width: 500px;
+      }
+      .main li {
+        background-color: #ccc;
+        margin: 2px 0;
+        padding: 5px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <ul>
+        <!-- <li class="active">2015-1-1</li>
+			<li>2015-1-2</li>
+			<li>2015-1-3</li> -->
+      </ul>
+    </div>
+    <div class="main">
+      <ul>
+        <li>
+          <span>阴历：</span>
+          <span data-title="yinli">十一月十一</span>
+        </li>
+        <li>
+          <span>属相：</span>
+          <span data-title="shuxiang">马</span>
+        </li>
+        <li>
+          <span>宜：</span>
+          <span data-title="yi"
+            >123213213订盟.纳采.造车器.祭祀.祈福.出行.安香.修造.动土.上梁.开市.交易.立券.移徙.入宅.会亲友.安机械.栽种.纳畜.造屋.起基.安床.造畜椆栖.</span
+          >
+        </li>
+        <li>
+          <span>忌：</span>
+          <span data-title="ji">123123破土.安葬.行丧.开生坟.</span>
+        </li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      var obj = {
+        error_code: 0,
+        reason: "Success",
+        result: [
+          {
+            data: {
+              holiday: "元旦", //假日
+              ji: "123123破土.安葬.行丧.开生坟.", //忌
+              shuxiang: "马", //属相
+              desc: "1月1日至3日放假调休，共3天。1月4日（星期日）上班。", //假日描述
+              weekday: "星期四", //周几
+              yi: "123213213订盟.纳采.造车器.祭祀.祈福.出行.安香.修造.动土.上梁.开市.交易.立券.移徙.入宅.会亲友.安机械.栽种.纳畜.造屋.起基.安床.造畜椆栖.", //宜
+              lunarYear: "甲午年", //纪年
+              yinli: "十一月十一", //农历
+              "year-month": "2015-1", //年份和月份
+              date: "2015-1-1", //具体日期
+            },
+          },
+          {
+            data: {
+              holiday: "元旦", //假日
+              ji: "1231232323112331破土.安葬.行丧.开生坟.", //忌
+              shuxiang: "牛", //属相
+              desc: "1月1日至3日放假调休，共3天。1月4日（星期日）上班。", //假日描述
+              weekday: "星期四", //周几
+              yi: "12321321313订盟.纳采.造车器.祭祀.祈福.出行.安香.修造.动土.上梁.开市.交易.立券.移徙.入宅.会亲友.安机械.栽种.纳畜.造屋.起基.安床.造畜椆栖.", //宜
+              lunarYear: "甲午年", //纪年
+              yinli: "十一月十二", //农历
+              "year-month": "2015-1", //年份和月份
+              date: "2015-1-2", //具体日期
+            },
+          },
+          {
+            data: {
+              holiday: "元旦", //假日
+              ji: "123213破土.安葬.行丧.开生坟.", //忌
+              shuxiang: "猪", //属相
+              desc: "1月1日至3日放假调休，共3天。1月4日（星期日）上班。", //假日描述
+              weekday: "星期四", //周几
+              yi: "123123订盟.纳采.造车器.祭祀.祈福.出行.安香.修造.动土.上梁.开市.交易.立券.移徙.入宅.会亲友.安机械.栽种.纳畜.造屋.起基.安床.造畜椆栖.", //宜
+              lunarYear: "甲午年", //纪年
+              yinli: "十一月十三", //农历
+              "year-month": "2015-1", //年份和月份
+              date: "2015-1-3", //具体日期
+            },
+          },
+        ],
+      };
+
+      // 先获取 header 里面的 ul 标签 并且循环创建li 将其插入到 ul 里面
+      var ul = document.querySelector(".header ul");
+      for (var i = 0; i < obj.result.length; i++) {
+        ul.innerHTML += "<li>" + obj.result[i].data.date + "</li>";
+      }
+
+      // header 里面的第一个li加类名 active
+      var lis = document.querySelectorAll(".header ul li");
+      lis[0].className = "active";
+
+      // 获取 main 里面所有li标签的最后一个span
+      var spans = document.querySelectorAll(".main ul li span:last-child");
+      // 给 header 里面的 li 添加点击事件
+      for (var i = 0; i < lis.length; i++) {
+        lis[i].index = i;
+        lis[i].onclick = function () {
+          document.querySelector(".active").className = "";
+          this.className = "active";
+          for (var j = 0; j < spans.length; j++) {
+            var key = spans[j].getAttribute("data-title");
+            spans[j].innerText = obj.result[this.index].data[key];
+          }
+        };
+      }
+    </script>
+  </body>
+</html>

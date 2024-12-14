@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>时间日期(高级写法)</title>
+  </head>
+  <body>
+    <div class="time"></div>
+    <div class="date"></div>
+
+    <script type="text/javascript">
+      var time = document.querySelector(".time");
+      var date = document.querySelector(".date");
+
+      function getTime() {
+        var now = new Date();
+
+        // 获取时 分 秒
+        var h = now.getHours(); // 时
+        var m = now.getMinutes(); // 分
+        var s = now.getSeconds(); // 秒
+
+        // 判断时间
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+
+        var str = null;
+        if (h >= 6 && h < 8) {
+          str = "早上好";
+        } else if (h >= 8 && h < 12) {
+          str = "上午好";
+        } else if (h >= 12 && h < 13) {
+          str = "中午好";
+        } else if (h >= 13 && h < 18) {
+          str = "下午好";
+        } else if (h >= 18 && h < 22) {
+          str = "晚上好";
+        } else {
+          str = "作死吧，还不睡觉！";
+        }
+
+        // 输出到浏览器上
+        time.innerText = "现在是北京时间：" + h + ":" + m + ":" + s + " " + str;
+      }
+      // 打开页面就调用一次
+      getTime();
+      setInterval(getTime, 1000);
+
+      // 获取当前的日期
+      function getDate() {
+        var now = new Date();
+
+        var year = now.getFullYear(); // 获取年份
+        var month = now.getMonth() + 1; // 获取月份
+        var day = now.getDate(); // 获取天
+        var week = now.getDay(); // 周几
+
+        // 星期几
+        var arr = [
+          "星期天",
+          "星期一",
+          "星期二",
+          "星期三",
+          "星期四",
+          "星期五",
+          "星期六",
+        ];
+
+        date.innerText =
+          "今天是" + year + "年" + month + "月" + day + "日" + " " + arr[week];
+      }
+      getDate();
+    </script>
+  </body>
+</html>

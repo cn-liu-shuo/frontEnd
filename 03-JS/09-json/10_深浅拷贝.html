@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>深浅拷贝</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			直接赋值
+			当我把一个对象赋值给另一个新的变量的时候 赋值的其实是该对象的内存地址 而不是赋值数据 也就是说两个变量指向的是同一个内存地址(存储空间), 无论其中哪一个变量发生改变 其实改变的都是指向存储空间里面的数据, 因此这两个变量关联的对象是联动的(也就是说 b复制了a 当修改了 a 的时候 b 也随着 a 的变化而变化)
+		*/
+      // var a = {
+      // 	name: '小姬',
+      // 	age: 22,
+      // 	arr: ['a', 1, true]
+      // }
+
+      // var b = a;
+      // a.name = '云骑';
+      // a.arr[1] = 2;
+      // console.log(a, b);
+
+      // 浅拷贝的定义: 就是 b 复制了 a, 当改变了 a 的时候 b 中的子元素不会发生改变, 但是 b 中子对象中的元素会随着 a 的改变而改变 原数据(a)和复制之后的数据(b) 第一层不会改变 第二层和更深层会改变
+
+      // 浅拷贝的方法 slice concat es6的剩余运算符
+
+      // 第一种方法 slice()
+      // var a = [1, 9, 'a', {name: '霍骅'}, true, [{age: 18}]];
+      // var b = a.slice();
+      // a[0] = 66;// b 不会改变
+      // a[3].name = 'giao';// b 会改变
+      // console.log(b);
+
+      // 第二中方法 concat()
+      // var a = [1, 2, 3, [4, 5]];
+      // var b = [];
+      // var c = a.concat(b);
+      // a[0] = 99;// 不变
+      // a[3][0] = 66;// 改变
+      // console.log(c);
+
+      // 第三种方法 es6的剩余运算符 ...
+      // var a = [1, 2, 3, [4, 5]];
+      // var b = [...a];
+      // a[0] = 99;// 不变
+      // a[3][0] = 66;// 改变
+      // console.log(b);
+
+      // 深拷贝 就是 b 复制了 a, 当 a 改变时 b 不会随着 a 的改变而改变, b 有独立的内存空间
+      // 深拷贝的方法 JSON.parse JSON.stringify jq的 extend() 方法 递归函数
+      var a = [1, 2, 3, [{ name: "张三" }], 4];
+      var b = JSON.parse(JSON.stringify(a));
+      a[0] = 77;
+      a[3][0].name = "法外狂徒";
+      console.log(b);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>对象中的函数</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var obj = {
+        a: 1,
+        b: 2,
+        c: function () {
+          console.log("我是对象中的函数", this);
+        },
+      };
+
+      // 对象的取值
+      console.log(obj.a);
+      console.log(obj["b"]);
+      console.log(obj.c);
+      obj.c();
+
+      // 对象中的函数里的this 指向这个对象  this 的指向取决于函数的调用者
+
+      var num = {
+        number: "100",
+      };
+      var obj1 = {
+        a: "50",
+        avg: function (a) {
+          return a.number / this.a;
+        },
+      };
+      console.log(obj1.avg(num)); // 2
+    </script>
+  </body>
+</html>

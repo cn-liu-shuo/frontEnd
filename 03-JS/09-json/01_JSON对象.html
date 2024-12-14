@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JSON对象</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			json 是存储和交换文本信息的 通俗来讲就是一种数据格式
+
+			网页中有的数据是活的(后端给你返回的 json 数据, 将 json 格式的数据显示到页面中, 后端数据发生改变了前端的页面也会发生改变)
+
+			有的页面是死页面 纯静态页面
+		*/
+
+      // 普通对象的定义
+      var obj = {
+        name: "菲菲",
+        age: 18,
+        like: "隋统勋",
+      };
+      console.log(obj);
+      // 对象的取值 对象名.属性名 || 对象名['属性名']
+      console.log("姓名---", obj.name);
+      console.log("年龄---", obj["age"]);
+
+      // json对象
+      var json1 = {
+        name: "菲菲",
+        age: "18",
+        like: "隋统勋",
+      };
+      // json对象的取值 对象名.属性名 || 对象名['属性名']
+      console.log("姓名---", json1.name);
+      console.log("年龄---", json1["age"]);
+
+      /*
+			json 对象 和 普通对象的区别？
+				没啥区别 只不过 json 对象是js对象的一种严格模式
+				属性名必须带双引号 尽量不要用单引号 因为转json字符串的时候会报错
+		*/
+    </script>
+  </body>
+</html>

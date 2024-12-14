@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Math</title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      /*
+            Math.ceil() 向上取整 6.000000001 ==> 7
+            Math.floor() 向下取整 6.000000001 ==> 6
+            Math.round() 四舍五入
+            Math.max() 最大值
+            Math.min() 最小值
+            Math.PI π
+            Math.random() 随机数 0(包含) - 1(不包含)
+        */
+
+      console.log(Math.ceil(6.000001)); // 7
+      console.log(Math.floor(6.000001)); // 6
+      console.log(Math.round(Math.PI)); // 3
+      var a = 1.23232123;
+      // toFixed(n) 保留n位小数
+      console.log(a.toFixed(4), 111111111);
+
+      // Math.max() 取数组里面的最大值
+      var arr = [12, 5, 9, 55, 3, 66];
+
+      console.log(Math.max(...arr));
+      // var sum = arr[0]
+      // for (var i = 0; i < arr.length; i++) {
+      // 	if (sum < arr[i]) {
+      // 		sum = arr[i];
+      // 	}
+      // }
+      // console.log(sum)
+
+      var sum = arr[0];
+      for (var i in arr) {
+        sum = Math.max(sum, arr[i]);
+      }
+      console.log(sum);
+    </script>
+  </body>
+</html>

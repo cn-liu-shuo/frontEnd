@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>对象的遍历</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var obj = {
+        name: "张三",
+        age: 18,
+      };
+      // for in遍历数组返回的是下标  遍历对象返回的是属性名
+      for (var i in obj) {
+        console.log(i);
+      }
+
+      // for of 遍历对象默认是 报错 obj is not iterable
+      // Object.keys() Object.values() Object.entries()
+      for (var i of Object.keys(obj)) {
+        console.log(i); // 属性名
+      }
+      for (var i of Object.values(obj)) {
+        console.log(i); // 属性值
+      }
+      for (var i of Object.entries(obj)) {
+        console.log(i); // 属性名 和 属性值 一个数组
+      }
+    </script>
+  </body>
+</html>

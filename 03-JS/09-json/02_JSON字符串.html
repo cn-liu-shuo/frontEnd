@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JSON字符串</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			JSON字符串: 就是一个字符串 只不过字符串里面是一个 json 对象
+			json 是有规律的 字符串只要是个 json 对象 那么就是 json 字符串
+		*/
+      var str1 = '{"name": "张三", "age": "18"}'; // json 字符串 严格模式
+      var str2 = "{'name': '张三', 'age': '18'}"; // json 字符串 不严格模式
+      console.log(str1);
+
+      // json 字符串 ==> json 对象的格式
+      // 1.JSON.parse() 转对象的时候会考虑 json 字符串是否为严格模式 如果不是就报错
+      var json1 = JSON.parse(str1);
+      console.log(json1);
+
+      // 2.eval() 是 js 自带的将 json 字符串转换成 json 对象的方法 但是在使用时要给 json 字符串拼接一个 ()
+      var json2 = eval("(" + str2 + ")");
+      console.log(json2);
+
+      // json 对象 ==> json 字符串
+      // JSON.stringify()
+      var json3 = {
+        name: "张三",
+        age: "18",
+        sex: "男",
+      };
+      var str3 = JSON.stringify(json3);
+      console.log(str3);
+    </script>
+  </body>
+</html>

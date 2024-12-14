@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>设置时间</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 2018/8/20 8:40:20
+
+      var date = new Date();
+      console.log(date);
+
+      var setTime1 = new Date("Aug 20, 2018, 8:40:20");
+      console.log(setTime1);
+
+      var setTime2 = new Date("2001/09/11, 13:23:45");
+      console.log(setTime2);
+
+      var setTime3 = new Date(2016, 11, 14, 22, 30, 30);
+      console.log(setTime3);
+
+      var setTime4 = new Date();
+      var setYear = setTime4.setFullYear(2020);
+      var setMonth = setTime4.setMonth(11);
+      var setDate = setTime4.setDate(22);
+      var setHours = setTime4.setHours(15);
+      var setMinutes = setTime4.setMinutes(14);
+      var setSeconds = setTime4.setSeconds(13);
+      console.log(setTime4);
+    </script>
+  </body>
+</html>
