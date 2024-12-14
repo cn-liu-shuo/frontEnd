@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 1.给子组件标签用ref起个名 -->
+      <huohuo ref="huo"></huohuo>
+      <button @click="changeHuo">改变pro</button>
+    </div>
+    <!-- 
+        template 定义组件的模版 相当于模版的占位符
+     -->
+    <template id="my">
+      <div>
+        <h1>霍霍今天想吃点卤蛋,{{msg}}</h1>
+        <button @click="change('heiehi')">改变</button>
+      </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      // extend  第一步用构造器构造一个组件
+      var list = Vue.extend({
+        // 模板
+        template: "#my",
+        data() {
+          return {
+            msg: "刘岩也是",
+          };
+        },
+        methods: {
+          change(n) {
+            this.msg = "今天没食欲" + n;
+          },
+          changeA() {},
+        },
+      });
+
+      var vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+          changeHuo() {
+            // 2. 通过this.$refs.huo 调用子元素方法
+            console.log(this.$refs.huo);
+            this.$refs.huo.change("haha");
+          },
+        },
+        // 第二部 注册局部组件
+        components: {
+          huohuo: list,
+        },
+      });
+    </script>
+  </body>
+</html>

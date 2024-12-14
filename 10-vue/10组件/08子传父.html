@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      {{msg}}
+      <!-- 2.通过v-on绑定自定义事件(跟this.$emit起的名字对应起来) 接收一个方法-->
+      <fly @huo="come" @huo2="come2" @huo3="come3"></fly>
+    </div>
+
+    <template id="huo">
+      <div>
+        <h1>haha{{msg}}</h1>
+        <button @click="feifei">发送飞飞</button>
+      </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var fly = Vue.extend({
+        template: "#huo",
+        data() {
+          return {
+            msg: "飞飞飞起来了",
+          };
+        },
+        methods: {
+          feifei() {
+            //  1.this.$emit(自定义名称,要发送的数据)发送数据
+            this.$emit("huo", this.msg);
+            this.$emit("huo2", this.msg);
+            this.$emit("huo3", this.msg);
+            this.$emit("huo4", this.msg);
+          },
+        },
+        watch: {},
+        computed: {},
+      });
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          msg: null,
+        },
+        components: {
+          fly,
+        },
+        methods: {
+          // 默认接收子组件传过来的值
+          come(n) {
+            console.log(n);
+            this.msg = n;
+          },
+          come2(n) {
+            console.log(n);
+          },
+          come3(n) {
+            console.log(n);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

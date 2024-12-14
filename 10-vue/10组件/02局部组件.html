@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <ao-te-man></ao-te-man>
+      <aoteman></aoteman>
+      <huo></huo>
+      <hh></hh>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      let huo = {
+        template: "<h1>霍霍{{msg}}</h1>",
+        data() {
+          return {
+            msg: "上学",
+          };
+        },
+      };
+      var vm = new Vue({
+        el: "#app",
+        data: {},
+        components: {
+          // 第一种
+          aoTeMan: huo,
+          // 第二种
+          aoteman: huo,
+          // 第三种
+          huo,
+          // 第四种
+          hh: {
+            template: "<h1>霍霍{{msg}}</h1>",
+            data() {
+              return {
+                msg: "上学",
+              };
+            },
+          },
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>

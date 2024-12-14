@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <huohuo></huohuo>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      // extend  第一步用构造器构造一个组件
+      var list = Vue.extend({
+        // 模板
+        template: `<h1>霍霍今天想吃点卤蛋,{{msg}}</h1>`,
+        data() {
+          return {
+            msg: "刘岩也是",
+          };
+        },
+      });
+
+      var vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {},
+        // 第二部 注册局部组件
+        components: {
+          huohuo: list,
+        },
+      });
+    </script>
+  </body>
+</html>

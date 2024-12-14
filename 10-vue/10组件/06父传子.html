@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 1.在引入的子组件标签中，用v-bind绑定一个自定义属性 -->
+      <huohuo :father-gift="gift" :father-age="age" :abcd="like"></huohuo>
+    </div>
+    <!-- 
+        template 定义组件的模版 相当于模版的占位符 必须有一个div
+     -->
+    <template id="my">
+      <div>
+        <h1>霍霍今天想吃点卤蛋,{{msg}}</h1>
+        <!-- 3. 直接使用-->
+        <h2>收到礼物： {{fatherGift}} ---- {{ fatherAge }}---{{abcd}}</h2>
+      </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      // extend  第一步用构造器构造一个组件
+      var list = Vue.extend({
+        // 模板
+        template: "#my",
+        // 2.接收父组件传过来的值  使用props去接收
+        props: {
+          fatherGift: String,
+          fatherAge: Number,
+          abcd: String,
+        },
+        data() {
+          return {
+            msg: "刘岩也是",
+          };
+        },
+      });
+
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          gift: "兰博基尼",
+          age: 200,
+          like: "大肘子",
+        },
+        methods: {},
+        // 第二部 注册局部组件
+        components: {
+          huohuo: list,
+        },
+      });
+    </script>
+  </body>
+</html>

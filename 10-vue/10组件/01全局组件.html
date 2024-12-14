@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <huohuo></huohuo>
+    </div>
+    <div id="app2">
+      <huohuo></huohuo>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      /* 
+            组件： 其实就是自定义标签  但是这个标签有功能 方便多次调用
+            全局组件： 可以在多个不同的vue里使用
+            
+        
+        */
+      //    语法
+      Vue.component("huohuo", {
+        // 模板
+        template: `<h1>霍霍今天想吃点卤蛋,{{msg}}</h1>`,
+        data() {
+          return {
+            msg: "刘岩也是",
+          };
+        },
+      });
+      var vm = new Vue({
+        el: "#app",
+        data: {},
+        methods: {},
+      });
+      var vm2 = new Vue({
+        el: "#app2",
+        data: {},
+        methods: {},
+      });
+    </script>
+  </body>
+</html>
