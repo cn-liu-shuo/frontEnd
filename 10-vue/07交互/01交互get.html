@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" v-model="location" />
+      <button @click="getList">查询</button>
+
+      <ul>
+        <li v-for="(item, index) in list" :key="index">
+          {{ item.name }} -- {{ item.id }}
+        </li>
+      </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-resource.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          location: "葫芦岛",
+          list: [],
+        },
+        created() {
+          this.getList();
+        },
+        methods: {
+          getList() {
+            // this.$http.get(url, 传参).then
+            this.$http
+              .get("https://geoapi.qweather.com/v2/city/lookup", {
+                location: this.location,
+                key: "3817cd5f5667476d9ccc5e9b888c1b70",
+              })
+              .then((res) => {
+                console.log(res);
+                if (res.data.code == 200) {
+                  this.list = res.data.location;
+                  console.log(this.list);
+                }
+              });
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
