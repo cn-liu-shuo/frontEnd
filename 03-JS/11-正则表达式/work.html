@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>work</title>
+  </head>
+  <body>
+    <input type="text" placeholder="请输入手机号" /><span></span>
+
+    <script type="text/javascript">
+      var phone = document.querySelector("input");
+      var span = document.querySelector("span");
+      // 匹配手机号
+      var reg = /^1[3-9]\d{9}$/;
+      phone.onblur = function () {
+        if (phone.value == "") {
+          span.innerText = "内容不能为空";
+          span.style.color = "red";
+        } else {
+          if (reg.test(phone.value)) {
+            span.innerText = "";
+            span.style.color = "";
+          } else {
+            span.innerText = "格式错误";
+            span.style.color = "red";
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

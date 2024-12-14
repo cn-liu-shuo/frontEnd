@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>常用的字符串的方法</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			字符串的声明
+				1. new String()
+				2. 去掉 new
+				3. 直接用 '' 或者 ""
+		*/
+
+      var str1 = new String(123);
+      console.log(str1);
+      var str2 = String(666);
+      console.log(str2);
+      var str3 = "你好";
+      console.log(str3);
+
+      /*
+			字符串的长度: 字符串.length
+			可以通过 字符串[下标/索引值] 进行字符串的取值
+			不能通过下标去修改字符串
+		*/
+      console.log(str3.length);
+      console.log(str3[0]);
+      str3[0] = "我";
+      console.log(str3);
+
+      var str4 = "abcdefga";
+      /*
+			遍历字符串
+				for、 for in、 for of
+				forEach不能遍历字符串 因为 forEach 是数组遍历的方法
+		*/
+      // for (var i = 0; i < str4.length; i++) {
+      // 	console.log(str4[i]);
+      // }
+
+      // for (var i in str4) {
+      // 	console.log(i);
+      // }
+
+      // for (var i of str4) {
+      // 	console.log(i);
+      // }
+
+      // str4.forEach(function (element, index, arr) {
+      // 	console.log(element, index, arr);// str4.forEach is not a function
+      // })
+
+      // 字符串的方法
+      // 1.search() 查找字符串第一次出现的下标 有就返回下标 没有就返回 -1
+      console.log(str4.search("a")); // 0
+      console.log(str4.search("z")); // -1
+
+      // 2.substring() 截取字符串 (参考数组的方法 slice())
+      console.log(str4.substring(2)); // cdefga
+      console.log(str4.substring(2, 4)); // cd
+
+      // 3.substr() 参数1: 从哪个下标开始截取  参数2: 截取长度
+      console.log(str4.substr(2, 3)); // cde
+
+      // 4.charAt() 根据指定下标返回当前位置的字符(值) 找不到返回空
+      console.log(str4.charAt(3)); // d
+
+      // 5.charCodeAt() 在字符串中查找对应下标的字符的编码值(ASCII)
+      console.log(str4.charCodeAt(4)); // 101
+
+      // 6.split() 分割字符串 返回数组
+
+      // 7.indexOf(参数1, 参数2) 参数1: 要查找的字符串  参数2: 从哪个下标开始查找, 如果不写默认从下标为 0 开始查找 如果找到就返回对应的下标值 如果找不到则返回 -1  找的是第一次出现的位置的下标
+      console.log(str4.indexOf("a")); // 0
+      console.log(str4.indexOf("a", 3)); // 7
+
+      // 8.includes(参数1, 参数2) 参数1: 要查找的字符串  参数2: 从哪个下标开始查找, 如果不写默认从下标为 0 开始查找 如果找到就返回true 如果找不到则返回fasle 查询字符串有没有这个字符
+      console.log(str4.includes("b")); // true
+      console.log(str4.includes("b", 2)); // false
+
+      // 9.startsWith(参数) 检测字符串的开头和参数值是否相同 如果值相同返回true 否则返回false
+      var str5 = "http://www.baidu.com";
+      console.log(str5.startsWith("http")); // true
+      console.log(str5.startsWith("https")); // false
+
+      // 10.endsWith(参数) 检测字符串的结尾和参数值是否相同 如果值相同返回true 否则返回false
+      console.log(str5.endsWith("com")); // true
+      console.log(str5.endsWith(".con")); // false
+
+      // 11.replace(参数1, 参数2) 参数1: 旧字符串  参数2: 新字符串
+      console.log(str5.replace("baidu", "taobao"));
+
+      // 12.toLowerCase()全小写  toUpperCase()全大写
+      console.log(str4.toUpperCase());
+
+      // 13.concat() 合并字符串
+      var str6 = "abc";
+      var str7 = "123";
+      var str8 = str6.concat(str7);
+      console.log(str8);
+    </script>
+  </body>
+</html>

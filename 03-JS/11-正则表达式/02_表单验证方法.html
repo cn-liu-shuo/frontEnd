@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>表单验证方法</title>
+  </head>
+  <body>
+    <label for="user">用户名</label>
+    <input type="text" id="user" placeholder="请输入用户名" />
+    <span style="font-size: 14px"></span>
+
+    <script type="text/javascript">
+      var ipt = document.querySelector("input");
+      var span = document.querySelector("span");
+
+      // 聚焦 onfocus
+      ipt.onfocus = function () {
+        console.log("聚焦成功");
+      };
+
+      // 失焦 onblur
+      ipt.onblur = function () {
+        if (!this.value) {
+          span.innerText = "内容不能为空";
+          span.style.color = "red";
+        } else if (this.value.length < 3 || this.value.length > 5) {
+          span.innerText = "格式错误";
+          span.style.color = "red";
+        } else {
+          span.innerText = "";
+        }
+      };
+    </script>
+  </body>
+</html>

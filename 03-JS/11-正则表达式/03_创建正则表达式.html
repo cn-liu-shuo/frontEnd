@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>创建正则表达式</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			正则表达式: 又叫做规则表达式 就是一串字符串 用来规定约束的
+
+			创建正则表达式:
+				方法一:
+					构造函数的方式创建 new RegExp()
+					var re = new RegExp('a');// 搜索a
+				方法二:
+					字面量形式 字面量 = /pattern/attribute  第一个参数 规则 模版  第二个参数 属性
+		*/
+      // var str = 'Abcdefa';
+      // var re = /z/i;
+      // console.log(str.search(re));
+      /*
+			属性:
+				i: 代表不区分大小写
+				g: 代表全局匹配(继续往下匹配) 正则会从开始的位置检索到结束的位置
+				m: 代表多行行行匹配 只对^(开头) 和 $(结尾) 模式有用
+		*/
+      /*
+			search() 字符串检索与正则表达式相匹配的值 有就返回下标 没有就返回 -1
+			replace() 替换所匹配的字符串
+			test() 用于检测字符串是否符合正则表达式的条件 如果符合返回 true 反之返回 false
+			exec() 检测字符串 返回查找结果的第一个值 返回的是一个数组 有值就返回数组 没有就返回null
+			match() 把所有的匹配结果都返回出来 返回数组 找不到返回 null
+		*/
+
+      var str = "abcdefMnabc";
+      var reg = /f/;
+      console.log(str.search("f")); // 5
+      console.log(str.search(reg)); // 5
+
+      var reg1 = /m/i;
+      console.log(str.search("m")); // -1
+      console.log(str.search(reg1)); // 6
+
+      var reg2 = /o/;
+      console.log(reg.test(str)); // true
+      console.log(reg2.test(str)); // false
+
+      console.log(reg.exec(str)); // [f]
+      console.log(reg2.exec(str)); // null
+
+      var reg3 = /a/g;
+      console.log(str.match(reg3)); // ['a', 'a']
+
+      var str1 = "abc呀嘿哄def";
+      var reg4 = /b|c|呀|d/g;
+      console.log(str1);
+      console.log(str1.replace(reg4, "+"));
+    </script>
+  </body>
+</html>

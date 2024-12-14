@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>lastIndex</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			在全局模式下 可以指定要查找的字符串执行多次匹配 每次匹配使用当前正则对象的 lastIndex 属性值作为在目标字符串中开始查找的起始位置, lastIndex 属性的起始位置为 0 , 找到匹配项之后 lastIndex 的值被重置为匹配内容的下一个字符的索引位置 用来标识下次执行匹配时的开始查找位置	
+		*/
+      // \d 匹配数字  g代表全局
+      var reg = /\d/g;
+      var str = "daw4fawg8gesawg4gaesg4gsg9awd6";
+      console.log("从" + reg.lastIndex + "开始查找"); // 从0开始查找
+      console.log(reg.exec(str)); // [4]
+
+      console.log("从" + reg.lastIndex + "开始查找"); // 从4开始查找
+      console.log(reg.exec(str)); // [8]
+
+      console.log("从" + reg.lastIndex + "开始查找"); // 从9开始查找
+      console.log(reg.exec(str)); // [4]
+    </script>
+  </body>
+</html>

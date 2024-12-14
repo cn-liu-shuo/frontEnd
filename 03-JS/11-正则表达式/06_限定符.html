@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>限定符</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			限定符[]
+			[abc]查找方括号中的任意字符
+			[^abc]查找不在方括号中的字符  ^ 在限定符里面代表 取非 或者 排除的意思
+			[0-9]查找任何从 0-9 的数字
+			[a-z]查找任何从 小写a 到 小写z 的字符
+			[A-Z]查找任何从 大写A 到 大写Z 的字符
+		*/
+      var str = "gsghdsrhaz";
+      var str1 = "hdJHioJH     18gseWED56fge666G";
+      var str2 = "666G";
+      // var reg1 = /[sha]/g;
+      // console.log(str.match(reg1));// ['s', 'h', 's', 'h', 'a']
+
+      // var reg2 = /[^sha]/g;
+      // console.log(str.match(reg2));// ['g', 'g', 'd', 'r', 'z']
+
+      // var reg3 = /[a-z]/g;
+      // console.log(str.match(reg3));// ['g', 's', 'g', 'h', 'd', 's', 'r', 'h', 'a', 'z']
+
+      // var reg4 = /[A-Z]/g;
+      // console.log(str1.match(reg4));// ['J', 'H', 'J', 'H', 'W', 'E', 'D', 'G']
+
+      // var reg5 = /[0-9]/g;
+      // console.log(str1.match(reg5));// ['1', '8', '5', '6', '6', '6', '6']
+
+      // var reg6 = /[a-z0-9A-Z]/g;
+      // console.log(str1.match(reg6));// str1
+
+      var reg7 = /^666G$/g;
+      console.log(reg7.test(str2)); // true
+    </script>
+  </body>
+</html>

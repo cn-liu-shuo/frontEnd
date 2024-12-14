@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>边界</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+			^ 以 ^ 后面的字符开头
+			$ 以 $ 前面的字符结尾
+		*/
+
+      var reg = /^[a-z][A-Z]\d/;
+      var str = "aZ1wsdrftgyhjkl";
+      console.log(reg.test(str)); // true
+
+      var reg2 = /[0-9]$/;
+      console.log(reg2.test("ghjkl1")); // true
+    </script>
+  </body>
+</html>
