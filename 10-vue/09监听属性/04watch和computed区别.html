@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" v-model="txt" />
+      <input type="text" v-model="txt1" />
+      {{ msg }}
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          txt: "刘岩别运营了",
+          a: 1,
+          msg: "",
+        },
+        watch: {
+          txt(newVal, oldVal) {
+            // 支持异步 不支持缓存  3秒之后才触发
+            setTimeout(() => {
+              this.msg = newVal;
+            }, 3000);
+          },
+        },
+        computed: {
+          txt1() {
+            // 报错 不支持异步，支持缓存
+            setTimeout(() => {
+              this.msg = this.a;
+            }, 3000);
+            return "哈哈";
+          },
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>

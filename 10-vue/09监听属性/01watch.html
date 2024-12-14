@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <p>今日温度{{num}}</p>
+      <p>今日建议穿{{wear}}</p>
+
+      <button @click="num += 5">升温</button>
+      <button @click="num -= 5">降温</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          num: 20,
+          wear: "短袖",
+        },
+        // 监听数据变化
+        // 要监听的变量(新数据，旧数据){}
+        watch: {
+          num(newVal, oldVal) {
+            console.log(newVal, oldVal);
+            if (newVal <= 10) {
+              this.wear = "棉袄";
+            } else if (newVal < 30 && newVal > 10) {
+              this.wear = "短袖";
+            } else {
+              this.wear = "光腚";
+            }
+          },
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>

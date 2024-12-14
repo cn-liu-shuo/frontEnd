@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table tr td span {
+        border: 1px solid #000;
+        display: inline-block;
+        width: 30px;
+        font-size: 14px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <table border="1" width="500" cellspacing="0">
+        <tr>
+          <td>序号</td>
+          <td>单选</td>
+          <td>商品名</td>
+          <td>价格</td>
+          <td>数量</td>
+          <td>操作</td>
+        </tr>
+        <tr v-for="(item, index) in shops" :key="index">
+          <td>{{ item.id }}</td>
+          <td>
+            <input type="checkbox" v-model="checkList" :value="item" />
+          </td>
+          <td>{{ item.name }}</td>
+          <!-- 单价 -->
+          <td>{{ item.price }}</td>
+          <td>
+            <button @click="sub(item.id)">-</button>
+            <span>{{ item.number }}</span>
+            <!-- 数量 -->
+            <button @click="add(item.id)">+</button>
+          </td>
+          <td><button @click="del(index, item.id)">删除</button></td>
+        </tr>
+      </table>
+      <input type="checkbox" v-model="checked" @click="checkAll" />全选
+      <button>计算</button>
+      <span>一共需要支付{{allTotal}}元</span>
+      <button>选中计算</button>
+      <span>只需要支付{{checkTotal}}元</span>
+      checkList{{ checkList }} checked{{checked}}
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          checkList: [], //多选框的选中值
+          checked: false, //控制是否全选
+          shops: [
+            { id: 1, name: "html", price: 55, number: 1 },
+            { id: 2, name: "css", price: 66, number: 1 },
+            { id: 3, name: "JavaScript", price: 77, number: 1 },
+            { id: 4, name: "vue", price: 1000, number: 1 },
+          ],
+        },
+        // 计算属性 全选
+        computed: {
+          allTotal() {
+            let res = 0;
+            this.shops.forEach((item) => {
+              res += item.number * item.price;
+            });
+            return res;
+          },
+          checkTotal() {
+            let res = 0;
+            this.checkList.forEach((item) => {
+              res += item.number * item.price;
+            });
+            return res;
+          },
+        },
+        methods: {
+          sub(id) {
+            let num = this.shops.find((item) => item.id == id);
+            if (num.number > 1) {
+              num.number--;
+            }
+          },
+          add(id) {
+            let num = this.shops.find((item) => item.id == id);
+            num.number++;
+          },
+          checkAll() {
+            if (!this.checked) {
+              this.checkList = [];
+              this.shops.forEach((item) => {
+                this.checkList.push(item);
+              });
+            } else {
+              this.checkList = [];
+            }
+          },
+          del(index, id) {
+            // 删除shops里的商品
+            this.shops.splice(index, 1);
+            // 删除checklist选中的商品
+            this.checkList = this.checkList.filter((item) => item.id != id);
+          },
+        },
+        watch: {
+          checkList(newVal, oldVal) {
+            if (newVal.length == this.shops.length) {
+              this.checked = true;
+            } else {
+              this.checked = false;
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

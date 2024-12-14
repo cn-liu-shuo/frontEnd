@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <button @click="handle">点击</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          arr: [10, 20, 30, 40],
+        },
+        watch: {
+          /* 
+                    监听不到的两种情况
+                    1.通过索引改变数组中的一个元素
+                    解决： this.$set(修改的数组，修改的下标，修改的值)
+                    2.改变数组的长度
+                    解决: splice(下标，长度)
+                */
+          arr(newVal) {
+            console.log(newVal, "新数据");
+          },
+        },
+        methods: {
+          handle() {
+            // this.arr[0] = "哈哈"
+            // this.$set(this.arr, 0, "哈哈")
+
+            // this.arr.length = 0
+            this.arr.splice(0, this.arr.length);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

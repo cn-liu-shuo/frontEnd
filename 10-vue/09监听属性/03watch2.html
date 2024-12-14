@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" v-model="obj.msg" />
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          obj: {
+            msg: "孙悟空吃肘子",
+          },
+        },
+        computed: {
+          obj1() {
+            return JSON.parse(JSON.stringify(this.obj));
+          },
+        },
+        watch: {
+          // 监听对象的某一个属性
+          // 'obj.msg'(newVal, oldVal){
+          //     console.log(newVal, oldVal);
+          // }
+
+          // 新旧数据一致，用计算属性拷贝一下， 监听计算属性
+          // 监听整个对象
+          obj1: {
+            handler(newVal, oldVal) {
+              console.log("新数据", newVal.msg);
+              // 初始化监听没有旧数据，会报错，要先判断一下
+              if (oldVal) {
+                console.log("旧数据", oldVal.msg);
+              }
+            },
+            // 深度监听
+            deep: true,
+            // 初始化监听
+            immediate: true,
+          },
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>
