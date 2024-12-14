@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 计算属性：在 不改变原数据的情况下，对数据进行操作，重新渲染 -->
+      <!-- 
+            1.在computed里定义的函数，必须得有return，函数名不能和method、data的变量和方法名重复
+            2.渲染 计算属性的函数 以变量的形式输出 {{b}} 不用加()
+            3.计算属性监听依赖数据的变化  同步操作
+         -->
+      <p>衬衫的价格是{{a}}磅，{{b}}便士</p>
+      <button @click="add">涨价100</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          a: 9,
+        },
+        created() {},
+        computed: {
+          b() {
+            return this.a + 6;
+          },
+        },
+        methods: {
+          add() {
+            this.a += 100;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

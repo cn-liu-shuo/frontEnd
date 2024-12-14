@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <table border="1" cellspacing="0" cellpadding="10">
+        <thead>
+          <th>学科</th>
+          <th>分数</th>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in stu" :key="index">
+            <td>{{ item.sub }}</td>
+            <td><input type="text" v-model.number="item.grade" /></td>
+          </tr>
+          <tr>
+            <td>总分</td>
+            <td>{{sum}}</td>
+          </tr>
+          <tr>
+            <td>平均分</td>
+            <td>{{avg}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          stu: [
+            {
+              sub: "语文",
+              grade: 120,
+            },
+            {
+              sub: "数学",
+              grade: 120,
+            },
+            {
+              sub: "英语",
+              grade: 120,
+            },
+          ],
+        },
+        created() {},
+        computed: {
+          sum() {
+            let num = 0;
+            this.stu.forEach((item) => {
+              num += item.grade;
+            });
+            return num;
+          },
+          avg() {
+            return this.sum / 3;
+          },
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>

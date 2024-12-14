@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      姓氏：<input type="text" v-model="user.firstName" /> 名字：<input
+        type="text"
+        v-model="user.lastName"
+      />
+      姓名：<input type="text" v-model="userName" />
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          user: {
+            firstName: "霍霍",
+            lastName: "族郑",
+          },
+        },
+        created() {},
+        computed: {
+          userName: {
+            get() {
+              console.log("获取属性");
+              return this.user.firstName + "·" + this.user.lastName;
+            },
+            set(val) {
+              console.log("设置名字", val);
+              this.user.firstName = val.split("·")[0];
+              this.user.lastName = val.split("·")[1];
+            },
+          },
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>
