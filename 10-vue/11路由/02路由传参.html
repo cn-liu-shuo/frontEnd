@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <router-view></router-view>
+    </div>
+
+    <template id="login">
+      <div>
+        <div>用户名：<input type="text" v-model="login.userName" /></div>
+        <div>密码：<input type="text" v-model="login.passWord" /></div>
+        <button @click="goTo()">登录</button>
+      </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-router.js"></script>
+    <script src="../js/vue-resource.js"></script>
+    <script>
+      let login = {
+        template: "#login",
+        data() {
+          return {
+            login: {
+              userName: "admin",
+              passWord: "123456",
+            },
+          };
+        },
+        created() {
+          console.log(this.$router);
+        },
+        methods: {
+          goTo() {
+            this.$http
+              .post("http://wish.byesame.com/login", this.login)
+              .then((res) => {
+                console.log("res", res);
+                if (res.data.code === 200) {
+                  // $router 全局的路由实例 里面有很多方法
+                  // 路由跳转传参
+                  // 1.通过query传参，将参数拼接到url后面,刷新页面不会丢失，需要通过path跳转
+                  // this.$router.push({
+                  //     path: '/index',
+                  //     query: {
+                  //         userName: res.data.data.name
+                  //     }
+                  // })
+                  // 2.通过params传参 需要name跳转路由 刷新数据会丢失
+                  this.$router.push({
+                    name: "indexPro",
+                    params: {
+                      userName: res.data.data.name,
+                    },
+                  });
+                }
+              });
+          },
+        },
+      };
+
+      let index = {
+        template: "<h1>欢迎光临，{{msg}}</h1>",
+        data() {
+          return {
+            msg: "",
+          };
+        },
+        created() {
+          this.getName();
+        },
+        methods: {
+          // 接收数据
+          getName() {
+            // $route 当前组件的信息
+            console.log(this.$route);
+            // 接收query传参
+            // this.msg = this.$route.query.userName
+            // 接收params传参
+            this.msg = this.$route.params.userName;
+          },
+        },
+      };
+
+      let abc = [
+        {
+          path: "/",
+          component: login,
+        },
+        {
+          path: "/index",
+          name: "indexPro",
+          component: index,
+        },
+      ];
+
+      const def = new VueRouter({
+        routes: abc,
+        mode: "hash",
+      });
+
+      var vm = new Vue({
+        el: "#app",
+        data: {},
+        router: def,
+      });
+    </script>
+  </body>
+</html>

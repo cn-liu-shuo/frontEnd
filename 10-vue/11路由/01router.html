@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 声明式导航  相当于a标签 to相当于href-->
+      <router-link to="/">首页</router-link>
+      <router-link to="/home2">home2</router-link>
+      <router-link to="/home3">home3</router-link>
+      <!-- 路由的出口  显示路由组件  -->
+      <router-view></router-view>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-router.js"></script>
+    <script>
+      let home = {
+        template: "<h1>这是home</h1>",
+      };
+      let home2 = {
+        template: "<h1>这是home2</h1>",
+      };
+      let home3 = {
+        template: "<h1>这是home3</h1>",
+      };
+      // 配置路由
+      const routes = [
+        {
+          // 访问地址
+          path: "/",
+          // 组件路径
+          component: home,
+        },
+        {
+          path: "/home2",
+          component: home2,
+        },
+        {
+          path: "/home3",
+          component: home3,
+        },
+      ];
+      // 创建路由实例
+      const router = new VueRouter({
+        // routes: routes
+        routes,
+        // 路由模式 hash history
+        // hash 地址栏 有#，不美观
+        // history 刷新可能报404 需要后端的支持（在服务器ngix上配置 try_files $uri $uri/ /index.html）
+        mode: "hash",
+      });
+      var vm = new Vue({
+        el: "#app",
+        data: {},
+        // 将路由进行引用使用
+        router,
+      });
+    </script>
+  </body>
+</html>
