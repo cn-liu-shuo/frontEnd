@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+      // for ..of
+      const arr = [1, 2, 3, 4, 5];
+      // .values
+      for (const item of arr) {
+        console.log(item);
+      }
+      // keys()
+      for (const index of arr.keys()) {
+        console.log(index);
+      }
+      // values()
+      for (const index of arr.values()) {
+        console.log(index);
+      }
+      // entries 返回 key value
+      for (const [index, item] of arr.entries()) {
+        console.log(index, item);
+      }
+
+      // find()  返回满足条件的第一个元素的值 否则undefined
+
+      var user = [
+        {
+          name: "孙悟空",
+          age: 500,
+          sex: "男",
+        },
+        {
+          name: "猪八戒",
+          age: 200,
+          sex: "男",
+        },
+        {
+          name: "大闸蟹",
+          age: 18,
+          sex: "男",
+        },
+      ];
+
+      let found = user.find(function (value) {
+        return value.name == "孙kong空";
+      });
+
+      console.log(found); //undefined
+
+      // findIndex() 返回满足条件的第一个元素的下标  否则-1
+      let foundIndex = user.findIndex(function (value) {
+        return value.name == "孙k空";
+      });
+
+      console.log(foundIndex);
+
+      // 伪数组转成数组
+      // Array.from()
+      var divs = document.querySelectorAll("div");
+      console.log(divs instanceof Array); //false
+      let newdiv = Array.from(divs);
+      console.log(newdiv instanceof Array); //true
+
+      // 剩余运算符
+      let dom = [...divs];
+      console.log(dom instanceof Array); //true
+
+      // Array.prototype.slice.call(divs)
+      var dom2 = Array.prototype.slice.call(divs);
+      console.log(dom2 instanceof Array); //true
+
+      // fill() 用于一个固定值填充数组
+      const arr3 = new Array(5);
+      arr3.fill("孙");
+      console.log(arr3);
+
+      // [ )
+      arr3.fill("猴", 1, 3);
+      console.log(arr3);
+    </script>
+  </body>
+</html>

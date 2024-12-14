@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // reflect 反射  是js的一个内置对象，提供了一些方法，可以让开发者通过调用这些方法去访问一些js底层
+
+      // 属性的取赋值
+      const obj = {
+        a: 1,
+        b: 2,
+      };
+      Reflect.set(obj, "a", 12);
+
+      console.log(Reflect.get(obj, "a"));
+
+      // 调用函数
+      function fn(a, b) {
+        console.log(a + b, this.a);
+      }
+
+      // fn(4,5)  第二个参数表示this
+      Reflect.apply(fn, null, [4, 5]); //9  undefined
+      Reflect.apply(fn, obj, [4, 5]); //9 12
+
+      // 删除属性
+      Reflect.deleteProperty(obj, "b");
+      console.log(obj);
+
+      // 调用构造函数
+      function Text(a) {
+        this.a = a;
+      }
+
+      let t = Reflect.construct(Text, [2]);
+      console.log(t.a); //2
+
+      // 查询
+
+      console.log(Reflect.has(obj, "a")); //true
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let user = {
+        name: "漩涡鸣人",
+        age: 20,
+        skill: ["漩涡金铭", "螺旋丸"],
+      };
+
+      let { name: uname, age: uage } = user;
+      console.log(uname, uage);
+
+      let name = "宇智波萨斯给";
+      let age = 20;
+      let obj = {
+        name,
+        uage: age,
+        brother: "一打七",
+      };
+      console.log(obj);
+
+      // 剩余运算符
+      let { brother, ...other } = obj;
+      console.log(brother, other);
+
+      // 扩展运算符
+      let option = {
+        ...other,
+        eat: "大闸蟹",
+      };
+      console.log(option);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 表示对Symbol实例的描述
+      // 表示唯一的 独一无二的  不可改变
+      let s1 = Symbol("123");
+      console.log(s1);
+
+      let user = {
+        name: "孙悟空",
+        // 不能被遍历
+        [Symbol("age")]: Symbol(100),
+      };
+      for (const key in user) {
+        console.log(key);
+      }
+      // 访问
+      console.log(s1.description);
+    </script>
+  </body>
+</html>

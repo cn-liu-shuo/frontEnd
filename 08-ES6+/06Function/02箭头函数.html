@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // function fn(){}
+
+      // var fn = function(){}
+
+      // 1.箭头函数 () => {} 一体的
+      // 2.一个参数的时候 可以省略括号 x => {}
+      // 3.如果执行程序只有一行代码 {}和return可以省略
+      // 箭头函数  匿名函数多作为回调函数去使用   不能用在构造函数  因为箭头函数没有this, 所以会穿过当前函数往顶层对象去找
+      var fn = (x) => {
+        let s = 6;
+        s = x + s; //26
+        return 10;
+      };
+
+      let num = 100;
+      let snum = fn(20); //10
+      num = num + snum;
+      console.log(num);
+      // 2.一个参数的时候 可以省略括号 x => {}
+      var foo = (x) => {
+        return x;
+      };
+      console.log(foo(100));
+      // 3.如果执行程序只有一行代码 {}和return可以省略
+      var fnn = (x) => x + 1;
+      console.log(fnn(11));
+
+      //
+      // setTimeout(() => {
+
+      // }, 1)
+
+      // arr.map((item, index) => {
+
+      // })
+
+      // this==================
+      var obj = {
+        name: "孙悟空",
+        age: 500,
+        desc: () => {
+          console.log(this, "desc=================="); //window
+        },
+        like: function () {
+          console.log("打白骨精");
+          console.log(this, "like================"); //obj
+
+          var fn = () => {
+            console.log(this, "fn============="); //obj
+          };
+
+          fn();
+        },
+        hate: () => {
+          var fn2 = () => {
+            console.log(this, "fn2======================"); //window
+          };
+          fn2();
+        },
+      };
+
+      // console.log(obj.desc())//window
+      console.log(obj.like());
+      // 预习回调地
+
+      // 函数作为返回值====================================================
+      function fn1(a) {
+        return function fn2(a) {
+          console.log("这是fn2" + a);
+          return a;
+        };
+      }
+
+      let m = fn1(3);
+      console.log(m); //function fn2(a){
+      //     console.log("这是fn2" + a)
+      //      return a
+      // }
+
+      console.log(m(6));
+    </script>
+  </body>
+</html>

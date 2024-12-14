@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //promise作用 解决回调地狱
+      // 三种状态： pending进行中  fulfilled 已成功  rejected 已失败
+      /* 
+            const p = new Promise((resolve, reject) => {
+                // resolve函数的作用： 将Promise对象的状态 从进行中修改成 已成功， 并将成功的结果返回出去
+                // reject函数的作用： 将promise对象的状态 从进行中 修改成 已失败，并将失败的结果返回出去
+
+                一旦状态被修改(从 pending => fulfilled/rejected), 不会再改变
+        })
+        
+        */
+
+      const p = new Promise((resolve, reject) => {
+        // 跑步
+        const time = parseInt(Math.random() * 1000);
+
+        setTimeout(() => {
+          if (Math.random() < 0.5) {
+            resolve(time);
+          } else {
+            reject("叫霍骅绊倒了");
+          }
+        }, time);
+      });
+
+      console.log(p);
+
+      // .then(成功状态的回调，失败状态的回调)
+      // .catch() 当Promise的状态变成失败  就会调用
+      // .finally 不管成功失败都会执行
+      p.then(
+        (res) => {
+          console.log(res);
+          console.log(`成功了,用了${res}秒跑完1000米`);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+
+      p.then((res) => {
+        console.log(`yes,成功了${res}`);
+      })
+        .catch((err) => {
+          console.log(err + "霍骅成功了");
+        })
+        .finally(() => {
+          console.log("执行完了");
+        });
+
+      // 改造表白.
+      function sendMessage(name) {
+        return new Promise((resovle, reject) => {
+          // 表白
+          console.log(`${name}: 最近在输液，你猜是什么液？想你的夜`);
+
+          // 模拟回复
+          setTimeout(() => {
+            if (Math.random() <= 0.1) {
+              // 同意
+              resovle("饭饭，我好喜欢你，像你妈打你，不讲道理");
+            } else {
+              reject("你是个好人");
+            }
+          }, 1000);
+        });
+      }
+
+      sendMessage("王金铭")
+        .catch((err) => {
+          console.log(err);
+          return sendMessage("昊天");
+        })
+        .catch((err) => {
+          console.log(err);
+          return sendMessage("菲菲");
+        })
+        .catch((err) => {
+          console.log(err);
+          return sendMessage("刘岩");
+        })
+        .catch((err) => {
+          console.log(err);
+          return sendMessage("小姬");
+        })
+        .then(
+          (res) => {
+            console.log("牵手成功");
+          },
+          (err) => {
+            console.log("牵手失败，全场灭灯");
+          }
+        );
+    </script>
+  </body>
+</html>

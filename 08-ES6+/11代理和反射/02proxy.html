@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Object.defineProperty
+      // 1.不能对数组的变化进行监听（vue2实现了对方法的监听，没有实现对数组索引值变化的监听
+      // 2.只能对当前对象的某个属性进行监听，不能监听整个对象的变化
+      // proxy
+      // 对数组的变化进行监听
+      // 对整个对象进行监听
+
+      let obj = {
+        name: "孙悟空",
+        like: "吃桃",
+        arr: [666],
+      };
+
+      obj = new Proxy(obj, {
+        get(target, prop) {
+          // target 表示监听的对象
+          // prop 表示访问的属性名
+          console.log(target, prop);
+          return target[prop];
+        },
+        // val修改的值
+        set(target, prop, val) {
+          console.log(val, "修改");
+        },
+      });
+
+      console.log(obj.like);
+      obj.name = "猪八戒";
+      obj.arr[0] = "不6了";
+      obj.arr.push("金刚");
+    </script>
+  </body>
+</html>

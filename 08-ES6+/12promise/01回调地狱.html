@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 范存义有五个女神 王金铭  于昊天 菲菲 刘岩 小姬
+
+      function sendMessage(name, fn, onError) {
+        // 发送表白
+        console.log(`${name}: 最近在输液，你猜是什么液？想你的夜`);
+
+        // 拟造回复
+        setTimeout(() => {
+          if (Math.random() <= 0.1) {
+            // 同意
+            fn("饭饭，我好喜欢你，像你妈打你，不讲道理");
+          } else {
+            onError("你是个好人");
+          }
+        }, 1000);
+      }
+
+      sendMessage(
+        "王金铭",
+        (res) => {
+          console.log(res);
+        },
+        (err) => {
+          console.log(err);
+          sendMessage(
+            "于浩天",
+            (res) => {
+              console.log(res);
+            },
+            (err) => {
+              console.log(err);
+              sendMessage(
+                "菲菲",
+                (res) => {
+                  console.log(res);
+                },
+                (err) => {
+                  console.log(err);
+                  sendMessage(
+                    "刘岩",
+                    (res) => {
+                      console.log(res);
+                    },
+                    (err) => {
+                      console.log(err);
+                      sendMessage(
+                        "小姬",
+                        (res) => {
+                          console.log(res);
+                        },
+                        (err) => {
+                          console.log(err);
+                          console.log("表白失败");
+                        }
+                      );
+                    }
+                  );
+                }
+              );
+            }
+          );
+        }
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let arr = [1, 2, 3]
+      // let a = arr[0]
+      // let b = arr[1]
+      // let c = arr[2]
+
+      let [a, b, c] = [1, 2, 3];
+      console.log(a, b, c);
+
+      let [m, n, [s, o]] = [1, 2, [4, 5]];
+      console.log(m, n, s, o);
+
+      // 忽略某个元素 用 ，隔开
+      let [name, , age] = ["孙悟空", "大闸蟹", 500];
+      console.log(name, age);
+
+      // 面试题 使用解构赋值交换赋值
+      var str = "孙悟空";
+      var str2 = "大闸蟹";
+
+      [str, str2] = [str2, str];
+      console.log(str, str2);
+
+      // 剩余/扩展运算符  ...
+      // 剩余运算符
+      let [name1, name2, ...reset] = [
+        "孙悟空",
+        "大闸蟹",
+        "唐僧",
+        "小白龙",
+        "霍骅",
+      ];
+      console.log(name1, name2, reset); //孙悟空 大闸蟹  ['唐僧', '小白龙', '霍骅']
+
+      let res = ["牛魔王", "李云琦"];
+      // 扩展运算符
+      let arr3 = ["白骨精", "于浩天", ...reset, ...res];
+      console.log(arr3);
+    </script>
+  </body>
+</html>

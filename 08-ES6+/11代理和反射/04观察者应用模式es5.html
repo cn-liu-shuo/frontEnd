@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <input type="text" />
+    <div id="app"></div>
+
+    <script>
+      const data = {
+        title: "Vue",
+        desc: "描述信息",
+      };
+
+      function observe(target) {
+        var div = document.querySelector("#app");
+
+        console.log(target, "haha");
+        // Object.keys 把对象里的属性名都拿出来
+        console.log(Object.keys(target));
+        let props = Object.keys(target); //['title', 'desc']
+        let obj = {};
+
+        for (const prop of props) {
+          Object.defineProperty(obj, prop, {
+            get() {
+              return target[prop];
+            },
+            set(val) {
+              target[prop] = val;
+              // 数据更新之后重新渲染页面
+              render();
+            },
+          });
+        }
+        function render() {
+          let html = "";
+          for (const prop of props) {
+            html += `<p>${prop} --- ${target[prop]}</p>`;
+          }
+          div.innerHTML = html;
+        }
+
+        render();
+
+        return obj;
+      }
+
+      let obj = observe(data);
+      document.querySelector("input").onkeyup = function () {
+        console.log(this.value);
+        obj.title = this.value;
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../../04-Jquery/js/jquery.js"></script>
+    <script type="module">
+      import request from "./utils.js";
+      // id ===> 用户名 ===》 取钱
+
+      async function fun() {
+        // request("data_id.json").then(res =>{
+        //     console.log(res)
+        //     return request("data_name.json")
+        // })
+        // .then(res => {
+        //     return request("data_money.json")
+        // })
+        // .then(res => {
+        //     console.log(res);
+        // })
+
+        // 拿到id
+        // 如果有报错 try-catch
+        // try{
+        //     const res = await request("data_id.json")
+        //     console.log(res, "id")
+        // }
+        // catch(err){
+        //     console.log(err)
+        // }
+        // async await ====》 消除回调。then， 更加优雅的表达Promise
+        const res = await request("data_id.json");
+        console.log(res, "id");
+        // name
+        const name = await request("data_name.json", "get", res.data.id);
+        console.log(name, "name");
+        // money
+        const money = await request("data_money.json", "get", name.data.name);
+        console.log(money.data.money, "money");
+      }
+
+      fun();
+    </script>
+  </body>
+</html>

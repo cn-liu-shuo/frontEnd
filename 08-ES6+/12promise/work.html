@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Fn({ method, url, params }) {
+        return new Promise((resolve, reject) => {
+          let str = "";
+          for (const i in params) {
+            str += `${i}=${params[i]}&`;
+          }
+
+          let xhr = new XMLHttpRequest();
+          let baseUrl = "http://wish.byesame.com";
+          if (method == "get") {
+            xhr.open(method, baseUrl + url);
+            xhr.setRequestHeader("token", localStorage.getItem("token"));
+            xhr.send();
+          } else {
+            xhr.open(method, baseUrl + url);
+            xhr.setRequestHeader(
+              "Content-Type",
+              "application/x-www-form-urlencoded"
+            );
+            if (url != "/login") {
+              xhr.setRequestHeader("token", localStorage.getItem("token"));
+            }
+            // name=zhangsan&id=3
+            xhr.send(str);
+          }
+
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+              var res = JSON.parse(xhr.responseText);
+              if (res.code == 200) {
+                resolve(res);
+              } else {
+                reject(res);
+              }
+            }
+          };
+        });
+      }
+
+      Fn({
+        method: "post",
+        url: "/login",
+        params: {
+          userName: "admin",
+          passWord: "123456",
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          // 存token
+          localStorage.setItem("token", res.data.token);
+          return Fn({
+            method: "get",
+            url: `/admin/${res.data.id}`,
+            params: null,
+          });
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      // export
+      // 可以有多个
+      import { a, add } from "./export.js";
+      console.log(a);
+      console.log(add(1, 4));
+
+      // export default
+      // 一个页面只有一个 引入不要加{}
+      import fn from "./export.js";
+      console.log(fn(4, 2));
+    </script>
+  </body>
+</html>

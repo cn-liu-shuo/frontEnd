@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 改造表白.
+      function sendMessage(name) {
+        return new Promise((resovle, reject) => {
+          // 表白
+          console.log(`${name}: 最近在输液，你猜是什么液？想你的夜`);
+
+          // 模拟回复
+          setTimeout(() => {
+            if (Math.random() <= 0.1) {
+              // 同意
+              resovle("饭饭，我好喜欢你，像你妈打你，不讲道理");
+            } else {
+              reject("你是个好人");
+            }
+          }, 1000);
+        });
+      }
+
+      var love = ["王金铭", "昊天", "菲菲", "刘岩", "小姬"];
+
+      async function method() {
+        //
+        let falg = false;
+        for (const item of love) {
+          try {
+            const res = await sendMessage(item);
+            console.log("表白成功");
+            falg = true;
+            break;
+          } catch (err) {
+            console.log(err);
+          }
+        }
+        if (!falg) {
+          console.log("全场灭灯，遗憾离场");
+        }
+      }
+      method();
+    </script>
+  </body>
+</html>

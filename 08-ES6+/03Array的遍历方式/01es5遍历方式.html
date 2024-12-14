@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr = [1, 2, 3, 4, 5];
+      // for循环
+
+      // forEach
+      arr.forEach(function (item, index, arr) {
+        console.log(item, index, arr);
+      });
+
+      // map 有返回值 会创建新数组并返回
+      let a = arr.map(function (item, index, arr) {
+        item *= 10;
+        return item;
+      });
+
+      console.log(a, arr);
+
+      // 面试题
+
+      let arr1 = [
+        {
+          value: 1,
+          label: "number1",
+        },
+        {
+          value: 2,
+          label: "number2",
+        },
+      ];
+      // 将arr1 输出 {"number1": 1, "nubmer2": 2}
+
+      var obj = {};
+      arr1.map(function (item, index) {
+        obj[item.label] = item.value;
+      });
+      console.log(obj);
+
+      obj.name = "sunwuk";
+      let user = "haha";
+      obj[user] = "zhubajie";
+      console.log(obj);
+
+      // filter 过滤 返回符合条件的数组
+      var list = [
+        {
+          name: "孙悟空",
+          age: 500,
+          sex: "nan",
+        },
+        {
+          name: "猪八戒",
+          age: 200,
+          sex: "nan",
+        },
+        {
+          name: "大闸蟹",
+          age: 18,
+          sex: "nv",
+        },
+      ];
+      // 返回大于18岁的
+
+      let res = list.filter(function (item, index) {
+        return item.age > 18;
+      });
+      let res2 = list.filter(function (item) {
+        return item.name == "猪八戒" && item.age < 500;
+      });
+      console.log(res, res2);
+
+      // some 判断是否有符合条件  返回布尔值
+      let sun = list.some(function (item, index) {
+        return item.name == "孙悟空";
+      });
+
+      console.log(sun); //true
+
+      // every 返回布尔类型  判断每项是否符合条件
+      let ev = list.every(function (item, index) {
+        return item.name == "孙悟空";
+      });
+
+      console.log(ev); //false
+
+      // reduce 归并
+      var orr = [1, 2, 3, 4, 5];
+      let newArr = orr.reduce(function (prev, cur, index, arr) {
+        // cur 数组的每一项
+        // prev 表示reture 返回值  初始的参数0 表示默认的 prev
+        console.log(cur, prev);
+        return prev + cur;
+      }, 0);
+
+      console.log(newArr);
+
+      // let sum = 0
+      // for (let index = 0; index < 6; index++) {
+      //     sum = 1 + index
+
+      // }
+
+      // 数组去重
+      const arr2 = [1, 2, 4, 2, 5, 2, 8, 9, 10];
+      let arr3 = arr2.reduce(function (prev, cur, index) {
+        if (prev.indexOf(cur) == -1) {
+          prev.push(cur);
+        }
+        return prev;
+      }, []);
+      // [1, 2, 4, 5]
+      console.log(arr3);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.let声明变量 块级作用域
+      let b = 6;
+      var a = 10;
+      console.log(window);
+
+      // 2.let声明的变量不能重复声明
+      // let b = 8;
+      // console.log(b)//Identifier 'b' has already been declared
+      // 好处 防止多人协作 代码冲突
+
+      // 3.let声明的变量没有变量提升
+      // console.log(c)// Cannot access 'c' before initialization
+      // let c = 666
+
+      // 4.let 声明的变量具有暂时性死区
+      // 只要块级作用域内存在let，他所声明的变量就绑定在这个区域，不再受外界影响
+      // var s = 2;
+      // if (true) {
+      //     s = 6;//Cannot access 's' before initialization
+      //     let s = 10;
+      //     console.log(s)
+      // }
+
+      // 5.let声明的变量是块级作用域
+
+      for (var i = 0; i < 5; i++) {
+        setTimeout(function () {
+          console.log(i); //5
+        }, 1);
+      }
+
+      // i = 0
+      // {
+      //     setTimeout(function(){
+      //     console.log(i)//5
+      //    },1)
+      // }
+
+      // i = 1
+      // {
+      //     setTimeout(function(){
+      //     console.log(i)//5
+      //    },1)
+      // }
+
+      // i = 2
+      // {
+      //     setTimeout(function(){
+      //     console.log(i)//5
+      //    },1)
+      // }
+
+      // i = 3
+      // {
+      //     setTimeout(function(){
+      //     console.log(i)//5
+      //    },1)
+      // }
+
+      // i = 4
+      // {
+      //     setTimeout(function(){
+      //     console.log(i)//5
+      //    },1)
+      // }
+
+      // i= 5
+
+      // let声明i 当前的i只在本轮循环中生效, 并且只在本块级作用域有效,每次循环的i其实都是一个新变量
+      for (let i = 0; i < 5; i++) {
+        setTimeout(function () {
+          console.log(i); // 0 1 2 3 4
+        }, 1);
+      }
+    </script>
+  </body>
+</html>

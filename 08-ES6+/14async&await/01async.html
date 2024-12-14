@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // async 用于修饰函数 被他修饰的函数一定返回Promise
+      async function method() {
+        return 1;
+      }
+      console.log(method());
+
+      async function method2() {
+        return Promise.resolve(2);
+      }
+      method2().then((res) => {
+        console.log(res);
+      });
+      async function method3() {
+        return Promise.reject(3);
+      }
+      method3().catch((err) => {
+        console.log(err);
+      });
+    </script>
+  </body>
+</html>

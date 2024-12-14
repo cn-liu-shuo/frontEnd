@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 默认去重
+      let s1 = new Set([1, 2, 1, 4, 1, 5, 2, 5]);
+      console.log(s1);
+      console.log(Array.from(s1)); //转换回数组
+      console.log([...s1]);
+
+      // 添加 add()
+      s1.add("sunwuk");
+      console.log(s1);
+
+      // 删除 delete()
+      s1.delete(2);
+      console.log(s1);
+
+      // 清空 clear()
+      // s1.clear()
+      // console.log(s1);
+
+      // 查询 has()
+      console.log(s1.has(3)); //false
+
+      // 长度
+      console.log(s1.size);
+
+      // 遍历
+      for (const item of s1) {
+        console.log(item);
+      }
+    </script>
+  </body>
+</html>

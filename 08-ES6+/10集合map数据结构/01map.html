@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // key: value   键值对的集合
+      let m = new Map();
+
+      // 添加
+      m.set("name", "孙悟空");
+      m.set("name", "feifei");
+      console.log(m);
+
+      // 查询
+      console.log(m.get("name"));
+
+      // 删除
+      m.delete("name");
+      console.log(m);
+
+      let m2 = new Map([
+        ["name", "sun"],
+        ["age", 500],
+      ]);
+      console.log(m2);
+
+      for (const item of m2) {
+        console.log(item);
+      }
+    </script>
+  </body>
+</html>

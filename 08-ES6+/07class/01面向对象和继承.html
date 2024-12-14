@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ES6中引入了类的概念  每创建一个class类，里面就会有一个constructor方法
+      class Monkey {
+        constructor(name, food) {
+          this.name = name;
+          this.food = food;
+          this.like = function () {
+            console.log("大闸蟹");
+          };
+        }
+
+        showName(age) {
+          console.log(this.name + "的年龄是" + age);
+        }
+        // 相当于
+        // Monkey.prototype = {
+        //     showName(){}
+        // }
+      }
+
+      let wuk = new Monkey("天天", "猕猴桃");
+      wuk.showName(500);
+      wuk.like();
+      console.log(wuk.name);
+
+      // 继承 Extends
+      class stoneMoneky extends Monkey {
+        constructor(name, color) {
+          // 使用extends  必须使用super来调用父类的构造方法
+          super(name);
+          this.color = color;
+        }
+
+        showName(age) {
+          super.showName(age);
+        }
+      }
+
+      let kongkong = new stoneMoneky("孙孙", "yellow");
+      kongkong.showName(18);
+    </script>
+  </body>
+</html>

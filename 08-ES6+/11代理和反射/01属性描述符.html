@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 属性描述符  用于描述一个属性的相关信息
+      const obj = {
+        name: "孙悟空",
+        age: 500,
+      };
+
+      // value 当前值
+      // writable 能否写入
+      // enumerable 能否遍历
+      Object.defineProperty(obj, "name", {
+        value: "唐僧",
+        writable: true,
+        enumerable: false,
+      });
+      obj.name = "八戒";
+      // 无法遍历name
+      for (const item in obj) {
+        console.log(item);
+      }
+      console.log(obj);
+
+      // 在属性描述符中。添加了getter和setter中的任意一个，该属性就不是一个普通的属性，就变成了存取器
+      let Vue = {};
+      Object.defineProperty(Vue, "name", {
+        get() {
+          console.log("有人来敲门");
+          return "孙悟空";
+        },
+        set(val) {
+          console.log(`送了个${val}`);
+        },
+      });
+
+      console.log(Vue.name, Vue.title);
+
+      Vue.name = "八戒";
+
+      // 无法监听数组的变化
+
+      let sun = {
+        arr: [1, 2, 3],
+      };
+
+      Object.defineProperty(sun, "arr", {
+        get() {
+          console.log("数组访问了");
+        },
+        set(val) {
+          console.log("数组修改了");
+        },
+      });
+      // sun.arr = [1]直接赋值可以
+      // sun.arr[0] = "八戒" 无法监听数组的变化
+      // sun.arr.push(10) 无法监听
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1.声明时立即赋值,并且之后不允许修改
+      // 2.不允许重复声明
+      // 3.块级作用域
+      // 4.没有变量提升
+      const a = 1;
+      // a = 10;
+      // console.log(a)
+
+      // 声明的对象是引用数据类型，不变的变量绑定的指针
+      const obj = {
+        name: "孙悟空",
+        age: 500,
+        like: {
+          name: "大闸蟹",
+        },
+      };
+
+      obj.age = 18;
+      console.log(obj); //18
+
+      // 不想改
+      Object.freeze(obj);
+      obj.name = "猪八戒";
+      Object.freeze(obj.like);
+      obj.like.name = "高翠兰";
+      console.log(obj);
+    </script>
+  </body>
+</html>

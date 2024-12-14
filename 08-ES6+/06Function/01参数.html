@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //es5设置默认参数
+      function fn(x, y) {
+        y = y || "大闸蟹";
+        console.log(x, y);
+      }
+      fn("孙悟空吃"); //孙悟空吃 大闸蟹
+      fn("孙悟空吃", "猕猴桃"); //孙悟空吃 猕猴桃
+
+      // es6设置默认参数
+      function fnn(x = "i", y = "霍骅", z = "菲菲") {
+        console.log(y, x, z);
+      }
+      fnn("love", "孙悟空", "大闸蟹");
+    </script>
+  </body>
+</html>

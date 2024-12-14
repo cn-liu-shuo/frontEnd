@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <input type="text" />
+    <div id="app"></div>
+
+    <script>
+      const data = {
+        title: "Vue",
+        desc: "描述信息",
+      };
+
+      function observe(target) {
+        var div = document.querySelector("#app");
+
+        const proxy = new Proxy(target, {
+          get(target, prop) {
+            return Reflect.get(target, prop);
+          },
+          set(target, prop, val) {
+            Reflect.set(target, prop, val);
+            render();
+          },
+        });
+
+        function render() {
+          let html = "";
+          for (const prop of Object.keys(target)) {
+            html += `<p>${prop} --- ${target[prop]}</p>`;
+          }
+          div.innerHTML = html;
+        }
+
+        render();
+
+        return proxy;
+      }
+
+      let obj = observe(data);
+      document.querySelector("input").onkeyup = function () {
+        console.log(this.value);
+        obj.title = this.value;
+      };
+    </script>
+  </body>
+</html>

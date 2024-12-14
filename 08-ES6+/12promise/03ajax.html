@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" value="青青草原" />
+    <button>查询</button><br />
+    <img src="" alt="" />
+    <script>
+      var inp = document.querySelector("input");
+      var btn = document.querySelector("button");
+      var img = document.querySelector("img");
+
+      function getWeather(url) {
+        return new Promise((resolve, reject) => {
+          // 1.
+          var xhr = new XMLHttpRequest();
+          xhr.open("get", url);
+          xhr.send();
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+              var res = JSON.parse(xhr.responseText);
+              if (res.code == 200) {
+                resolve(res);
+              } else {
+                reject(res);
+              }
+            }
+          };
+        });
+      }
+
+      btn.onclick = function () {
+        let url = `https://geoapi.qweather.com/v2/city/lookup?location=${inp.value}&key=71105c7c74984db0b90532b3ad0ac3b5`;
+        getWeather(url)
+          .then((res) => {
+            console.log(res);
+            let newUrl = `https://devapi.qweather.com/v7/weather/now?location=${res.location[0].id}&key=71105c7c74984db0b90532b3ad0ac3b5`;
+            return getWeather(newUrl);
+          })
+          .then((res) => {
+            console.log(res);
+            if (res.code == 200) {
+              img.src = `https://a.hecdn.net/img/common/icon/202106d/${res.now.icon}.png`;
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+      // 默认点击一次
+      btn.click();
+      // 调用登录  紧接着 调用登录的用户查询
+    </script>
+  </body>
+</html>
