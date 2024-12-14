@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>像素为1px的边框为50%的宽的两个div并排显示</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 50vw;
+        height: 100px;
+        display: inline-block;
+        background-color: aqua;
+        border: 1px solid black;
+        /* 使用 怪异盒子 解决 */
+        box-sizing: border-box;
+      }
+      div:last-child {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>超出显示省略号</title>
+    <style type="text/css">
+      div {
+        width: 300px;
+        background-color: pink;
+      }
+
+      /* 单行文本超出显示省略号 */
+      .box1 {
+        /* 文本不换行 */
+        white-space: nowrap;
+        /* 超出隐藏 */
+        overflow: hidden;
+        /* 显示省略号 */
+        text-overflow: ellipsis;
+        margin-bottom: 20px;
+      }
+
+      /* 多行文本超出显示省略号 */
+      .box2 {
+        /* 你要显示的行数 */
+        -webkit-line-clamp: 4;
+        /* 超出隐藏 */
+        overflow: hidden;
+        /* 显示省略号 */
+        text-overflow: ellipsis;
+        /* 将盒子作为弹性盒子模型 */
+        display: -webkit-box;
+        /* 设置盒子内容的排列方式 */
+        -webkit-box-orient: vertical;
+      }
+
+      /*
+			为了解决各个浏览器的差异 我们要做适配
+
+			你是怎么处理浏览器的兼容性?
+				-1.书写 CSS 样式的时候加上浏览器的前缀
+				-2.降级处理 (找一些比较 low 的写法)
+				-3.用 js 处理
+
+
+			常用的浏览器前缀
+				火狐浏览器: -moz-
+				谷歌浏览器: -webkit-
+				edge IE浏览器: -ms-
+				Opear 浏览器: -o-
+		*/
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      会议强调，当前我国正值“七下八上”防汛关键期，长江等流域防洪峰、防决堤、排内涝压力不减，黄河、淮河、海河、松辽流域有可能发生较重汛情，叠加台风进入活跃期，防汛形势更加严峻复杂。各有关地区、部门和单位要始终绷紧防汛抗洪这根弦，牢牢把握工作主动权，坚决打赢防汛抗洪救灾这场硬仗。
+    </div>
+    <div class="box2">
+      会议强调，当前我国正值“七下八上”防汛关键期，长江等流域防洪峰、防决堤、排内涝压力不减，黄河、淮河、海河、松辽流域有可能发生较重汛情，叠加台风进入活跃期，防汛形势更加严峻复杂。各有关地区、部门和单位要始终绷紧防汛抗洪这根弦，牢牢把握工作主动权，坚决打赢防汛抗洪救灾这场硬仗。
+    </div>
+  </body>
+</html>

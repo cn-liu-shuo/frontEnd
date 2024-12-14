@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <title>鼠标指针样式</title>
+    <style>
+      .test {
+        width: 400px;
+        border-collapse: collapse;
+        font: 14px/1.5 georgia, arial, serif, sans-serif;
+      }
+      .test td {
+        padding: 2px 10px;
+        border: 1px solid #ddd;
+      }
+      .test td:hover {
+        background: #eee;
+      }
+      .auto {
+        cursor: auto;
+      }
+      .default {
+        cursor: default;
+      }
+      .none {
+        cursor: none;
+      }
+      .context-menu {
+        cursor: context-menu;
+      }
+      .help {
+        cursor: help;
+      } /*带有小问号的箭头样式*/
+      .pointer {
+        cursor: pointer;
+      }
+      .progress {
+        cursor: progress;
+      }
+      .wait {
+        cursor: wait;
+      } /*等待样式*/
+      .cell {
+        cursor: cell;
+      }
+      .crosshair {
+        cursor: crosshair;
+      } /*十字样式*/
+      .text {
+        cursor: text;
+      } /*光标样式*/
+      .vertical-text {
+        cursor: vertical-text;
+      }
+      .alias {
+        cursor: alias;
+      }
+      .copy {
+        cursor: copy;
+      }
+      .move {
+        cursor: move;
+      } /*移动样式光标*/
+      .no-drop {
+        cursor: no-drop;
+      }
+      .not-allowed {
+        cursor: not-allowed;
+      } /*不可点击样式光标*/
+      .e-resize {
+        cursor: e-resize;
+      }
+      .n-resize {
+        cursor: n-resize;
+      }
+      .ne-resize {
+        cursor: ne-resize;
+      } /*右上左下对角光标*/
+      .nw-resize {
+        cursor: nw-resize;
+      }
+      .s-resize {
+        cursor: s-resize;
+      } /*垂直光标*/
+      .se-resize {
+        cursor: se-resize;
+      } /*左上右下对角光标*/
+      .sw-resize {
+        cursor: sw-resize;
+      }
+      .w-resize {
+        cursor: w-resize;
+      } /*水平光标*/
+      .ew-resize {
+        cursor: ew-resize;
+      }
+      .ns-resize {
+        cursor: ns-resize;
+      }
+      .nesw-resize {
+        cursor: nesw-resize;
+      }
+      .nwse-resize {
+        cursor: nwse-resize;
+      }
+      .col-resize {
+        cursor: col-resize;
+      }
+      .row-resize {
+        cursor: row-resize;
+      }
+      .all-scroll {
+        cursor: all-scroll;
+      }
+      .zoom-in {
+        cursor: zoom-in;
+      }
+      .zoom-out {
+        cursor: zoom-out;
+      }
+      /*自定义鼠标样式*/
+      .url {
+        cursor: url(niu.jpg), pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="test">
+      <caption>
+        cursor光标类型
+      </caption>
+      <tbody>
+        <tr>
+          <td class="auto">auto</td>
+          <td class="default">default</td>
+          <td class="none">none</td>
+          <td class="context-menu">context-menu</td>
+          <td class="help">help</td>
+          <td class="pointer">pointer</td>
+          <td class="progress">progress</td>
+        </tr>
+        <tr>
+          <td class="wait">wait</td>
+          <td class="cell">cell</td>
+          <td class="crosshair">crosshair</td>
+          <td class="text">text</td>
+          <td class="vertical-text">vertical-text</td>
+          <td class="alias">alias</td>
+          <td class="copy">copy</td>
+        </tr>
+        <tr>
+          <td class="move">move</td>
+          <td class="no-drop">no-drop</td>
+          <td class="not-allowed">not-allowed</td>
+          <td class="e-resize">e-resize</td>
+          <td class="n-resize">n-resize</td>
+          <td class="ne-resize">ne-resize</td>
+          <td class="nw-resize">nw-resize</td>
+        </tr>
+        <tr>
+          <td class="s-resize">s-resize</td>
+          <td class="se-resize">se-resize</td>
+          <td class="sw-resize">sw-resize</td>
+          <td class="w-resize">w-resize</td>
+          <td class="ew-resize">ew-resize</td>
+          <td class="ns-resize">ns-resize</td>
+          <td class="nesw-resize">nesw-resize</td>
+        </tr>
+        <tr>
+          <td class="nwse-resize">nwse-resize</td>
+          <td class="col-resize">col-resize</td>
+          <td class="row-resize">row-resize</td>
+          <td class="all-scroll">all-scroll</td>
+          <td class="url">url自定义鼠标样式</td>
+          <td class="zoom-in">zoom-in</td>
+          <td class="zoom-out">zoom-out</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+<!-- 
+一、【光标的类型】cursor:属性
+	default		默认光标（通常是一个箭头）
+	auto		默认。浏览器设置的光标。
+	*pointer		光标呈现为指示链接的指针（一只手）
+	crosshair		光标呈现为十字线。
+	move		此光标指示某对象可被移动。
+	text		此光标指示文本。
+	wait		此光标指示程序正忙（通常是一只表或沙漏）。
+	progress		正在等待运行。
+	help		此光标指示可用的帮助（通常是一个问号或一个气球）。
+	cell		医院白色十字图标
+	zoom-in		放大
+	zoom-out		缩小
+	no-drop		禁用
+ -->

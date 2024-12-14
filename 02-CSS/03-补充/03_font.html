@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>font</title>
+    <style type="text/css">
+      span {
+        /*
+				字体大小单位:  px em rem;
+				px 固定单位 一旦设置就无法自适应页面大小改变而改变
+				em 是相对于其父级字体大小来设置字体的 如果没有父元素 参考 body 的字体大小
+				rem 是相对于整个根元素 <html>
+
+				页面的字体大小默认是 16px
+			*/
+        font-size: 30px;
+        /* 字体颜色 */
+        color: red;
+        /*
+				字体加粗
+					bold 粗体
+					bolder 更粗的字体
+					lighter 更细的字体
+					100-900 (400 正常) ==> 由细到粗
+					normal 默认 标准字体
+			*/
+        font-weight: 400;
+
+        /* 
+				字体样式 如果设置了字体样式 效果生效了 说明电脑有这个字体 没生效就是没有这个字体
+			 */
+        font-family: "微软雅黑";
+
+        /* italic 字体倾斜 */
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <span>姬呈昕</span>
+  </body>
+</html>

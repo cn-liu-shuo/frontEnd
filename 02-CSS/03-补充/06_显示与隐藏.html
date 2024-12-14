@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>显示与隐藏</title>
+    <style type="text/css">
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        /* 隐藏元素 隐藏后不保留位置 也不渲染页面  显示 ==> display: block; */
+        /*display: none;*/
+
+        /* 隐藏元素 透明度为0 保留位置 渲染页面 取值范围 0(完全隐藏)-1(完全显示)  */
+        /*opacity: 0.5;*/
+
+        /* 隐藏元素 隐藏后保留位置 渲染页面  显示 ==> visibility: visible; */
+        visibility: hidden;
+      }
+      p {
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div>杜亚楠</div>
+    <p>李佳轩</p>
+  </body>
+</html>
