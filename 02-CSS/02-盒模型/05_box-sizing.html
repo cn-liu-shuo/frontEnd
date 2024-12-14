@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>box-sizing</title>
+    <style type="text/css">
+      .box1,
+      .box2 {
+        width: 300px;
+        height: 300px;
+      }
+      .box1 {
+        background-color: aqua;
+        border: 10px solid black;
+        padding: 25px 30px;
+        margin: 30px auto;
+        /* 
+				box-sizing: 怪异盒子
+					CSS3新增属性: 保证了增加边框 内边距时, 元素的实际宽高不变;
+
+					普通盒子: box-sizing: content-box;
+						普通盒子的实际宽高 = 设置的宽高 + 内边距 + 边框
+					怪异盒子: box-sizing: border-box;
+						元素的实际宽高 = 设置的宽高
+			 */
+        box-sizing: border-box;
+      }
+      .box2 {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+  </body>
+</html>

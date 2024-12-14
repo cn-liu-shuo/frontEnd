@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>盒模型</title>
+    <style type="text/css">
+      .box1,
+      .box2 {
+        width: 300px;
+        height: 300px;
+      }
+      /* 380 x 370 */
+      /*
+			盒子的实际宽度: 设置的盒子宽度 + 左右内边距 + 左右边框 ==> 300 + 30 + 30 + 10 + 10 = 380
+			盒子的实际高度: 设置的盒子高度 + 上下内边距 + 上下边框 ==> 300 + 25 + 25 + 10 + 10 = 370
+
+			盒子的实际宽高不包括 外边距
+
+			盒模型从内到外: 设置的宽高 > 内边距 > 边框 > 外边距;
+		*/
+      .box1 {
+        background-color: aqua;
+        border: 10px solid black;
+        padding: 25px 30px;
+        margin: 30px auto;
+      }
+      .box2 {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+  </body>
+</html>

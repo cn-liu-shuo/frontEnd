@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>背景</title>
+    <style type="text/css">
+      div {
+        width: 600px;
+        height: 2000px;
+        border: 1px solid black;
+        margin: 0 auto;
+        background-image: url(haimian.jpg);
+        background-size: 100px;
+        background-repeat: no-repeat;
+        background-position: top;
+        /* 背景图固定 */
+        background-attachment: fixed;
+        /*
+				背景图 background-image: url(图片地址);
+				-引入: 当背景图超出容器的大小时 超出的部分不显示会隐藏(背景图溢出)
+				-设置背景图大小: background-size
+						--1. background-size: 宽度 高度; [如果只设置一个值默认是宽度,其高度会随着图片的比例进行缩放]
+						--2. background-size: 百分比; [默认是按照容器的宽度进行计算的 高度自适应]
+						--3. background-size: cover; [按照容器的比例进行缩放 自动填满容器内容部分 超出部分隐藏]
+						--4. background-size: contain; [按照图片自身比例进行缩放显示在容器里 如果容器比图片大就会留有余白]
+				-设置图片平铺: background-repeat
+						--1. no-repeat: 不平铺
+						--2. repeat-x: 只在水平方向平铺
+						--3. repeat-y: 只在垂直方向平铺
+				-背景图定位: background-position
+						当只有一个参数的时候默认水平移动 垂直方向居中
+						--参数1: 水平方向移动;
+						--参数2: 垂直方向移动;
+							--单位: 
+								1.px
+								2.%
+								3.英语单词  水平方向 left center right
+										   垂直方向 top center bottom
+			*/
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

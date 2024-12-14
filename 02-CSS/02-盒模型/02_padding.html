@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>padding-内边距</title>
+    <style type="text/css">
+      .box1 {
+        width: 500px;
+        height: 500px;
+        background-color: aqua;
+        padding: 100px;
+        /* 内边距 */
+        /*
+				padding: 100px; 当 padding 有一个参数的时候代表上下左右四个内边距都是100px
+				padding: 100px 90px; 如果是两个参数, 第一个参数代表上下内边距, 第二个参数代表左右内边距
+				padding: 100px 90px 80px; 如果是三个参数, 第一个参数代表上内边距, 第二个参数代表左右内边距, 第三个参数代表下内边距
+				padding: 100px 90px 80px 60px; 如果是四个参数, 第一个参数代表上内边距, 第二个参数代表右内边距, 第三个参数代表下内边距, 第四个参数代表左内边距
+			*/
+        /*
+				padding 不能为负值 多用于父子元素之间  兄弟元素之间多用 margin
+			*/
+      }
+      .box2 {
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      <div class="box2"></div>
+    </div>
+  </body>
+</html>
