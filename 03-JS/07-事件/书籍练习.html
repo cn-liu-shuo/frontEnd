@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>书籍练习</title>
+    <style type="text/css">
+      div {
+        width: 800px;
+        margin: 10px auto;
+      }
+      table {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      书名: <input type="text" /> 作者: <input type="text" /> 朝代:
+      <input type="text" />
+      <input
+        type="button"
+        value="点我添加"
+        style="
+          background-color: aqua;
+          color: red;
+          border: 0;
+          cursor: pointer;
+          padding: 5px 5px;
+          border-radius: 8px;
+        "
+      />
+      <input
+        type="button"
+        value="点我复制"
+        style="
+          background-color: aqua;
+          color: red;
+          border: 0;
+          cursor: pointer;
+          padding: 5px 5px;
+          border-radius: 8px;
+        "
+      />
+    </div>
+    <table border="1" cellspacing="0" align="center" width="500">
+      <tr>
+        <th>书名</th>
+        <th>作者</th>
+        <th>朝代</th>
+        <th>操作</th>
+      </tr>
+      <tr>
+        <td>《三国志》</td>
+        <td>陈寿</td>
+        <td>晋</td>
+        <td>
+          <a href="javascript:;" class="del">删除</a>
+        </td>
+      </tr>
+    </table>
+
+    <script type="text/javascript">
+      // 获取书名
+      var book = document.querySelectorAll("input")[0];
+      // 获取作者
+      var author = document.querySelectorAll("input")[1];
+      // 获取朝代
+      var year = document.querySelectorAll("input")[2];
+      // 添加
+      var add = document.querySelectorAll("input")[3];
+      // 复制
+      var copy = document.querySelectorAll("input")[4];
+      // 获取 tbody
+      var tbody = document.querySelector("tbody");
+      // 删除
+      var del = document.getElementsByClassName("del");
+
+      // 添加
+      add.onclick = function () {
+        // 判断 书名 作者 朝代是否不为空
+        if (book.value == "" || author.value == "" || year.value == "") {
+          alert("内容不能为空！请重新输入");
+        } else {
+          // 新建元素节点 tr
+          var newTr = document.createElement("tr");
+          // 将 newTr 插入相应的内容
+          newTr.innerHTML =
+            "<td> 《" +
+            book.value +
+            "》 </td>" +
+            "<td>" +
+            author.value +
+            "</td>" +
+            "<td>" +
+            year.value +
+            "</td>" +
+            '<td><a href="javascript:;" class="del">删除</a></td>';
+          // 将 newTr 插入到 tbody中
+          tbody.appendChild(newTr);
+          // 清空输入框
+          book.value = "";
+          author.value = "";
+          year.value = "";
+          // 去遍历添加之后的新数组 绑定删除点击事件
+          for (var i of del) {
+            i.onclick = function () {
+              this.parentNode.parentNode.remove();
+            };
+          }
+        }
+      };
+
+      // 复制
+      copy.onclick = function () {
+        // 判断 tbody 里面的子元素节点的长度 大于1时 去复制最后一个子元素节点
+        if (tbody.children.length > 1) {
+          // 复制最后一个元素节点
+          var copyTr = tbody.lastElementChild.cloneNode(true);
+          // 将复制的元素节点插入到 tbody
+          tbody.appendChild(copyTr);
+          // 去遍历复制的数组
+          for (var i of del) {
+            i.onclick = function () {
+              this.parentNode.parentNode.remove();
+            };
+          }
+        } else {
+          alert("内容为空");
+        }
+      };
+
+      // 去遍历添加之后的新数组 绑定删除点击事件
+      for (var i of del) {
+        i.onclick = function () {
+          this.parentNode.parentNode.remove();
+        };
+      }
+    </script>
+  </body>
+</html>

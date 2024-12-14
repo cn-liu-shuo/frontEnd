@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>鼠标事件</title>
+    <style type="text/css">
+      div {
+        width: 300px;
+        height: 300px;
+        background-color: cadetblue;
+        margin: 100px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+
+    <script type="text/javascript">
+      var box = document.querySelector("div");
+      box.onclick = function () {
+        console.log("点击事件");
+      };
+      box.ondblclick = function () {
+        console.log("双击事件");
+      };
+      box.onmousedown = function () {
+        console.log("鼠标按下");
+      };
+      box.onmouseup = function () {
+        console.log("鼠标抬起");
+      };
+      box.onmouseover = function () {
+        console.log("鼠标移入"); // 不建议使用 具有事件冒泡
+      };
+      box.onmouseout = function () {
+        console.log("鼠标移出"); // 不建议使用 具有事件冒泡
+      };
+      box.onmouseenter = function () {
+        console.log("鼠标进入");
+      };
+      box.onmouseleave = function () {
+        console.log("鼠标离开");
+      };
+      box.onmousemove = function (e) {
+        console.log("鼠标移动");
+        console.log(e.clientX);
+      };
+
+      box.oncontextmenu = function (e) {
+        // 阻止默认行为
+        e.preventDefault();
+        alert("小样的, 还想偷代码？");
+      };
+    </script>
+  </body>
+</html>

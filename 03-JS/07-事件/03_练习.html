@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>练习</title>
+  </head>
+  <body>
+    <ul>
+      <li>我是li 1</li>
+      <li>我是li 2</li>
+      <li>我是li 3</li>
+      <li>我是li 4</li>
+      <li>我是li 5</li>
+    </ul>
+
+    <script type="text/javascript">
+      // 要求 点击哪一个 哪一个删除
+
+      // 获取 li
+      var lis = document.querySelectorAll("ul li");
+      for (var i = 0; i < lis.length; i++) {
+        lis[i].onclick = function () {
+          this.remove();
+        };
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>表单事件</title>
+  </head>
+  <body>
+    <form>
+      <input type="" value="123456" />
+      <input type="reset" name="" />
+      <input type="submit" name="" />
+    </form>
+
+    <script type="text/javascript">
+      // 获取 input 节点
+      var ipt = document.querySelector("input");
+      // // 获取焦点的时候 将input框里的内容清空
+      // ipt.onfocus = function () {
+      // 	ipt.value = '';
+      // }
+      // // 失去焦点的时候 123456回来
+      // ipt.onblur = function () {
+      // 	// alert('复活吧~');
+      // 	ipt.value = 123456;
+      // }
+
+      // 选中文本的时候触发
+      ipt.onselect = function () {
+        console.log("被选中了");
+      };
+
+      // 输入或删除内容的时候触发
+      ipt.oninput = function () {
+        console.log("输入内容了");
+      };
+
+      // 内容改变时触发
+      ipt.onchange = function () {
+        console.log("内容改变了");
+      };
+
+      var form = document.querySelector("form");
+      // 点击重置按钮时触发
+      form.onreset = function () {
+        console.log("重置按钮被点击了");
+      };
+      // 点击提交按钮时触发
+      form.onsubmit = function () {
+        console.log("提交按钮被点击了");
+      };
+    </script>
+  </body>
+</html>

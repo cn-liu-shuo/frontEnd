@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>点击事件</title>
+  </head>
+  <body>
+    <p>点击变颜色</p>
+    <div onclick="eat()">今天吃啥子？</div>
+    <script type="text/javascript">
+      var p = document.querySelector("p");
+      var div = document.querySelector("div");
+      // 点击事件
+      p.onclick = function () {
+        p.style.color = "red";
+      };
+
+      // 吃啥子？
+      function eat() {
+        // console.log('罗非鱼');
+        div.innerText = "罗非鱼";
+      }
+
+      /*
+			事件的三要素?
+				事件源: 触发事件的元素
+
+				事件类型:
+					点击事件 鼠标事件 键盘事件 input 聚焦 失焦...
+
+				事件处理程序: 事件触发之后执行的逻辑代码
+		*/
+    </script>
+  </body>
+</html>

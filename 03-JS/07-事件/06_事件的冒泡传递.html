@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>事件的冒泡传递</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .box1 {
+        width: 500px;
+        height: 500px;
+        background-color: pink;
+      }
+      .box2 {
+        width: 300px;
+        height: 300px;
+        background-color: orange;
+      }
+      .box3 {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      <div class="box2">
+        <div class="box3"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      /*
+			事件冒泡:
+				当后代元素被触发 其组父元素同时会被触发 从里向外触发
+				三个div嵌套 都添加了点击事件 当点击最里面的div3时 外面两层的div点击事件也会被触发
+		*/
+      var div1 = document.querySelector(".box1");
+      var div2 = document.querySelector(".box2");
+      var div3 = document.querySelector(".box3");
+
+      div1.onclick = function () {
+        console.log("我是div1");
+      };
+      div2.onclick = function () {
+        console.log("我是div2");
+      };
+      div3.onclick = function () {
+        console.log("我是div3");
+      };
+    </script>
+  </body>
+</html>

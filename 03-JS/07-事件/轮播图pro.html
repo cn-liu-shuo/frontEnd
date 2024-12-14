@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>轮播图pro</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .clearfix:after {
+        display: block;
+        content: "";
+        clear: both;
+      }
+      .banner {
+        width: 1000px;
+        height: 460px;
+        border: 1px solid black;
+        padding: 5px;
+        margin: 10px auto;
+        position: relative;
+      }
+      .banner a img {
+        width: 1000px;
+        height: 460px;
+      }
+      .icon {
+        position: absolute;
+        width: 250px;
+        left: 50%;
+        margin-left: -125px;
+        bottom: 6px;
+      }
+      .icon span {
+        float: left;
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        color: black;
+        text-align: center;
+        line-height: 30px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .icon .active,
+      .icon span:hover {
+        background-color: orange;
+        color: white;
+      }
+      .left,
+      .right {
+        position: absolute;
+        width: 50px;
+        height: 80px;
+        text-align: center;
+        line-height: 80px;
+        font-size: 30px;
+        cursor: pointer;
+        background-color: white;
+        opacity: 0.5;
+        top: 50%;
+        margin-top: -40px;
+      }
+      .left:hover,
+      .right:hover {
+        opacity: 1;
+      }
+      .left {
+        left: 10px;
+      }
+      .right {
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <a href="javascript:;">
+        <img src="imgs/01.jpg" />
+      </a>
+      <div class="icon clearfix">
+        <span class="active" data-img="imgs/01.jpg">1</span>
+        <span data-img="imgs/02.webp">2</span>
+        <span data-img="imgs/03.jpg">3</span>
+        <span data-img="imgs/04.png">4</span>
+        <span data-img="imgs/05.webp">5</span>
+      </div>
+      <div class="left">&lt;</div>
+      <div class="right">&gt;</div>
+    </div>
+
+    <script type="text/javascript">
+      // 获取左按钮
+      var left = document.querySelector(".left");
+      // 获取右按钮
+      var right = document.querySelector(".right");
+      // 获取图片
+      var img = document.querySelector(".banner a img");
+      // 获取下方按钮
+      var spans = document.querySelectorAll(".icon span");
+
+      // 点击下方数字按钮 实现图片切换
+      // 先遍历所有的 span
+      for (var i = 0; i < spans.length; i++) {
+        // 给每一个 span 添加点击事件
+        spans[i].onclick = function () {
+          // 获取被点击的span按钮上的图片路径
+          var imgSrc = this.getAttribute("data-img");
+          // 将获取的图片路径赋值给图片路径
+          img.setAttribute("src", imgSrc);
+          // 清除所有的 active 类名
+          document.querySelector(".active").className = "";
+          // 当前点击的span添加 active 类名
+          this.className = "active";
+        };
+      }
+
+      // 点击左侧按钮 相当于点击高亮 span 的上一个兄弟节点
+      left.onclick = function () {
+        // 先获取当前高亮的span
+        var active = document.querySelector(".active");
+        // 做判断 如果能找到高亮span的上一个兄弟节点 就模拟点击一下上一个元素节点
+        if (active.previousElementSibling != null) {
+          active.previousElementSibling.onclick();
+        } else {
+          // 找不到上一个兄弟节点 就点击最后一个元素节点
+          spans[spans.length - 1].onclick();
+        }
+      };
+
+      // 点击右侧按钮 相当于点击高亮 span 的下一个兄弟节点
+      right.onclick = function () {
+        // 先获取当前高亮的span
+        var active = document.querySelector(".active");
+        // 做判断 如果能找到高亮span的下一个兄弟节点 就模拟点击一下下一个元素节点
+        if (active.nextElementSibling != null) {
+          active.nextElementSibling.onclick();
+        } else {
+          // 找不到下一个兄弟节点 就点击第一个元素节点
+          spans[0].onclick();
+        }
+      };
+    </script>
+  </body>
+</html>

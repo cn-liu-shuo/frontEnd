@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>事件绑定(浏览器兼容性)</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      p {
+        cursor: pointer;
+        background-color: orange;
+        color: purple;
+        width: 500px;
+        height: 500px;
+        margin: 100px auto;
+        text-align: center;
+        line-height: 500px;
+        font-size: 30px;
+        font-weight: bolder;
+      }
+    </style>
+  </head>
+  <body>
+    <p>小姬</p>
+    <script type="text/javascript">
+      var p = document.querySelector("p");
+      /*
+			event 事件对象 在事件函数中作为参数获得的
+
+			注意:
+				--1. 事件对象 e 只有在事件发生后才会存在
+				--2. e 是系统自动创建的 不需要主动传参
+				--3. e 中包含与事件有关的一系列数据
+		*/
+      p.onclick = function (e) {
+        // console.log('事件对象--', e);
+
+        // 获取事件对象处理 ie 兼容性
+        // var e = e || window.event;
+        // var targetObj = e.target || event.srcElement;
+
+        /*
+				1. clientX 和 clientY 点击的位置距离当前 body 可视区域的 x y 坐标
+				2. pageX 和 pageY 对于整个页面来说 包括所有的 body 内容部分
+				3. screenX 和 screenY 对于整个电脑屏幕的坐标
+				4. offsetX 和 offsetY 对于自身区域的位置
+			*/
+        console.log(e.clientX, e.clientY, "client");
+        console.log(e.pageX, e.pageY, "page");
+        console.log(e.screenX, e.screenY, "screen");
+        console.log(e.offsetX, e.offsetY, "offset");
+      };
+    </script>
+  </body>
+</html>

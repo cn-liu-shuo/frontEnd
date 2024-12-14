@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>offset</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .main {
+        width: 300px;
+        height: 300px;
+        background-color: #ccc;
+        border: 1px solid black;
+        /*margin: 30px;*/
+        padding: 10px 20px;
+        /*position: relative;*/
+      }
+      .item {
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+        margin: 20px 30px;
+        /*padding: 20px 20px;*/
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="item"></div>
+    </div>
+    <button>获取</button>
+
+    <script type="text/javascript">
+      var item = document.querySelector(".item");
+      var btn = document.querySelector("button");
+
+      btn.onclick = function () {
+        // offsetTop 偏移top位置 相当于定位里面的 top
+        // offsetLeft 偏移left位置 相当于定位里面的 left
+        console.log(item.offsetTop, item.offsetLeft);
+
+        /*
+				在没有定位的情况下 参照的是body
+					offsetTop: 父级的上内边距 + 自己的上外边距 + 父级的上外边距
+					offsetLeft: 父级的左内边距 + 自己的左外边距 + 父级的左外边距
+
+				假如父级有定位 参照的是父级
+					offsetTop: 父级的上内边距 + 自己的上外边距
+					offsetLeft: 父级的左内边距 + 自己的左外边距
+
+				假如自己有相对定位
+					offsetTop: 父级的上内边距 + 自己的上外边距 + 自己的top + 父级的上边框
+					offsetLeft: 父级的左内边距 + 自己的左外边距 + 自己的left + 父级的左边框
+
+				假如自己有绝对定位
+					offsetTop: 自己的上外边距 + 自己的top
+					offsetLeft: 自己的左外边距 + 自己的left
+					脱标的情况下 offsetTop 和 offsetLeft 与父级没有关系 只考虑自己
+			*/
+      };
+    </script>
+  </body>
+</html>

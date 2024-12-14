@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>简易轮播图</title>
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .banner {
+        width: 1000px;
+        height: 500px;
+        margin: 50px auto;
+        border: 1px solid black;
+        position: relative;
+        background-color: red;
+      }
+      .icon {
+        list-style: none;
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+      }
+      .icon li {
+        float: left;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: orange;
+        text-align: center;
+        line-height: 30px;
+        color: white;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <ul class="icon">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      var banner = document.querySelector(".banner");
+      var lis = document.querySelectorAll("li");
+
+      var arr = ["red", "green", "blue"];
+      for (var i in lis) {
+        // 存下标
+        lis[i].index = i;
+        lis[i].onclick = function () {
+          console.dir(this);
+          banner.style.backgroundColor = arr[this.index];
+        };
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>事件绑定</title>
+  </head>
+  <body>
+    <p>点我有惊喜</p>
+    <button>点击移除p标签绑定的事件</button>
+    <script type="text/javascript">
+      var p = document.querySelector("p");
+      // p.onclick = function () {
+      // 	console.log('惊喜惊喜惊喜');
+      // }
+      // p.onclick = function () {
+      // 	console.log('30遍30遍30遍');
+      // }
+
+      /*
+			事件绑定: 给同一个元素添加若干个形同的事件
+			语法: dom.addEventListener('要添加的事件类型', 函数名/匿名函数);
+		*/
+      function f1() {
+        console.log("惊喜惊喜惊喜");
+      }
+      function f2() {
+        console.log("30遍30遍30遍");
+      }
+      // 给 p 标签添加事件绑定
+      p.addEventListener("click", f1);
+      p.addEventListener("click", f2);
+      p.addEventListener("click", function () {
+        console.log("你是来**的吧");
+      });
+
+      // 移除事件 removeEventListener('要移除的事件类型', 事件函数)
+      var btn = document.querySelector("button");
+      btn.onclick = function () {
+        p.removeEventListener("click", f2);
+      };
+    </script>
+  </body>
+</html>

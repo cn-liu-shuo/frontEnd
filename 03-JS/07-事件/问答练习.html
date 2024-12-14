@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>问答练习</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .content {
+        width: 400px;
+        margin: 0 auto;
+      }
+      .header span {
+        float: right;
+      }
+      .content textarea {
+        width: 400px;
+        height: 200px;
+        resize: none;
+      }
+      ul {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="header">
+        <h1>提问</h1>
+        <span>0/50</span>
+      </div>
+      <textarea maxlength="50"></textarea>
+      <div style="text-align: right">
+        <span class="xm">姓名：<input type="text" /></span>
+        匿名<input type="checkbox" class="noname" />
+        <input type="button" value="添加" class="add" />
+      </div>
+      <h1>回答</h1>
+      <ul>
+        <li>张三：甚好</li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      // 先获取所需节点
+      var max = document.querySelector(".header span");
+      var xm = document.querySelector(".xm");
+      var words = document.querySelector("textarea");
+      var userName = document.querySelector(".xm input");
+      var noname = document.querySelector(".noname");
+      var add = document.querySelector(".add");
+      var ul = document.querySelector("ul");
+
+      // 文本域输入事件
+      words.oninput = function () {
+        // 定义一个变量 去接收文本域内容的长度
+        var length = this.value.length;
+        // 将接收的内容长度 赋值到 span 里
+        max.innerText = length + "/50";
+      };
+
+      // 添加按钮点击事件
+      add.onclick = function () {
+        // 判断文本域是否为空
+        if (words.value == "") {
+          alert("内容不能为空");
+        } else {
+          // 去判定 匿名有没有被勾选
+          if (noname.checked == true) {
+            // 匿名框被勾选
+            // 新建li元素
+            var li = document.createElement("li");
+            // 姓名为 匿名  内容为文本域输入的内容
+            li.innerText = "匿名：" + words.value;
+            // 将新建的 li 插入到 ul里面
+            ul.appendChild(li);
+            // 文本域内容清空
+            words.value = "";
+            // 清空姓名
+            userName.value = "";
+            noname.checked = false;
+            noname.onclick();
+          } else {
+            if (userName.value == "") {
+              alert("内容不能为空");
+            } else {
+              // 新建li元素
+              var li = document.createElement("li");
+              // 姓名为 userName  内容为文本域输入的内容
+              li.innerText = userName.value + "：" + words.value;
+              // 将新建的 li 插入到 ul里面
+              ul.appendChild(li);
+              // 文本域内容清空
+              words.value = "";
+              // 清空姓名输入框
+              userName.value = "";
+            }
+          }
+          max.innerText = "0/50";
+        }
+      };
+
+      // 判断是否为匿名
+      noname.onclick = function () {
+        if (noname.checked == true) {
+          // 隐藏姓名
+          xm.style.display = "none";
+        } else {
+          xm.style.display = "inline";
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>表单元素输入框</title>
+  </head>
+  <body>
+    <input type="text" />
+    <input type="button" value="添加" />
+    <ul>
+      <li>苹果</li>
+    </ul>
+
+    <script type="text/javascript">
+      // 获取相关元素
+      var ipt = document.querySelectorAll("input");
+      var ul = document.querySelector("ul");
+
+      // 给 button 绑定点击事件
+      ipt[1].onclick = function () {
+        // 判断输入框是否为空
+        if (ipt[0].value == "") {
+          alert("内容不能为空!");
+        } else {
+          // 输入框不为空 创建新的节点 li
+          var newLi = document.createElement("li");
+          // newLi 新节点插入内容
+          newLi.innerText = ipt[0].value;
+          // 将 newLi 插入到ul的最前面
+          ul.insertBefore(newLi, ul.children[0]);
+          // 清空输入框
+          ipt[0].value = "";
+        }
+      };
+    </script>
+  </body>
+</html>
