@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="(item, index) in mons" :key="index">
+          {{ item.name }} -- {{ item.age }} -- {{ item.sex }} -- {{item.like}}--
+          <button @click="del(index)">删除</button>
+        </li>
+      </ul>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          mons: [
+            {
+              name: "孙悟空",
+              age: 500,
+              sex: "男",
+              like: "偷桃",
+            },
+            {
+              name: "猪八戒",
+              age: 500,
+              sex: "男",
+              like: "高翠兰",
+            },
+            {
+              name: "大闸蟹",
+              age: 500,
+              sex: "男",
+              like: "偷桃",
+            },
+          ],
+        },
+        methods: {
+          del(index) {
+            this.mons.splice(index, 1);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

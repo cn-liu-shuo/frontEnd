@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- v-if 相当于js里的if  条件成立才会渲染到页面  先判断后渲染 -->
+      {{ name }}
+      <p v-if="age < 200">石头</p>
+      <p v-else-if="age < 400 && age > 200">拜师学艺</p>
+      <p v-else>大闹天宫</p>
+
+      <!-- v-show  相当于display:none   先加载后显示-->
+      <div v-show="age < 200">找妈妈</div>
+      <div v-show="age > 200">弼马温</div>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          name: "孙悟空",
+          age: 250,
+        },
+      });
+    </script>
+  </body>
+</html>

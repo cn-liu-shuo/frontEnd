@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 
+      v-for="(数组的每一项, 数组的下标) in 数组"
+
+      :key="index" 作用：
+          key表示的是唯一，在项目里，不加key会报警告， key的作用是更高效的更新虚拟dom，目的是让vue区分它们，加上key有利于代码优化，减少资源消耗
+
+    -->
+      <ul>
+        <li v-for="(item, index) in mons" :key="index">
+          {{ item.name }} -- {{ item.age }} -- {{ item.sex }} -- {{item.like}}
+        </li>
+      </ul>
+      <!-- 用表格把数据显示出来 -->
+      <table border="1" width="500">
+        <tr>
+          <td>序号</td>
+          <td>姓名</td>
+          <td>年龄</td>
+          <td>性别</td>
+          <td>爱好</td>
+        </tr>
+        <tr v-for="(item, index) in mons" :key="index">
+          <td>{{index + 1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.age}}</td>
+          <td>{{item.sex}}</td>
+          <td>{{item.like}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          mons: [
+            {
+              name: "孙悟空",
+              age: 500,
+              sex: "男",
+              like: "偷桃",
+            },
+            {
+              name: "猪八戒",
+              age: 500,
+              sex: "男",
+              like: "高翠兰",
+            },
+            {
+              name: "大闸蟹",
+              age: 500,
+              sex: "男",
+              like: "偷桃",
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
