@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>val&html&text</title>
+  </head>
+  <body>
+    <input type="text" value="李云奇" />
+    <div>
+      <p>小黄车7号链接王兰杰上车！</p>
+    </div>
+
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      // val() 相当于 js 中的 value 获取表单内容
+      console.log($("input").val());
+
+      console.log($("div").text());
+      console.log($("div").html());
+
+      $("div").html("<span>哈哈哈哈</span>");
+    </script>
+  </body>
+</html>

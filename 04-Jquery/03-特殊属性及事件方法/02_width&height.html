@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>width&height</title>
+    <style type="text/css">
+      div {
+        width: 100px;
+        height: 100px;
+        padding: 10px 30px;
+        background-color: aqua;
+        border: 10px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      // 通过 css 获取盒子的宽高 返回值是带单位的字符串
+      console.log($("div").css("width"));
+
+      // 通过 .width() 去获取盒子的宽 返回的是数字类型 不带单位
+      console.log($("div").width());
+
+      // 设置宽高
+      // $('div').css('width', '200px');
+      $("div").width(200);
+
+      // 获取盒子的实际宽高
+      // innerWidth innerHeight 获取盒子的实际宽高 不包含边框
+      console.log($("div").innerWidth(), $("div").innerHeight()); // 260 120
+
+      // outerWidth outerHeight 获取盒子的实际宽高 包含边框和边距
+      console.log($("div").outerWidth(), $("div").outerHeight()); // 280 140
+    </script>
+  </body>
+</html>

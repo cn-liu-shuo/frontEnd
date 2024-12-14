@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>事件绑定</title>
+  </head>
+  <body>
+    <div>
+      <p>我是p标签</p>
+    </div>
+    <button id="changeColor">点击给 p 标签变颜色</button>
+    <button id="jiebang">解绑事件</button>
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      /*
+			事件绑定
+				dom.on(参数1, 参数2, 参数3, 参数4)
+				参数1: 事件类型
+				参数2: 当前元素的后代 如果出现了这个参数那么这个事件就是给这个参数添加的
+									如果没有出现这个参数 事件就是给获取的 dom 元素添加的
+				参数3: 规定传递到函数中的额外数据 e.data
+				参数4: 回调函数
+		*/
+      var obj = {
+        name: "张三",
+      };
+
+      $("div").on("click", "p", obj, function (e) {
+        console.log(this);
+        console.log(e.data);
+
+        // $('#changeColor').click()
+        // 触发 changeColor 点击事件 trigger()
+        $("#changeColor").trigger("click");
+      });
+
+      $("#changeColor").on("click", function () {
+        $("p").css("color", "red");
+      });
+
+      // 点击解绑 清除 changeColor 事件
+      $("#jiebang").click(function () {
+        $("#changeColor").off();
+      });
+    </script>
+  </body>
+</html>

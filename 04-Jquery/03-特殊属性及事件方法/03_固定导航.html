@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>固定导航</title>
+    <style type="text/css">
+      body {
+        height: 6000px;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="../js/jquery.js"></script>
+    <script type="text/javascript">
+      // 当页面滚动的时候触发 window代表当前窗口
+      $(window).scroll(function () {
+        // console.log('哎哟, 页面动了')
+        // scrollTop() 获取匹配元素的滚动条的垂直位置 (页面顶部到可视区域顶部的距离)
+        // console.log($(window).scrollTop());
+        // scrollLeft() 获取匹配元素的滚动条的水平位置 (页面左边到可视区域左边的距离)
+        // console.log($(window).scrollLeft());
+      });
+    </script>
+  </body>
+</html>
