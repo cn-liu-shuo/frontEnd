@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>固定定位</title>
+    <style type="text/css">
+      body {
+        height: 6000px;
+      }
+      div {
+        width: 100px;
+        background-color: aqua;
+        text-align: center;
+        /* 
+				固定定位
+					参考点 是整个浏览器 body
+			*/
+        position: fixed;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <p>你已到达顶部</p>
+    <div>
+      <a href="">返回顶部</a>
+    </div>
+  </body>
+</html>

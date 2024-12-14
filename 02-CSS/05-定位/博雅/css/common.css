@@ -1,0 +1,133 @@
+/* 公共样式 */
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+ul {
+  list-style: none;
+}
+/* 清除浮动 */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* 版心 */
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+/* 头部 */
+.header {
+  background-color: #191d3a;
+  height: 58px;
+}
+.header .logo {
+  float: left;
+  width: 225px;
+}
+.header .logo a {
+  float: left;
+  height: 58px;
+  line-height: 58px;
+}
+.header .logo a img {
+  vertical-align: middle;
+}
+.nav {
+  float: left;
+}
+.nav a {
+  color: #818496;
+  float: left;
+  width: 85px;
+  height: 58px;
+  line-height: 58px;
+  text-align: center;
+  font-size: 14px;
+  border-left: 1px solid #252947;
+  border-right: 1px solid #252947;
+  margin-left: -1px;
+}
+.nav .active {
+  background-color: #252947;
+  color: white;
+}
+.nav a:hover {
+  color: white;
+}
+.nav .join {
+  width: 98px;
+  height: 32px;
+  background-color: #38b774;
+  line-height: 32px;
+  margin: 12px 0 0 10px;
+  color: #fff;
+  border-radius: 3px;
+}
+.nav .join:hover {
+  background-color: #2ba364;
+}
+.text {
+  float: right;
+  line-height: 58px;
+}
+.text a {
+  color: #444866;
+  font-size: 14px;
+}
+.text a:first-child {
+  color: #38b774;
+  margin-right: 10px;
+}
+.text a:hover {
+  color: #38b774;
+}
+
+/* 底部 */
+.footer {
+  background-color: #191d3a;
+  color: #6c6e7e;
+  padding: 20px 0;
+  font-size: 12px;
+}
+.footer p {
+  line-height: 22px;
+}
+.footer a {
+  color: #6c6e7e;
+  padding-right: 5px;
+}
+.footer a:hover {
+  color: #fff;
+}
+.footer .container div {
+  height: 50px;
+  line-height: 50px;
+}
+.footer .container div img {
+  width: 36px;
+  height: 100%;
+  vertical-align: middle;
+}
+
+/* 返回顶部 */
+.fixed {
+  position: fixed;
+  right: 15px;
+  bottom: 75px;
+}
+.fixed a {
+  display: block;
+  width: 68px;
+  height: 29px;
+  background: url(../images/index/top.png) no-repeat 0 -40px;
+}
+.fixed a:hover {
+  background-position: 0 0;
+}

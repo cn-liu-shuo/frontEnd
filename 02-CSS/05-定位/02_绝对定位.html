@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>绝对定位</title>
+    <style type="text/css">
+      .box1 {
+        width: 500px;
+        height: 500px;
+        background-color: aqua;
+        margin: 100px auto;
+        position: relative;
+      }
+      .box2 {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+        /* 绝对定位 */
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        /*
+				绝对定位 脱标 不保留原来的位置
+
+				参考点: 距离自己最近的带有定位元素的祖父辈 如果都没有定位元素则参考body;
+			*/
+      }
+      .box3 {
+        width: 50px;
+        height: 50px;
+        background-color: pink;
+        position: absolute;
+        left: 50px;
+        top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      <div class="box2">
+        <div class="box3"></div>
+        <p>111</p>
+      </div>
+    </div>
+  </body>
+</html>

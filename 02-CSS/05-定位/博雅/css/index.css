@@ -1,0 +1,263 @@
+/* banner */
+.banner {
+  height: 460px;
+  background-image: url(../images/index/banner.jpg);
+  background-position: center;
+  position: relative;
+}
+/* 中心内容部分 */
+.banner .banner_con {
+  width: 460px;
+  height: 302px;
+  padding: 158px 0 0 540px;
+  margin: 0 auto;
+  position: relative;
+}
+.banner .banner_con .online {
+  width: 115px;
+  position: absolute;
+  right: 0;
+  top: 82px;
+  cursor: pointer;
+}
+.online span {
+  display: block;
+  height: 37px;
+  line-height: 37px;
+  background-image: url(../images/index/online.png);
+  padding-left: 17px;
+  font-size: 14px;
+}
+.online:hover span {
+  background-position: -120px 0;
+}
+.online:hover div {
+  display: block;
+}
+.online div {
+  background-color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 2px 0 8px 13px;
+  display: none;
+}
+.online div a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+  background-image: url(../images/index/online.png);
+  background-position: 0 -47px;
+}
+.online div a:nth-child(2) {
+  background-position: -50px -47px;
+}
+.online div a:last-child {
+  background-position: -100px -47px;
+}
+
+.banner_con p {
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.banner_con .down {
+  margin-top: 20px;
+}
+.banner_con .down > span {
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 30px;
+  background: url(../images/index/download.png) no-repeat 5px 10px;
+}
+.banner_con .down div {
+  margin-top: 8px;
+}
+.banner_con .down div a {
+  float: left;
+  width: 83px;
+  height: 35px;
+  text-align: center;
+  padding-top: 71px;
+  background-color: rgba(255, 255, 255, 0.7);
+  background-image: url(../images/index/pad.png);
+  background-repeat: no-repeat;
+  background-position: 30px -180px;
+  margin-right: 1px;
+  font-size: 14px;
+  color: #444866;
+}
+.down div .ipad {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.banner_con .down div .iphone {
+  background-position: 30px 18px;
+}
+.banner_con .down div .android {
+  background-position: 21px -82px;
+}
+.banner_con .down div span {
+  float: left;
+  width: 111px;
+  height: 93px;
+  padding-top: 13px;
+  background-color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.banner_con .down div span img {
+  width: 80px;
+}
+.banner_con .down div a:hover {
+  background-color: #fff;
+}
+.dot {
+  position: absolute;
+  width: 135px;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -20px;
+}
+.dot a {
+  float: left;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.5;
+  margin-right: 15px;
+}
+.dot a:last-child {
+  opacity: 1;
+}
+
+.activityList {
+  margin-top: 50px;
+}
+.activityList > ul li {
+  float: left;
+  width: 218px;
+  height: 200px;
+  margin-right: 42.6px;
+  text-align: center;
+}
+.activityList > ul li:last-child {
+  margin-right: 0;
+}
+.activityList > ul li img {
+  width: 100%;
+}
+.activityList > ul li h5 {
+  color: #444866;
+  line-height: 25px;
+}
+.activityList > ul li span {
+  font-size: 12px;
+  color: #38b774;
+  display: inline-block;
+  padding-right: 10px;
+  background-image: url(../images/index/arrow.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  margin-top: 15px;
+}
+.activityList > ul li:hover {
+  background-color: #38b774;
+  opacity: 0.9;
+  cursor: pointer;
+}
+.activityList > ul li:hover h5,
+.activityList > ul li:hover span {
+  color: white;
+}
+.activityList > ul li:hover span {
+  background-image: url(../images/index/arrow_hover.png);
+}
+
+.activityList .tips {
+  border-top: 1px solid #dbe1e7;
+  margin-top: 30px;
+}
+.activityList .tips ul {
+  width: 75px;
+  height: 11px;
+  background-color: #fff;
+  margin: -6px auto 0;
+  padding-left: 14px;
+}
+.activityList .tips ul li {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: #b5c0cb;
+  float: left;
+  margin-right: 14px;
+  cursor: pointer;
+}
+.activityList .tips ul li:first-child {
+  background-color: #2fbc71;
+}
+
+.newsjob {
+  margin-top: 35px;
+  background: url(../images/index/bg.jpg) no-repeat center bottom;
+}
+.newsjob .news {
+  width: 500px;
+  float: left;
+  height: 310px;
+  background: url(../images/index/news.jpg) 0 -10px;
+}
+.news .more {
+  height: 70px;
+  font-size: 12px;
+  padding: 40px 216px 0 0;
+}
+.news .more a {
+  float: right;
+  width: 64px;
+  height: 26px;
+  text-align: center;
+  border: 1px solid #30bd72;
+  border-radius: 5px;
+  color: #30bd72;
+}
+.news .more a:hover {
+  color: #fff;
+  background-color: #33b972;
+}
+.newsList {
+  padding: 0 20px;
+}
+.newsList ul li {
+  font-size: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #dbe1e7;
+  line-height: 29px;
+}
+.newsList ul li span {
+  color: #afbecf;
+  float: right;
+  font-size: 12px;
+}
+.newsList ul li a {
+  display: inline-block;
+  width: 408px;
+}
+.newsList ul li a:hover {
+  color: #30bd72;
+}
+
+.health {
+  background-color: #232221;
+  height: 55px;
+  line-height: 55px;
+  margin-top: 50px;
+  color: #848484;
+  font-size: 14px;
+}

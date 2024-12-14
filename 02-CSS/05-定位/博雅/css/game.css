@@ -1,0 +1,115 @@
+.banner {
+  height: 254px;
+  background: url(../images/game/gamebanner.jpg) center;
+}
+.top {
+  margin-top: 25px;
+  border-bottom: 1px solid #c7d6e5;
+  padding-bottom: 15px;
+  line-height: 29px;
+}
+.top h3 {
+  float: left;
+  font-size: 20px;
+  padding-left: 30px;
+  background: url(../images/game/location.png) no-repeat 0 -94px;
+}
+.top p {
+  float: right;
+  font-size: 12px;
+  width: 93px;
+  height: 20px;
+  margin-top: 2px;
+  position: relative;
+}
+.top p a {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url(../images/game/home.png) no-repeat 0 7px;
+}
+.top p span {
+  margin-left: 20px;
+  padding-left: 25px;
+  background: url(../images/game/icon.png) no-repeat 10px -146px;
+}
+.change {
+  margin-top: 40px;
+}
+.change_l {
+  float: left;
+  width: 195px;
+}
+.change_l ul li {
+  position: relative;
+}
+.change_l ul li:first-child {
+  background: url(../images/game/arrow.png) no-repeat right;
+}
+.change_l ul li i {
+  width: 34px;
+  height: 41px;
+  background: url(../images/game/pad.png) no-repeat;
+  position: absolute;
+  background-position: -4px -97px;
+  left: 0;
+  top: 22px;
+}
+.change_l ul li a {
+  display: block;
+  height: 80px;
+  line-height: 80px;
+  color: #444866;
+  padding-left: 52px;
+  border-bottom: 1px solid #cad6e1;
+}
+.change_l ul li:first-child i {
+  background-position: -122px 0;
+}
+.change_l ul li:first-child a {
+  color: #38b774;
+}
+.change_l ul li:last-child:hover a {
+  color: #38b774;
+}
+.change_l ul li:last-child:hover i {
+  background-position: -124px -97px;
+}
+.change_r {
+  float: right;
+  width: 757px;
+}
+.change_r ul li {
+  width: 355px;
+  height: 264px;
+  float: left;
+  margin-right: 43px;
+  border: 1px solid #cad6e1;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 42px;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+}
+.change_r ul li:hover {
+  background-color: white;
+}
+.change_r ul li > a:hover {
+  opacity: 0.9;
+}
+.change_r ul li:nth-child(2n) {
+  margin-right: 0;
+}
+.change_r ul li p {
+  height: 55px;
+  line-height: 55px;
+}
+.change_r ul li p span {
+  font-size: 12px;
+  color: #38b774;
+  padding-right: 14px;
+  background: url(../images/game/arrow.png) no-repeat right;
+}
+.change_r ul li p a:hover {
+  color: #38b774;
+}

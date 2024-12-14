@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>相对定位</title>
+    <style type="text/css">
+      .top {
+        width: 150px;
+        height: 150px;
+        background-color: aqua;
+        color: white;
+        line-height: 150px;
+        text-align: center;
+        /* 相对定位 */
+        position: relative;
+        left: 50px;
+        top: 100px;
+        /*
+				相对定位 不脱标 无论怎么移动元素还会占据原来的位置并且移动时还会覆盖其他元素
+				添加相对定位的元素和标准文档流里的元素没有任何区别 唯一的不同是多了四个方向属性
+
+				定位的四个方向属性: 
+					top
+					bottom
+					left
+					right
+
+				相对定位的参考点是: 参考自己本身运动之前的位置进行定位;
+			*/
+      }
+      .bottom {
+        width: 300px;
+        height: 300px;
+        background-color: pink;
+        color: white;
+        line-height: 300px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top">top</div>
+    <div class="bottom">bottom</div>
+  </body>
+</html>
