@@ -1,0 +1,8 @@
+<view class="main">
+	<view class="demo" wx:for="{{list}}" wx:key="index">
+		<view class="title">{{item.name}}</view>
+		<view class="desc">{{ item.content }}</view>
+		<view class="time">{{ item.createdAt }}</view>
+	</view>
+	<view class="more">下划加载更多...</view>
+</view>

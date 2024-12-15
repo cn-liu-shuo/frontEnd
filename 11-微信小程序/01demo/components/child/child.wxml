@@ -1,0 +1,4 @@
+<view>
+	我是旭旭，我爱吃猪头肉，{{title}}
+</view>
+<button bindtap="send">子传父</button>

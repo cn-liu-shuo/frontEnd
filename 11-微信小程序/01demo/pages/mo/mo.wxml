@@ -1,0 +1,11 @@
+<!-- 定义外联模板 -->
+<template name="huohua">
+	<view>
+		我是霍霍，我爱吃麻辣烫----{{list.name}}
+	</view>
+</template>
+
+<view>
+	我是非模板霍霍，我不爱吃麻辣烫----{{list.name}}
+
+</view>

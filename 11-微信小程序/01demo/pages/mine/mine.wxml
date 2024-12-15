@@ -1,0 +1,18 @@
+
+<view class="box page-section">
+	<view class="weui-cells__title">用户名</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" model:value="{{userName}}" auto-focus placeholder="将会获取焦点"/>
+      </view>
+    </view>
+</view>
+<view class="box page-section">
+	<view class="weui-cells__title">密码</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" password  model:value="{{passWord}}"  auto-focus placeholder="将会获取焦点"/>
+      </view>
+    </view>
+</view>
+<button type="primary" plain="true" bind:tap="goLogin">登录</button>

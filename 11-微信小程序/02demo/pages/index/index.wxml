@@ -1,0 +1,8 @@
+<button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+  <image class="avatar" src="{{avatarUrl}}"></image>
+</button> 
+<input type="nickname" class="weui-input" placeholder="请输入昵称"/>
+<!-- 需要公司appid -->
+<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+
+<button open-type="getUserInfo" bindgetuserinfo="loginByWX" type="primary">微信快速登录</button>

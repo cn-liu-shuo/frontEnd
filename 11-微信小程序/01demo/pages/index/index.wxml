@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<view>
+	<view class="banner">
+		<swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+		<!-- 默认每项叫 item 下标叫index -->
+        <block wx:for="{{list}}" wx:for-item="zs" wx:key="index">
+          <swiper-item>
+            <image src="{{zs.url}}" mode="widthFix"/>
+          </swiper-item>
+        </block>
+      </swiper>
+	</view>
+	<!-- 判断加载：
+		 wx:if=""
+		 wx:elif=""
+		 wx:else
+	 -->
+	 <!-- <view wx:if="{{type == 1}}">傻了</view>
+	 <view wx:elif="{{type == 2}}">大聪明</view>
+	 <view wx:else>大傻冒</view> -->
+
+	 <!-- hidden true隐藏 false显示  改变的是display的值 -->
+	 <!-- <view hidden="{{true}}">元旦放一天</view> -->
+	<!-- 
+		点击事件： bindtap="事件名"
+		传参： 首先绑定属性 data-自定义名字 = "传递的值"
+	 -->
+	<view class="list">
+		<view class="prod" wx:for="{{prodList}}" wx:key="index" bindtap="handleClick" data-id="{{index}}">
+			<image src="{{item.pic}}" mode="widthFix"/>
+			<view class="item-right">
+				<view class="title">{{item.title}}</view>
+				<view class="desc">{{item.desc}}</view>
+				<view>
+					<image src="/assets/btn_detail.png" mode="heightFix"/>
+					<image src="/assets/btn_ask.png" mode="heightFix"/>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="father" style="width: 200rpx;height: 200rpx;background-color: aqua;" bind:tap="father">
+	<!-- catch:tap阻止冒泡 -->
+		<view class="son" style="width: 100rpx;height: 100rpx;background-color: aquamarine;" catch:tap="son"></view>
+	</view>
+</view>

@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/mine/mine",
+    "pages/detail/detail",
+    "pages/list/list",
+    "pages/moban/moban",
+    "pages/mo/mo",
+    "components/child/child",
+    "pages/kuozhan/kuozhan",
+    "pages/extend/extend"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#000000",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#F91F1F",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/index.png",
+        "selectedIconPath": "assets/index2.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "assets/index.png",
+        "selectedIconPath": "assets/index2.png"
+      },
+      {
+        "pagePath": "pages/moban/moban",
+        "text": "模板",
+        "iconPath": "assets/index.png",
+        "selectedIconPath": "assets/index2.png"
+      },
+      {
+        "pagePath": "pages/kuozhan/kuozhan",
+        "text": "weui",
+        "iconPath": "assets/index.png",
+        "selectedIconPath": "assets/index2.png"
+      },
+      {
+        "pagePath": "pages/extend/extend",
+        "text": "扩展组件",
+        "iconPath": "assets/index.png",
+        "selectedIconPath": "assets/index2.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

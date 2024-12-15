@@ -1,0 +1,31 @@
+<!-- 一、内联使用模板 -->
+<!-- 1.定义模板 -->
+<template name="mo">
+	<view style="text-align: center;">
+		买份保险 ---- {{list.name}}
+	</view>
+</template>
+
+<!-- 2.使用模板 -->
+<template is="mo" data="{{list}}"></template>
+<template is="mo"></template>
+
+<!-- 二、外联模板 -->
+<!-- 1.导入外联 -->
+<import src="../mo/mo"/>
+<!-- 2.使用外联 -->
+<template is="huohua" data="{{list}}"></template>
+
+<!-- 显示非模板元素 -->
+<include src="../mo/mo" data="{{list}}"></include>
+
+
+
+<!-- 使用子组件 -->
+<!-- 
+
+	父传子： 子组件标签绑定一个自定义属性title
+ -->
+<child title="{{eat}}" bind:myson="change"></child>
+
+子传父 ===》 {{eat2}}

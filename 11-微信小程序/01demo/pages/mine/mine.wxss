@@ -1,0 +1,27 @@
+/* pages/mine/mine.wxss */
+/* page{
+	background: aqua;
+} */
+.weui-cells__title{
+	font-size: 30rpx;
+	color: #333;
+	margin-right: 20rpx;
+}
+input {
+	border-bottom: 1px solid #ccc;
+	/* border-top: 1px solid #ccc; */
+	height: 60rpx;
+	
+}
+button{
+	width: 50%;
+	margin-top: 100rpx;
+}
+.weui-cells{
+	flex: 1;
+}
+.box{
+	padding: 20rpx;
+	display: flex;
+	align-items: center;
+}

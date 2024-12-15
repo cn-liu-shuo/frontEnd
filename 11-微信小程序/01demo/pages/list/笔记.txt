@@ -1,0 +1,65 @@
+作者 张小龙
+小程序和app很像 但是小程序是轻量级开发，不要下载安装包不占手机内存
+小程序 公众号 订阅号 app 移动端 不是一个东西
+
+小程序主张 小而精 功能比较单一
+
+目录结构：
+    app.js 小程序的入口文件
+    app.json 小程序全局配置文件
+    app.wxss 小程序全局样式
+
+    pages：小程序页面文件  里面有四个文件
+    js 当前页面的js 【页面逻辑】
+    json 当前页面的配置文件
+    wxml 当前页面的html
+    wxss 当前页面的css
+    utils 公共方法 封装的函数
+    assets 放静态的资源
+
+如何新建页面？
+    右键page,选择新建文件夹，输入名子 mine,右键mine,选择新建page，输入名字即可自动生成四个文件
+
+标签变化：
+    块状元素 ===》 view
+    文本容器 ===》 text
+    图片 ==》 image
+
+语法：
+    1.wx:for="{{数组}}"  wx:key="index"
+    相当于v-for, 默认每一项是item,下标是index
+
+    如果想改名字和下标
+         wx:for-item="名字"
+         wx:for-index="名字"
+
+    2.判断加载：
+		 wx:if=""
+		 wx:elif=""
+		 wx:else
+
+    3.hidden true隐藏 false显示  改变的是display的值
+
+    4.点击事件： bindtap="事件名"
+		传参： 首先绑定属性 data-自定义名字 = "传递的值"
+        接收参数 e.currentTarget.dataset
+
+    5.怎么去修改data里的参数
+	this.setData({要赋值的data里的变量: 修改的值})
+    this.data.变量 只能查询不能修改，虽然修改了js数据，但是小程序没办法做到同步渲染
+
+    6.跳转到非tabbar:wx.navigateTo()    传参在onload里option接收
+    跳转到tabbar:wx.switchTab()
+    返回上一页：wx.navigateBack()
+
+    7.Weui使用
+    1.初始化包 npm i init -y
+    2.下载weui npm i weui -miniprogram
+    3.构建npm 导航栏工具---构建npm
+    4.在wx.wxss里引入 weui的css
+        @import './miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+    5.使用 在示例中找到组件， 将对应组件的json.html, js(data， 方法) 复制到自己的项目中即可
+
+    8.weui扩展组件的使用
+    1.把官方示例代码里的 packageExented 和 common文件夹放到自己项目的根目录
+    2. 将组件的json ,html,js 复制到自己项目文件中 注意引入文件的路径要修改一下

@@ -1,0 +1,6 @@
+<!--pages/address/address.wxml-->
+<button bind:tap="address">新增地址</button>
+
+<button type="primary" bind:tap="addShop">添加商品到购物车</button>
+
+<button bind:tap="pay">去支付</button>
