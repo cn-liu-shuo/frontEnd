@@ -1,0 +1,16 @@
+.box {
+    background: skyblue;
+
+    p {
+        font-size: 30px;
+
+        span {
+            color: bisque;
+            // &表示父级 span   span:hover
+            &:hover {
+                color: red;
+            }
+        }
+
+    }
+}
