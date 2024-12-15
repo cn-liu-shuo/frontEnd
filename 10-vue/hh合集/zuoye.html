@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table tr td span {
+            border: 1px solid;
+            display: inline-block;
+            width: 30px;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <td>序号</td>
+                <td>单选</td>
+                <td>商品名</td>
+                <td>价格</td>
+                <td>数量</td>
+                <td>该商品总价格</td>
+                <td>操作</td>
+            </tr>
+            <tr v-for="(item, index) in shops" :key="index">
+                <td>{{ item.id }}</td>
+                <td><input type="checkbox" v-model="item.ischeckbox"></td>
+                <td>{{ item.name }}</td>
+                <!-- 单价 -->
+                <td>{{ item.price }}</td>
+                <td>
+                    <button @click="sub(item.id)">-</button>
+                    <span>{{ item.number }}</span> <!-- 数量 -->
+                    <button @click="add(item.id)">+</button>
+                </td>
+                <td align="center">{{ item.number * item.price }}</td> <!-- 单个商品总价格 -->
+                <td><button @click="del(item.id)">删除</button></td>
+            </tr>
+        </table>
+        <input type="checkbox" v-model="isAll">全选
+        <button>计算</button>
+        <span>一共需要支付1198元</span>
+        <button>选中计算</button>
+        <span>只需要支付0元</span>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                shops: [
+                    { id: 1, name: "html", price: 55, number: 1, ischeckbox: false },
+                    { id: 2, name: "css", price: 66, number: 1, ischeckbox: false },
+                    { id: 3, name: "JavaScript", price: 77, number: 1, ischeckbox: false },
+                    { id: 4, name: "vue", price: 1000, number: 1, ischeckbox: false },
+                ],
+            },
+            // 计算属性 全选
+            computed: {
+                isAll: {
+                    get() {
+                        // 必须的都满足才true
+                        return this.shops.every(item => item.ischeckbox)
+                    },
+                    set(val){
+                        this.shops.forEach(item => item.ischeckbox = val);
+                    }
+                }
+            },
+            methods: {
+                // 删除
+                del(id) {
+                    this.shops = this.shops.filter(item => item.id != id)
+                },
+                // 数量加1
+                add(id) {
+                    // 根据id找到对应项
+                    let num = this.shops.find(item => item.id == id)
+                    // 操作num数量
+                    num.number += 1
+                    // console.log(num)
+                },
+                // 数量减1
+                sub(id) {
+                    let num = this.shops.find(item => item.id == id)
+                    // 操作num数量
+                    if (num.number > 0) {
+                        num.number -= 1
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
