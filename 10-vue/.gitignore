@@ -1,0 +1,7 @@
+*.zip
+*.mp4
+*.avi
+*.rar
+*.7z
+luke/
+node_modules/
