@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/list/list"
+  ],
+  "subPackages": [],
+  "window": {
+    "defaultTitle": "我的",
+    "pullRefresh": true,
+    "titleBarColor": "#000000",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "textColor": "#ccc",
+    "selectedColor": "red",
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "name": "首页",
+        "icon": "static/homepage.png",
+        "activeIcon": "static/homepage-sel.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "name": "我的",
+        "icon": "static/user.png",
+        "activeIcon": "static/user-sel.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "plugin-wrapper": "/plugin-wrapper"
+  }
+}
