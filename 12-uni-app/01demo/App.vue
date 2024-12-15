@@ -16,7 +16,4 @@
 	/*每个页面公共css */
 	@import 'colorui/icon.css';
 	@import 'colorui/main.css'
-	html {
-		text-align: center;
-	}
 </style>
