@@ -9,6 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@dcloudio/uni-ui": "^1.5.7",
     "uview-ui": "^1.8.8"
   },
   "devDependencies": {
