@@ -75,6 +75,45 @@
 					<uni-icons type="right" size="15" color="#999999"></uni-icons>
 				</view>
 			</view>
+			<view class="content">
+				<uni-grid :column="2" :show-border="false">
+					<uni-grid-item v-for="(item, index) in newGoodsList" :key="item.id">
+						<view class="grid-item-box" style="background-color: #fff;">
+							<image style="width: 360rpx;" :src="item.picUrl" mode="widthFix"></image>
+							<text class="text">{{item.name}}</text>
+							<text class="price">￥ 2598</text>
+						</view>
+					</uni-grid-item>
+				</uni-grid>
+			</view>
+		</view>
+		<!-- 人气推荐 -->
+		<view class="hot">
+			<view class="group">
+				<view class="left">人气推荐</view>
+				<view class="right">更多人气推荐
+					<uni-icons type="right" size="15" color="#999999"></uni-icons>
+				</view>
+			</view>
+			<view class="content" v-for="(item,index) in hotGoodsList" :key="item.id">
+				<view class="left">
+					<image :src="item.picUrl" mode=""></image>
+				</view>
+				<view class="right">
+					<view class="top">
+						<view class="name">
+							{{item.name}}
+						</view>
+						<view class="brief">
+							{{item.brief}}
+						</view>
+					</view>
+					<view class="bottom">
+						￥<text class="retailPrice">{{item.retailPrice}}</text>.00
+						<text class="counterPrice">￥{{item.counterPrice}}</text>
+					</view>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -90,7 +129,8 @@
 				channel: [],
 				couponList: [],
 				brandList: [],
-				newGoodsList: []
+				newGoodsList: [],
+				hotGoodsList: []
 			}
 		},
 		methods: {
@@ -103,6 +143,7 @@
 						this.couponList = res.data.couponList
 						this.brandList = res.data.brandList
 						this.newGoodsList = res.data.newGoodsList
+						this.hotGoodsList = res.data.hotGoodsList
 					}
 				})
 			}
@@ -333,6 +374,128 @@
 			}
 
 			/* #endif */
+		}
+	}
+
+	.new {
+		.content {
+			.price {
+				font-size: 28rpx;
+				color: #ab956d;
+			}
+
+			.uni-grid-item {
+				height: 500rpx !important;
+			}
+
+			.image {
+				width: 50rpx;
+				height: 50rpx;
+			}
+
+			.text {
+				font-size: 28rpx;
+				margin-top: 10rpx;
+			}
+
+			.example-body {
+				/* #ifndef APP-NVUE */
+				// display: block;
+				/* #endif */
+			}
+
+			.grid-dynamic-box {
+				margin-bottom: 30rpx;
+			}
+
+			.grid-item-box {
+				flex: 1;
+				// position: relative;
+				/* #ifndef APP-NVUE */
+				display: flex;
+				/* #endif */
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				// padding: 30rpx 0;
+			}
+
+			.grid-item-box-row {
+				flex: 1;
+				// position: relative;
+				/* #ifndef APP-NVUE */
+				display: flex;
+				/* #endif */
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				// padding: 30rpx 0;
+			}
+
+			.grid-dot {
+				position: absolute;
+				top: 10rpx;
+				right: 30rpx;
+			}
+
+			.swiper {
+				height: 840rpx;
+			}
+
+			/* #ifdef H5 */
+			@media screen and (min-width: 1536rpx) and (max-width: 2850rpx) {
+				.swiper {
+					height: 1260rpx;
+				}
+			}
+
+			@media screen and (min-width: 2850rpx) {
+				.swiper {
+					height: 1660rpx;
+				}
+			}
+
+			/* #endif */
+		}
+	}
+
+	.hot {
+		.content {
+			background-color: #ffffff;
+			padding: 40rpx;
+			display: flex;
+
+			.left {
+				width: 30%;
+				margin-right: 20rpx;
+
+				image {
+					width: 100%;
+					height: 100%;
+				}
+			}
+
+			.right {
+				.top {
+					.brief {
+						font-size: 28rpx;
+						color: #646566;
+					}
+				}
+
+				.bottom {
+					margin-top: 40rpx;
+					font-size: 24rpx;
+
+					.retailPrice {
+						font-size: 32rpx;
+					}
+					.counterPrice {
+						color: #969799;
+						text-decoration: line-through;
+					}
+				}
+			}
 		}
 	}
 </style>
