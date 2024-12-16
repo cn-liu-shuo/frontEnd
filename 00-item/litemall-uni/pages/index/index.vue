@@ -22,6 +22,25 @@
 				</uni-grid-item>
 			</uni-grid>
 		</view>
+		<!-- 优惠券 -->
+		<view class="coupon">
+			<view class="tit">
+				<text>优惠券</text>
+			</view>
+			<view class="content">
+				<view class="card" v-for="(item,index) in couponList" :key="item.id">
+					<view class="top">
+						<view class="price">￥
+							<text>{{item.discount}}元</text>
+						</view>
+						<view class="info">{{item.name}}</view>
+					</view>
+					<view class="bottom">
+						{{item.desc}} - {{item.tag}}有效期：{{item.days}}天
+					</view>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -33,7 +52,8 @@
 		data() {
 			return {
 				banner: [],
-				channel: []
+				channel: [],
+				coupon: []
 			}
 		},
 		methods: {
@@ -43,6 +63,7 @@
 						console.log('res', res);
 						this.banner = res.data.banner
 						this.channel = res.data.channel
+						this.couponList = res.data.couponList
 					}
 				})
 			}
@@ -57,6 +78,7 @@
 	.search {
 		background-color: #ffffff;
 	}
+
 	.swiper {
 		height: 460rpx !important;
 	}
@@ -64,6 +86,7 @@
 	.channel {
 		background-color: #ffffff;
 		margin-top: 10rpx;
+
 		.image {
 			width: 50rpx;
 			height: 50rpx;
@@ -128,6 +151,53 @@
 				height: 1660rpx;
 			}
 		}
+
 		/* #endif */
+	}
+
+	.coupon {
+		background-color: #ffffff;
+		margin-top: 40rpx;
+		padding: 20rpx 0;
+
+		.tit {
+			padding: 0 32rpx 20rpx;
+
+			text {
+				font-size: 28rpx;
+				color: #323233;
+			}
+		}
+
+		.card {
+			margin: 0 32rpx 10rpx;
+			border: 2rpx solid red;
+			border-radius: 20rpx;
+
+			.top {
+				padding: 48rpx 0 0 30rpx;
+				display: flex;
+
+				.price {
+					font-size: 24rpx;
+					color: red;
+					margin-right: 40rpx;
+
+					text {
+						font-size: 48rpx;
+					}
+				}
+				.info {
+					font-size: 32rpx;
+				}
+			}
+			
+			.bottom {
+				padding: 0 0 0 30rpx;
+				margin-bottom: 40rpx;
+				font-size: 24rpx;
+				color: #969799;
+			}
+		}
 	}
 </style>
