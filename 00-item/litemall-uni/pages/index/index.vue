@@ -41,6 +41,25 @@
 				</view>
 			</view>
 		</view>
+		<!-- 团购 -->
+		<view class="group">
+			<view class="left">团购专区</view>
+			<view class="right">更多团购商品
+				<uni-icons type="right" size="15" color="#999999"></uni-icons>
+			</view>
+		</view>
+		<!-- 品牌 -->
+		<view class="brand">
+			<view class="group">
+				<view class="left">品牌商直供</view>
+				<view class="right">更多品牌商
+					<uni-icons type="right" size="15" color="#999999"></uni-icons>
+				</view>
+			</view>
+			<view class="content">
+				
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -53,7 +72,7 @@
 			return {
 				banner: [],
 				channel: [],
-				coupon: []
+				couponList: []
 			}
 		},
 		methods: {
@@ -187,17 +206,34 @@
 						font-size: 48rpx;
 					}
 				}
+
 				.info {
 					font-size: 32rpx;
 				}
 			}
-			
+
 			.bottom {
 				padding: 0 0 0 30rpx;
 				margin-bottom: 40rpx;
 				font-size: 24rpx;
 				color: #969799;
 			}
+		}
+	}
+
+	.group {
+		background-color: #ffffff;
+		margin-top: 40rpx;
+		padding: 20rpx;
+		display: flex;
+		justify-content: space-between;
+		.left {
+			font-size: 28rpx;
+			color: #323233;
+		}
+		.right {
+			font-size: 24rpx;
+			color: #999999;
 		}
 	}
 </style>
