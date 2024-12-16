@@ -1,0 +1,1 @@
+const base_url = 'http://admin.bsmall.byesame.com/wx/';
