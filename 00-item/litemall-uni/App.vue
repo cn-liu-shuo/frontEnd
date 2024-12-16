@@ -20,13 +20,13 @@
 	@import '@/static/customicons.css';
 	// 设置整个项目的背景色
 	page {
-		background-color: #ffffff;
+		background-color: #f5f5f5;
 	}
 
 	/* #endif */
 	.example-info {
-		font-size: 14px;
+		font-size: 28rpx;
 		color: #333;
-		padding: 10px;
+		padding: 20rpx;
 	}
 </style>
