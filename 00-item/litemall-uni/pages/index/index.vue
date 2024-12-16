@@ -57,7 +57,23 @@
 				</view>
 			</view>
 			<view class="content">
-				
+				<uni-grid :column="2" border-color="#f4f5f7">
+					<uni-grid-item v-for="(item, index) in brandList" :key="item.id">
+						<view class="grid-item-box" style="background-color: #fff;">
+							<image style="width: 80%;" :src="item.picUrl" mode="widthFix"></image>
+							<text class="text">{{item.name}}</text>
+						</view>
+					</uni-grid-item>
+				</uni-grid>
+			</view>
+		</view>
+		<!-- 新品首发 -->
+		<view class="new">
+			<view class="group">
+				<view class="left">新品首发</view>
+				<view class="right">更多新品首发
+					<uni-icons type="right" size="15" color="#999999"></uni-icons>
+				</view>
 			</view>
 		</view>
 	</view>
@@ -72,7 +88,9 @@
 			return {
 				banner: [],
 				channel: [],
-				couponList: []
+				couponList: [],
+				brandList: [],
+				newGoodsList: []
 			}
 		},
 		methods: {
@@ -83,6 +101,8 @@
 						this.banner = res.data.banner
 						this.channel = res.data.channel
 						this.couponList = res.data.couponList
+						this.brandList = res.data.brandList
+						this.newGoodsList = res.data.newGoodsList
 					}
 				})
 			}
@@ -227,13 +247,92 @@
 		padding: 20rpx;
 		display: flex;
 		justify-content: space-between;
+
 		.left {
 			font-size: 28rpx;
 			color: #323233;
 		}
+
 		.right {
 			font-size: 24rpx;
 			color: #999999;
+		}
+	}
+
+	.brand {
+		.content {
+			.image {
+				width: 50rpx;
+				height: 50rpx;
+			}
+
+			.uni-grid-item {
+				height: 260rpx !important;
+			}
+
+			.text {
+				font-size: 28rpx;
+				margin-top: 10rpx;
+			}
+
+			.example-body {
+				/* #ifndef APP-NVUE */
+				// display: block;
+				/* #endif */
+			}
+
+			.grid-dynamic-box {
+				margin-bottom: 30rpx;
+			}
+
+			.grid-item-box {
+				flex: 1;
+				// position: relative;
+				/* #ifndef APP-NVUE */
+				display: flex;
+				/* #endif */
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				// padding: 30rpx 0;
+			}
+
+			.grid-item-box-row {
+				flex: 1;
+				// position: relative;
+				/* #ifndef APP-NVUE */
+				display: flex;
+				/* #endif */
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				padding: 30rpx 0;
+			}
+
+			.grid-dot {
+				position: absolute;
+				top: 10rpx;
+				right: 30rpx;
+			}
+
+			.swiper {
+				height: 840rpx;
+			}
+
+			/* #ifdef H5 */
+			@media screen and (min-width: 1536rpx) and (max-width: 2850rpx) {
+				.swiper {
+					height: 1260rpx;
+				}
+			}
+
+			@media screen and (min-width: 2850rpx) {
+				.swiper {
+					height: 1660rpx;
+				}
+			}
+
+			/* #endif */
 		}
 	}
 </style>
