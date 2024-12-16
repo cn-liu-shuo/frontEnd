@@ -11,6 +11,9 @@
 		},
 		{
 			"path" : "pages/cart/cart"
+		},
+		{
+			"path" : "pages/ucenter/ucenter"
 		}
 	],
 	"globalStyle": {
