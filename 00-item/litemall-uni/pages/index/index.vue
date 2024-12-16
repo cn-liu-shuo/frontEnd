@@ -115,6 +115,28 @@
 				</view>
 			</view>
 		</view>
+		<!-- 专题精选 -->
+		<view class="topic">
+			<view class="group">
+				<view class="left">专题精选</view>
+				<view class="right">更多专题精选
+					<uni-icons type="right" size="15" color="#999999"></uni-icons>
+				</view>
+			</view>
+			<view class="content">
+				<uni-grid :column="2" border-color="#f4f5f7">
+					<uni-grid-item v-for="(item, index) in topicList"  :key="item.id">
+						<view class="grid-item-box" style="background-color: #fff;">
+							<image style="width: 60%;" :src="item.picUrl" mode="widthFix"></image>
+							<text class="title">{{item.title}}</text>
+							<view class="subtitle">
+								{{item.subtitle}}
+							</view>
+						</view>
+					</uni-grid-item>
+				</uni-grid>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -130,7 +152,8 @@
 				couponList: [],
 				brandList: [],
 				newGoodsList: [],
-				hotGoodsList: []
+				hotGoodsList: [],
+				topicList: []
 			}
 		},
 		methods: {
@@ -144,6 +167,7 @@
 						this.brandList = res.data.brandList
 						this.newGoodsList = res.data.newGoodsList
 						this.hotGoodsList = res.data.hotGoodsList
+						this.topicList = res.data.topicList
 					}
 				})
 			}
@@ -490,12 +514,100 @@
 					.retailPrice {
 						font-size: 32rpx;
 					}
+
 					.counterPrice {
 						color: #969799;
 						text-decoration: line-through;
 					}
 				}
 			}
+		}
+	}
+
+	.topic {
+		.content {
+			.uni-grid-item {
+				height: 480rpx !important;
+			}
+			.title {
+				font-size: 28rpx;
+				color: #ab956d;
+				padding: 0 10rpx;
+			}
+			.subtitle {
+				padding: 0 10rpx;
+				font-size: 20rpx;
+				color: #ab956d;
+				line-height: 1.1;
+			}
+			.image {
+				width: 50rpx;
+				height: 50rpx;
+			}
+
+			.text {
+				font-size: 28rpx;
+				margin-top: 10rpx;
+			}
+
+			.example-body {
+				/* #ifndef APP-NVUE */
+				// display: block;
+				/* #endif */
+			}
+
+			.grid-dynamic-box {
+				margin-bottom: 30rpx;
+			}
+
+			.grid-item-box {
+				flex: 1;
+				// position: relative;
+				/* #ifndef APP-NVUE */
+				display: flex;
+				/* #endif */
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				padding: 30rpx 0;
+			}
+
+			.grid-item-box-row {
+				flex: 1;
+				// position: relative;
+				/* #ifndef APP-NVUE */
+				display: flex;
+				/* #endif */
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				padding: 30rpx 0;
+			}
+
+			.grid-dot {
+				position: absolute;
+				top: 10rpx;
+				right: 30rpx;
+			}
+
+			.swiper {
+				height: 840rpx;
+			}
+
+			/* #ifdef H5 */
+			@media screen and (min-width: 1536rpx) and (max-width: 2850rpx) {
+				.swiper {
+					height: 1260rpx;
+				}
+			}
+
+			@media screen and (min-width: 2850rpx) {
+				.swiper {
+					height: 1660rpx;
+				}
+			}
+
+			/* #endif */
 		}
 	}
 </style>
