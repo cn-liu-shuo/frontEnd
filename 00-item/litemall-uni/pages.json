@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "pages/user/user"
+		},
+		{
+			"path" : "pages/login/login"
 		}
 	],
 	"globalStyle": {
