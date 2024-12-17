@@ -3,12 +3,17 @@
 		<image class="logo" src="/static/logo.png"></image>
 		<view class="text-area">
 			<text class="title">{{title}}</text>
+			<van-button type="danger">危险按钮</van-button>
 		</view>
 	</view>
 </template>
 
 <script>
+	import { Button } from 'vant';
 	export default {
+		components: {
+			[Button.name]: Button
+		},
 		data() {
 			return {
 				title: 'Hello'
@@ -23,7 +28,7 @@
 	}
 </script>
 
-<style>
+<style scoped lang="scss">
 	.content {
 		display: flex;
 		flex-direction: column;

@@ -1,0 +1,20 @@
+{
+  "name": "litemall-uni",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "node-sass": "^9.0.0",
+    "sass-loader": "^16.0.4",
+    "vant": "^2.13.2"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.13.8"
+  }
+}
