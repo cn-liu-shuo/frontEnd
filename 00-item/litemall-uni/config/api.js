@@ -48,3 +48,15 @@ export function AuthLogin(data) {
 		})
 	})
 }
+
+// 获取常见问题列表
+export function IssueList() {
+	return new Promise((resolve,reject) => {
+		uni.request({
+			url: BaseUrl + '/issue/list',
+			method: 'GET',
+			success: res => resolve(res.data),
+			fail: res => reject(res.data)
+		})
+	})
+}

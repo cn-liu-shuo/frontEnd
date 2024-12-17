@@ -40,7 +40,7 @@
 		</view>
 		<!-- 服务中心 -->
 		<view class="server">
-			<van-cell title="服务中心" is-link />
+			<van-cell @click="onServer" title="服务中心" is-link />
 		</view>
 	</view>
 </template>
@@ -71,7 +71,12 @@
 			console.log(this.userInfo);
 		},
 		methods: {
-
+			// 跳转到服务中心
+			onServer() {
+				uni.navigateTo({
+					url: '/pages/server/server'
+				})
+			}
 		}
 	}
 </script>
