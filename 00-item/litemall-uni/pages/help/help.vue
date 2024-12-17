@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="help">
 		<!-- 顶部导航 -->
 		<van-nav-bar left-text="返回" left-arrow @click-left="onClickLeft" />
 		<!-- 问题列表 -->
@@ -51,6 +51,10 @@
 	}
 </script>
 
-<style>
-
+<style scoped lang="scss">
+.help {
+	background-color: #f2f2f2;
+	width: 100%;
+	height: 100vh;
+}
 </style>
