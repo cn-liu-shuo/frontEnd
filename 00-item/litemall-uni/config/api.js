@@ -10,3 +10,25 @@ export function HomeIndex() {
 		})
 	})
 }
+
+export function CatalogIndex() {
+	return new Promise((resolve, reject) => {
+		uni.request({
+			url: BaseUrl + '/catalog/index',
+			method: 'GET',
+			success: res => resolve(res.data),
+			fail: res => reject(res.data)
+		})
+	})
+}
+
+export function CatalogCurrent(id) {
+	return new Promise((resolve,reject) => {
+		uni.request({
+			url: BaseUrl + `/catalog/current?id=${id}`,
+			method: 'GET',
+			success: res => resolve(res.data),
+			fail: res => reject(res.data)
+		})
+	})
+}
