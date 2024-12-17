@@ -38,7 +38,6 @@
 			init() {
 				IssueList().then(res => {
 					if (res.errmsg === '成功') {
-						console.log(res);
 						this.list = res.data.list
 					}
 				})
