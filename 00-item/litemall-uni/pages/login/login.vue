@@ -41,6 +41,9 @@
 	import {
 		AuthLogin
 	} from '../../config/api';
+	import {
+		userInfo
+	} from 'os';
 	export default {
 		components: {
 			[Cell.name]: Cell,
@@ -59,9 +62,10 @@
 		methods: {
 			onLogin() {
 				AuthLogin(this.queryInfo).then(res => {
-					if(res.errmsg === '成功') {
+					if (res.errmsg === '成功') {
 						console.log(res);
 						uni.setStorageSync('token', res.data.token)
+						uni.setStorageSync('userInfo', res.data.userInfo)
 						uni.switchTab({
 							url: '/pages/user/user'
 						})
