@@ -78,7 +78,7 @@
 					})
 				} else {
 					this.userInfo = uni.getStorageSync('userInfo')
-					// console.log(this.userInfo);
+					console.log(this.userInfo);
 				}
 			},
 			// 跳转到服务中心
