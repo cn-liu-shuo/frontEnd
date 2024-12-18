@@ -67,10 +67,20 @@
 			}
 		},
 		onLoad(options) {
-			this.userInfo = uni.getStorageSync('userInfo')
-			console.log(this.userInfo);
+			this.init()
 		},
 		methods: {
+			// 初始化
+			init() {
+				if(!uni.getStorageSync('token')) {
+					uni.navigateTo({
+						url: '/pages/login/login'
+					})
+				} else {
+					this.userInfo = uni.getStorageSync('userInfo')
+					// console.log(this.userInfo);
+				}
+			},
 			// 跳转到服务中心
 			onServer() {
 				uni.navigateTo({
